@@ -1,0 +1,29 @@
+---
+title: "Our team"
+
+sidebar: false
+repo-actions: false
+page-navigation: false
+
+listing:
+  template: about.ejs
+  contents:
+    - name: Prajeet Bajpai
+      instructor: true
+      role: "Teaching Postdoctoral Fellow, Master of Data Science"
+      image: prajeet.jpg
+    - name: Varada Kolhatkar
+      instructor: true
+      role: "Assistant Professor of Teaching, Computer Science, Master of Data Science"
+      image: varada.png
+    - name: Deborah Watt
+      organizer: true
+      role: "Director, Strategic Initiatives"
+
+---
+
+::: column-body
+::: {#listing}
+
+:::
+:::

@@ -1,0 +1,13 @@
+---
+title: "Exercise 3: Language Models"
+description: Hands on exercise on language models
+description-short: 
+duration: 45 min
+time: 15:00 - 15:45
+
+editor: { render-on-save: true }
+---
+
+## Slides
+
+{{< revealjs "slides/slides-07-llms-exercise.html" height="600px" class="ratio ratio-16x9" >}}
