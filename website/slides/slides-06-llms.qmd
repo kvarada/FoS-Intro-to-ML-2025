@@ -1,0 +1,290 @@
+---
+title: "Large Language Models"
+format: 
+    revealjs:
+      smaller: true
+      center: true
+---
+
+## Learning outcomes 
+\
+
+By the end of this module, you will be able to:
+
+- Explain language models and large language models
+- Describe the concept of self-attention
+- Distinguish between decoder-only, encoder-only, and encoder-decoder models
+- Apply pre-trained large language models for zero-shot learning
+
+```{python}
+import os
+import random
+import sys
+import IPython
+from IPython.display import HTML, display
+import pandas as pd
+```
+
+## Take a guess
+
+- What do you think is the vocabulary size of young adult speakers of American English? 
+
+
+## Language models activity 
+\
+
+Each of you will receive a sticky note with a word on it at some point. Here's what you'll do:
+
+- Carefully **remove the sticky note to see the word**. This word is for your eyes only —- don't show it to your neighbours!
+- Think quickly: what word would logically follow the word on the sticky note? **Write this next word on a new sticky note**.
+- You have about 20 seconds for this step, so trust your instincts!
+- **Pass your predicted word to the person next to you**. Do not pass the word you **received** from your neighbour forward. Keep the chain going!
+- Stop after the last person in your row/table has finished. 
+
+<br><br><br><br>
+
+## Markov model of language 
+\
+
+- You've just created a simple Markov model of language!
+- In predicting the next word from a minimal context, you likely used your linguistic intuition and familiarity with common two-word phrases or collocations.
+- You could create more coherent sentences by taking into account more context e.g., previous two words or four words or 100 words.
+
+## Language model 
+- **A language model** computes the probability distribution over sequences (of words or characters). Intuitively, this probability tells us how "good" or plausible a sequence of words is. 
+
+![](img/voice-assistant-ex.png)
+
+<!-- <img src="img/voice-assistant-ex.png" height="1400" width="1400"> -->
+
+Check out this [recent BMO ad](https://www.youtube.com/watch?v=VzqKtAYeJt4).
+
+
+## Smart compose 
+A common application for predicting the next word is the 'smart compose' feature in your emails, text messages, and search engines.
+
+```{python}
+url = "https://2.bp.blogspot.com/-KlBuhzV_oFw/WvxP_OAkJ1I/AAAAAAAACu0/T0F6lFZl-2QpS0O7VBMhf8wkUPvnRaPIACLcBGAs/s1600/image2.gif"
+
+IPython.display.IFrame(url, width=500, height=500)
+```
+
+## Why should we care about predicting next word? 
+\
+
+- **Many practical language-related tasks can be cast as word prediction.**
+
+
+## Sentiment analysis as word prediction 
+
+- We can cast sentiment analysis as language modeling by giving a language model a context like: 
+
+> The sentiment of the sentence "I like machine learning" is: 
+
+- And comparing the probability of word "postive" and the word negative. If the positive is more probable, we say the sentiment is positive, else negative. 
+
+## Question answering as word prediction 
+
+- We can cast question answering as language modeling by giving a language model a context like: 
+
+> Q: Who won the Nobel Prize in 2024 for their work in deep learning? A: 
+
+- We might expect to see that "Geoffrey" is very likely. If we continue and ask: 
+
+> Q: Who won the Nobel Prize in 2024 for their work in deep learning? A: Geoffrey
+
+- We might expect to see that "Hinton" is very likely.
+
+
+## Text summarization casted as word prediction
+
+- Input: Long text such as a full length article
+- Output: Effective shorter summary of it
+- We can follow the text of the artile by a token like: **tl;dr; (too long; didn't read)**
+- Since this token is sufficiently common in the recent years, a lanaguage model have seen many texts in which this token occurs before a summary. So it will interpret it as an instruction to generate a summary. 
+
+
+## A simple model of language 
+\
+
+- Calculate the co-occurrence frequencies and probabilities based on these frequencies
+- Predict the next word based on these probabilities
+- This is a Markov model of language. 
+
+![](img/Markov-bigram-probs.png)
+
+
+## Long-distance dependencies 
+\
+
+What are some reasonable predictions for the next word in the sequence? 
+
+> I am studying law at the University of British Columbia Point Grey campus in Vancouver because I want to work as a ___
+
+Markov model is unable to capture such long-distance dependencies in language. 
+
+## Transformer models
+\
+
+Enter attention and transformer models! Transformer models are at the core of all state-of-the-art Generative AI models (e.g., BERT, GPT3, GPT4, Gemini, DALL-E, Llama, Github Copilot)? 
+
+![](img/genai.png)
+
+[Source](https://jalammar.github.io/how-gpt3-works-visualizations-animations/)
+
+## Transformer models
+\
+
+![](img/GPT-4-tech-report-abstract.png)
+
+Source: [GPT-4 Technical Report](https://arxiv.org/pdf/2303.08774.pdf)
+
+
+## Self-attention 
+\
+
+- An important innovation which makes these models work so well is **self-attention**. 
+- Count how many times the players wearing the white pass the basketball?
+
+```{python}
+url = "https://www.youtube.com/embed/vJG698U2Mvo"
+IPython.display.IFrame(url, width=500, height=500)
+```
+
+## Self-attention 
+\
+
+When we process information, we often selectively focus on specific parts of the input, giving more attention to relevant information and less attention to irrelevant information. This is the core idea of **attention**.
+
+Consider the examples below: 
+
+- Example 1: She left a brief **note** on the kitchen table, reminding him to pick up groceries.
+  
+- Example 2: The diplomat’s speech struck a positive **note** in the peace negotiations.
+
+- Example 3: She plucked the guitar strings, ending with a melancholic **note**.
+
+The word **note** in these examples serves quite distinct meanings, each tied to different contexts. To capture varying word meanings across different contexts, we need a mechanism that considers the wider context to compute each word's contextual representation.
+
+- **Self-attention** is just that mechanism!
+
+
+## What is an LLM? 
+
+- A **large language model** learns knowledge about language and the world from vast amounts of text. 
+- It learns complexities of language simply by emersing in it without any text book to learn a language. 
+- At a high level, training LLMs works as follows:  
+    - we feed the model batches of text
+    - it tries to predict what comes next
+    - we check the answers and based on how well it does, the model changes its internal settings (parameters)
+    - it's learning and improving   
+
+## Using LLMs in your applications
+\
+
+- There are several Python libraries available which allow us to use pre-trained LLMs in our applications. 
+    - [🤗 Transformers library](https://huggingface.co/docs/transformers/index)
+    - [OpenAI GPT](https://pypi.org/project/openai/) 
+    - [Haystack](https://pypi.org/project/farm-haystack/)
+    - [LangChain](https://python.langchain.com/v0.2/docs/introduction/)
+    - [`spacy-transformers`](https://spacy.io/universe/project/spacy-transformers)
+    - ...    
+
+## Types of LLMs 
+
+If you want to use pre-trained LLMs, it's useful to know that there are three main types of LLMs. 
+
+| Feature   | Decoder-only (e.g., GPT-3)  | Encoder-only (e.g., BERT, RoBERTa) | Encoder decoder (e.g., T5, BARD)  |
+|-----------|-----------------------------|------------------------------------|-----------------------------------|
+| Output Computation is based on | Information earlier in the context | Entire context (bidirectional) | Encoded input context |
+| Text Generation     | Can naturally generate text completion | Cannot directly generate text| Can generate outputs naturally |
+| Example   | Our ML workshop audience is ___  | Our ML workshop audience is the best! → positive                                     | Input: Translate to Mandarin: Long but productive day! Output:  漫长而富有成效的一天！  |
+
+
+## Pipelines before LLMs
+\
+
+- Text preprocessing: Tokenization, stopword removal, stemming/lemmatization.
+- **Feature extraction**: Bag of Words or word embeddings.
+- Training: Supervised learning on a labeled dataset (e.g., with positive, negative, and neutral sentiment categories for sentiment analysis).
+- Evaluation: Performance typically measured using accuracy, F1-score, etc.
+- **Main challenges:**
+    - Extensive feature engineering required for good performance.
+    - Difficulty in capturing the nuances and context of sentiment, especially in complex sentences.
+
+## Pipelines after LLMs
+\ 
+
+```{python}
+#| echo: true
+from transformers import pipeline, AutoModelForTokenClassification, AutoTokenizer
+# Sentiment analysis pipeline
+analyzer = pipeline("sentiment-analysis", model='distilbert-base-uncased-finetuned-sst-2-english')
+analyzer(["I asked my model to predict my future, and it said '404: Life not found.'",
+          '''Machine learning is just like cooking—sometimes you follow the recipe, 
+            and other times you just hope for the best!.'''])
+```
+
+
+## Zero-shot learning 
+\
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+```{python}
+from datasets import load_dataset
+
+dataset = load_dataset("dair-ai/emotion")
+exs = dataset["test"]["text"][3:15]
+exs
+```
+:::
+
+## Zero-shot learning for emotion detection
+\
+
+```{python}
+#| echo: true
+from transformers import AutoTokenizer
+from transformers import pipeline 
+import torch
+
+#Load the pretrained model
+model_name = "facebook/bart-large-mnli"
+classifier = pipeline('zero-shot-classification', model=model_name)
+exs = dataset["test"]["text"][:10]
+candidate_labels = ["sadness", "joy", "love","anger", "fear", "surprise"]
+outputs = classifier(exs, candidate_labels)
+```
+
+## Zero-shot learning for emotion detection
+\
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+```{python}
+pd.DataFrame(outputs)
+```
+:::
+
+## Fun tools 
+- [NotebookLM](https://notebooklm.google/) 
+- [LIDA](https://microsoft.github.io/lida/)
+- [LangChain](https://www.langchain.com/)
+- [Graphologue](https://graphologue.app/)
+- ...
+
+## Harms of large language models 
+
+While these models are super powerful and useful, be mindful of the harms caused by these models. Some of the harms as summarized [here](https://stanford-cs324.github.io/winter2022/lectures/harms-1/) are: 
+
+- performance disparties
+- social biases and stereotypes
+- toxicity
+- misinformation
+- security and privacy risks
+- copyright and legal protections
+- environmental impact
+- centralization of power
+
+## Thank you! 
+
+- That's it for the modules! Now, let's work on exercises. 
