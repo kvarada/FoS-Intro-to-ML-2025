@@ -1,0 +1,155 @@
+
+---
+title: 'When to use machine learning solutions?'
+description: "when to use ML?"
+
+format:
+    revealjs:
+        html-math-method: plain
+        slide-number: true
+        slide-level: 2
+        theme:
+          - slides.scss
+        center: true
+        resources:
+          - data/
+          - img/
+
+
+editor:
+  render-on-save: true
+---
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+import sys
+sys.path.append(os.path.join(os.path.abspath("."), "code"))
+from plotting_functions import *
+from IPython.display import HTML, display
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+
+plt.rcParams["font.size"] = 16
+pd.set_option("display.max_colwidth", 200)
+%matplotlib inline
+
+DATA_DIR = 'data/' 
+```
+
+# What is Machine Learning (ML)?
+
+## Example: Image classification
+
+- Have you used search in Google Photos? You can search for "my photos of cat" and it will retrieve photos from your libraries containing cats.
+- This can be done using **image classification**, which is treated as a supervised learning problem. 
+
+## Image classification
+
+- Imagine writing a Python program to differenciate between cats and foxes.  
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](img/cat-or-fox.png) 
+:::
+
+::: {.column width="40%"}
+- How would you approach it? 
+::: 
+
+::::
+
+## Traditional programming vs. ML {.smaller}
+
+- Traditional programming 
+    - Ideal for problems where solutions can be derived through the direct application of established algorithms in a clear and predictable manner.
+    - Example: finding the shortest distance between two nodes (e.g., Dijkstra’s algorithm or the A* algorithm)
+- Machine learning
+    - Appropriate for scenarios where defining explicit rules or algorithms is challenging due to the complexity or scale of the data.
+    - Example: Distinguishing between images of cats and foxes by training a machine learning model to recognize patterns that differentiate the two.
+
+##  What is ML? 
+
+- ML uses data to build models that identify patterns, make predictions, or generate content.
+- It enables computers to learn from data.
+- No single model is suitable for all situations.
+
+## Supervised learning
+
+- We wish to find a model function $f$ that relates $X$ to $y$.
+- We use the model function to predict targets of new examples. 
+
+![](img/sup-learning.png){.nostretch fig-align="center" width="700px"}
+
+
+## Inference vs. Prediction {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Inference** is about understanding **why** something happens. 
+- Goal: **Understanding** and **quantifying** the relationship between variables 
+- Involves estimating the parameters of the underlying distribution and testing hypotheses about these parameters
+- Example: Assessing the impact of a new drug on recovery time.
+:::
+
+::: {.column width="40%"}
+- **Prediction** is about determining **what** will happen. 
+- Goal: **Accurately predicting the target** without necessarily understanding the relationship between variables. 
+- Example: Speech recognition where complex sound patterns are classified 
+:::
+::::
+
+# ML vs. rule-based systems vs. human experts 
+
+## Exercise 1.1: ML or not {.smaller}
+
+**Select all of the following statements which are suitable problems for machine learning.**
+
+- (A) Identifying objects within digital images, such as facial recognition in security systems or categorizing images based on content.
+- (B) Providing solutions for common technical issues in software or hardware, where a series of diagnostic steps can be predefined.
+- (C) Determining if individuals meet the necessary criteria for government or financial services based on strict guidelines.
+- (D) Identifying unusual patterns that may indicate fraudulent transactions in banking and finance.
+- (E) Automatically analyzing images from MRIs, CT scans, or X-rays to detect abnormalities like tumors or fractures.
+
+## Exercise 1.2: ML or not {.smaller}
+
+**Select all of the following statements which are suitable problems for human experts.**
+
+ - (A) Ensuring that company practices adhere to established regulations and standards, where rules are clearly set out by legal or regulatory bodies.
+ - (B) Predicting user preferences based on past behavior, crucial for services like Netflix or Amazon for suggesting movies or products.
+ - (C) Evaluating legal cases where the context and subtleties of human behavior and law interpretation are crucial.
+ - (D) Making decisions about end-of-life care or consent for surgery where ethical considerations are complex and deeply personal.
+ - (E) Addressing mental health issues where human empathy, understanding, and adaptability are key.
+
+## Summary: When is ML suitable?
+
+- ML excels when the problem involve identifying complex patterns or relationships in large datasets that are difficult for humans to discern manually.
+- Rule-based systems are suitable where clear and deterministic rules can be defined. Good for structured decision making. 
+- Human experts are good with problems which require deep contextual understanding, ethical judgment, creative input, or emotional intelligence.
+
+
+## iClicker 1.3 {.smaller}
+ 
+**Select all of the following statements which are examples of regression problems.**
+
+- (A) Predicting the price of a house based on features such as number of bedrooms and the year built.
+- (B) Predicting if a house will sell or not based on features like the price of the house, number of rooms, etc.
+- (C) Predicting percentage grade in DSCI 571 based on past grades.
+- (D) Predicting whether you should bicycle tomorrow or not based on the weather forecast.
+- (E) Predicting appropriate thermostat temperature based on the wind speed and the number of people in a room.
+
+
+## Activity 1 {.smaller}
+\
+Write one (or several) problems in your area of work where you think Machine Learning could be applied. Try to address the following questions:
+
+* What goal are you trying to accomplish? What would an ideal solution to your problem look like?
+* How would a human solve this problem? What approaches are presently available and utilized?
+* What kind of data is available to you, or might be collected? What features are present in the data?
+
+One of the learning objectives of the workshop will be to determine whether your goal is best addressed using supervised machine learning, inferential statistics, unsupervised learning, deep learning, generative AI, or a non-ML solution.
