@@ -1,16 +1,16 @@
 ---
-title: "Module 2: Introduction to ML fundamentals"
+title: "Module 1: ML Fundamentals"
 description: Introduction to Machine Learning Fundamentals 
 description-short: Introduction to Machine Learning Fundamentals
 duration: 50 min
-time: 9:45 - 10:45
+time: 9:40 - 10:30
 
 editor: { render-on-save: true }
 ---
 
 ## Slides
 
-{{< revealjs "slides/slides-02-ml-fundamentals.html" height="600px" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-02-ml-intro.html" height="600px" class="ratio ratio-16x9" >}}
 
 ## Outline
 

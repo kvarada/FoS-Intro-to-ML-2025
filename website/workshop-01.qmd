@@ -1,19 +1,19 @@
 ---
-title: "Welcome and getting started"
-description: Hello and welcome to the workshop!
-description-short: Hello and welcome to the workshop!
-duration: 10 min
-time: 9:30 - 9:40
+title: "Module 1: When to use machine learning solutions?"
+description: "When to use machine learning solutions?"
+description-short: "When to use machine learning solutions?"
+duration: 30 mins
+time: 9:15 - 9:45
 
 editor: { render-on-save: true }
 ---
 
 ## Slides
 
-{{< revealjs "slides/slides-01-intro.html" height="600px" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-01-intro-ML-problems.html" height="600px" class="ratio ratio-16x9" >}}
 
 ## Outline
 
-- Welcome to the workshop!
-- Introductions and meet your neighbors
-- About the learning objective of the workshop
+- Machine learning vs. rule-based vs manual 
+- Example problems that could be solved by ML
+

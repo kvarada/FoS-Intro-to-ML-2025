@@ -1,21 +1,18 @@
 ---
-title: "Module 4: Large Language Models"
-description: Introduction to Large Language Models 
-description-short: Introduction to Large Language Models 
-duration: 50 mins
-time: 14:00 - 14:50
+title: "Module 5: Using pre-trained models and embeddings"
+description: Using pre-trained models and embeddings
+description-short: Using pre-trained models and embeddings
+duration: 30 mins
+time: 15:00 - 15:30
 
 editor: { render-on-save: true }
 ---
 
 ## Slides
 
-{{< revealjs "slides/slides-06-llms.html" height="600px" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-06-embeddings.html" height="600px" class="ratio ratio-16x9" >}}
 
 
 ## Outline
 
-- Activity 
-- Markov model of language
-- Transformers, self-attention (high level)
-- Pipelines before and after LLMs
+- Using pretrained llms 

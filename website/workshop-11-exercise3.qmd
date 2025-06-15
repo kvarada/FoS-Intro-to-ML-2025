@@ -1,9 +1,9 @@
 ---
-title: "Exercise 3: Language Models"
+title: "Exercise 3: Framing your domain-specific problem"
 description: Hands on exercise on language models
 description-short: 
-duration: 45 min
-time: 15:00 - 15:45
+duration: 40 min
+time: 15:40 - 16:20
 
 editor: { render-on-save: true }
 ---

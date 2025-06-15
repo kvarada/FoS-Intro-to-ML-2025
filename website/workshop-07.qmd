@@ -1,9 +1,9 @@
 ---
-title: "Module 3: Deep Learning"
+title: "Module 4: Introduction to Deep Learning"
 description: "Introduction to Deep Learning and trasfer learning"
 description-short: "Introduction to Deep Learning and trasfer learning"
 duration: 60 mins
-time: 11:30 - 12:30
+time: 13:30 - 14:30
 
 editor: { render-on-save: true }
 ---

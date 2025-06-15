@@ -1,9 +1,9 @@
 ---
-title: "Module 2: ML Models"
+title: "Module 3: ML Models"
 description: Introduction to Different Types of Machine Learning Models 
 description-short: Introduction to Different Types of Machine Learning Models 
-duration: 25 min
-time: 10:30 - 10:55
+duration: 30 min
+time: 11:00 - 11:30
 
 editor: { render-on-save: true }
 ---

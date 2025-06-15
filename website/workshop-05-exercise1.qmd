@@ -2,8 +2,8 @@
 title: "Exercise 1: ML fundamentals" 
 description: Hands on exercise on ML fundamentals 
 description-short: 
-duration: 30 min
-time: 11:00 - 11:30
+duration: 60 mins
+time: 11:30 - 12:30
 
 editor: { render-on-save: true }
 ---

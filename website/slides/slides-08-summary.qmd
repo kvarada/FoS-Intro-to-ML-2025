@@ -1,6 +1,6 @@
 ---
 title: Summary and conclusion
-date: 2024-12-07
+date: 2025-06-24
 
 format:
     revealjs:
@@ -14,11 +14,11 @@ editor:
 ---
 
 ## What did we cover? 
-
+- When to use and not to use machine learning? 
 - Supervised machine learning fundamentals
 - Introduction to linear models 
 - Introduction to deep learning and transfer learning
-- Introduction to language models and large language models
+- Using pre-trained models and embeddings to solve your problems  
 
 ## A bit about our MDS program 
 
@@ -41,7 +41,7 @@ editor:
 
 ::: {.column width="50%"}
 - Submit a data science related [Capstone project](https://ubc-mds.github.io/capstone/about/) and work with our students 
-- If you are interested in applying to the program check out our web page: https://ubc-mds.github.io/ 
+
 :::
 
 ::: {.column width="50%"}
@@ -54,7 +54,7 @@ editor:
 
 - That's it! Thank you for attending our workshop.
 - We would greatly appreciate your feedback.
-  - Feedback form: [https://forms.gle/xnkDu7nHqHTcWyk8A](https://forms.gle/xnkDu7nHqHTcWyk8A)
+  - Feedback form: [https://forms.gle/jcY43TE2PTGTiuJK9](https://forms.gle/jcY43TE2PTGTiuJK9)
 - Your input will also help us advocate for organizing more workshops like this in the future.
 
 ![](img/eva-signing-off.png)

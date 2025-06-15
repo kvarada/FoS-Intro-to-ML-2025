@@ -2,8 +2,8 @@
 title: "Summary and wrap up"
 description: Summarizing the take aways from the workshop
 description-short: 
-duration: 15 min
-time: 15:45 - 16:00
+duration: 10 min
+time: 16:20 - 16:30
 
 editor: { render-on-save: true }
 ---
