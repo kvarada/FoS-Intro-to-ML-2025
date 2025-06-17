@@ -1,21 +1,16 @@
-
 ---
-title: 'When to use machine learning solutions?'
-description: "when to use ML?"
-
+title: "When to Use Machine Learning Solutions?"
+description: "Understanding when ML is appropriate and how it compares to other approaches."
 format:
-    revealjs:
-        html-math-method: plain
-        slide-number: true
-        slide-level: 2
-        theme:
-          - slides.scss
-        center: true
-        resources:
-          - data/
-          - img/
-
-
+  revealjs:
+    html-math-method: plain
+    slide-number: true
+    slide-level: 2
+    theme:
+      - slides.scss
+    resources:
+      - data/
+      - img/
 editor:
   render-on-save: true
 ---
@@ -46,110 +41,280 @@ DATA_DIR = 'data/'
 ## Example: Image classification
 
 - Have you used search in Google Photos? You can search for "my photos of cat" and it will retrieve photos from your libraries containing cats.
-- This can be done using **image classification**, which is treated as a supervised learning problem. 
+- This can be done using **image classification**, which is treated as a supervised learning problem.
 
 ## Image classification
 
-- Imagine writing a Python program to differenciate between cats and foxes.  
+- Imagine writing a Python program to differentiate between cats and foxes.
 
 :::: {.columns}
-
 ::: {.column width="60%"}
 ![](img/cat-or-fox.png) 
 :::
 
 ::: {.column width="40%"}
-- How would you approach it? 
-::: 
-
+- How would you approach it with traditional programming?
+- Would it scale?
+:::
 ::::
 
 ## Traditional programming vs. ML {.smaller}
 
-- Traditional programming 
-    - Ideal for problems where solutions can be derived through the direct application of established algorithms in a clear and predictable manner.
-    - Example: finding the shortest distance between two nodes (e.g., Dijkstra’s algorithm or the A* algorithm)
-- Machine learning
-    - Appropriate for scenarios where defining explicit rules or algorithms is challenging due to the complexity or scale of the data.
-    - Example: Distinguishing between images of cats and foxes by training a machine learning model to recognize patterns that differentiate the two.
+- **Traditional programming**: Best when rules are explicit and data is predictable
+  - Example: Finding the shortest path using Dijkstra’s algorithm
+- **Machine learning**: Useful when rules are hard to define or data is noisy/complex
+  - Example: Distinguishing between images of cats and foxes using patterns learned from data
 
-##  What is ML? 
+## What is ML? 
 
-- ML uses data to build models that identify patterns, make predictions, or generate content.
-- It enables computers to learn from data.
-- No single model is suitable for all situations.
+- ML uses data to build models that identify patterns, make predictions, or generate content
+- It enables computers to learn from examples
+- No single model fits all problems
 
-## Supervised learning
+# Simple examples of machine learning problems 
 
-- We wish to find a model function $f$ that relates $X$ to $y$.
-- We use the model function to predict targets of new examples. 
+# Supervised Classification 
+## Example 1: Predicting whether a patient has a liver disease or not {.smaller}
 
-![](img/sup-learning.png){.nostretch fig-align="center" width="700px"}
+- Suppose you have access to the data below: 
+```{python}
+df = pd.read_csv(DATA_DIR + "indian_liver_patient.csv")
+df = df.drop(columns=["Gender"])
+df["Dataset"] = df["Dataset"].replace(1, "Disease")
+df["Dataset"] = df["Dataset"].replace(2, "No Disease")
+df.rename(columns={"Dataset": "Target"}, inplace=True)
+train_df, test_df = train_test_split(df, test_size=4, random_state=42)
+from lightgbm.sklearn import LGBMClassifier
 
+X_train = train_df.drop(columns=["Target"])
+y_train = train_df["Target"]
+X_test = test_df.drop(columns=["Target"])
+y_test = test_df["Target"]
+model = LGBMClassifier(random_state=123, verbose=-1)
+model.fit(X_train, y_train)
+HTML(train_df.head().to_html(index=False))
+```
 
-## Inference vs. Prediction {.smaller}
+## New examples {.smaller}
 
-:::: {.columns}
-::: {.column width="60%"}
-- **Inference** is about understanding **why** something happens. 
-- Goal: **Understanding** and **quantifying** the relationship between variables 
-- Involves estimating the parameters of the underlying distribution and testing hypotheses about these parameters
-- Example: Assessing the impact of a new drug on recovery time.
+- Given features of new patients below we'll use this model to predict whether these patients have the liver disease or not.
+```{python}
+HTML(X_test.reset_index(drop=True).to_html(index=False))
+```
+
+## Predict on new examples {.smaller}
+
+```{python}
+pred_df = pd.DataFrame({"Predicted_target": model.predict(X_test).tolist()})
+
+df_concat = pd.concat([pred_df, X_test.reset_index(drop=True)], axis=1)
+HTML(df_concat.to_html(index=False))
+```
+
+## Example 2: Spam prediction {.smaller}
+
+- Suppose you are given some data with labeled spam and non-spam messages 
+
+::: panel-tabset
+### Code
+
+```{python}
+#| echo: true
+sms_df = pd.read_csv(DATA_DIR + "spam.csv", encoding="latin-1")
+sms_df = sms_df.drop(columns = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"])
+sms_df = sms_df.rename(columns={"v1": "target", "v2": "sms"})
+train_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)
+```
+
+### Output {.smaller}
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+HTML(train_df.head().to_html(index=False))
+```
+
 :::
 
-::: {.column width="40%"}
-- **Prediction** is about determining **what** will happen. 
-- Goal: **Accurately predicting the target** without necessarily understanding the relationship between variables. 
-- Example: Speech recognition where complex sound patterns are classified 
 :::
-::::
 
-# ML vs. rule-based systems vs. human experts 
 
-## Exercise 1.1: ML or not {.smaller}
+## Let's train a model 
 
-**Select all of the following statements which are suitable problems for machine learning.**
+```{python}
+#| echo: true
+X_train, y_train = train_df["sms"], train_df["target"]
+X_test, y_test = test_df["sms"], test_df["target"]
+clf = make_pipeline(CountVectorizer(max_features=5000), LogisticRegression(max_iter=5000))
+clf.fit(X_train, y_train); # Training the model
+```
 
-- (A) Identifying objects within digital images, such as facial recognition in security systems or categorizing images based on content.
-- (B) Providing solutions for common technical issues in software or hardware, where a series of diagnostic steps can be predefined.
-- (C) Determining if individuals meet the necessary criteria for government or financial services based on strict guidelines.
-- (D) Identifying unusual patterns that may indicate fraudulent transactions in banking and finance.
-- (E) Automatically analyzing images from MRIs, CT scans, or X-rays to detect abnormalities like tumors or fractures.
+## Unseen messages {.smaller}
 
-## Exercise 1.2: ML or not {.smaller}
+- Now use the trained model to predict targets of unseen messages:
 
-**Select all of the following statements which are suitable problems for human experts.**
+```{python}
+pd.DataFrame(X_test[0:4])
+```
 
- - (A) Ensuring that company practices adhere to established regulations and standards, where rules are clearly set out by legal or regulatory bodies.
- - (B) Predicting user preferences based on past behavior, crucial for services like Netflix or Amazon for suggesting movies or products.
- - (C) Evaluating legal cases where the context and subtleties of human behavior and law interpretation are crucial.
- - (D) Making decisions about end-of-life care or consent for surgery where ethical considerations are complex and deeply personal.
- - (E) Addressing mental health issues where human empathy, understanding, and adaptability are key.
+## Predicting on unseen data {.smaller}
+
+**The model is accurately predicting labels for the unseen text messages above!**
+
+```{python}
+pred_dict = {
+    "sms": X_test[0:4],
+    "spam_predictions": clf.predict(X_test[0:4]),
+}
+pred_df = pd.DataFrame(pred_dict)
+pred_df.style.set_properties(**{"text-align": "left"})
+```
+
+# Supervised Regression
+
+## Example 3: Predicting housing prices {.smaller}
+
+Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is **continuous** and not **discrete**. 
+
+```{python}
+df = pd.read_csv( DATA_DIR + "kc_house_data.csv")
+df = df.drop(columns = ["id", "date"])
+df.rename(columns={"price": "target"}, inplace=True)
+train_df, test_df = train_test_split(df, test_size=0.2, random_state=4)
+HTML(train_df.head().to_html(index=False))
+```
+
+## Building a regression model
+
+```{python}
+#| echo: true
+from lightgbm.sklearn import LGBMRegressor
+
+X_train, y_train = train_df.drop(columns= ["target"]), train_df["target"]
+X_test, y_test = test_df.drop(columns= ["target"]), train_df["target"]
+
+model = LGBMRegressor()
+model.fit(X_train, y_train);
+```
+
+## Predicting prices of unseen houses {.smaller}
+
+```{python}
+pred_df = pd.DataFrame(
+    # {"Predicted target": model.predict(X_test[0:4]).tolist(), "Actual price": y_test[0:4].tolist()}
+    {"Predicted_target": model.predict(X_test[0:4]).tolist()}
+)
+df_concat = pd.concat([pred_df, X_test[0:4].reset_index(drop=True)], axis=1)
+HTML(df_concat.to_html(index=False))
+```
+We are predicting continuous values here as apposed to discrete values in `spam` vs. `ham` example. 
+
+# Image Classification using Pre-trained Models 
+
+## Example 4: Predicting labels of a given image {.smaller}
+
+- We can also use machine learning to predict labels of given images using a technique called **transfer learning**. 
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+import img_classify
+from PIL import Image
+import glob
+import matplotlib.pyplot as plt
+# Predict topn labels and their associated probabilities for unseen images
+images = glob.glob(DATA_DIR + "test_images/*.*")
+class_labels_file = DATA_DIR + 'imagenet_classes.txt'
+for img_path in images:
+    img = Image.open(img_path).convert('RGB')
+    img.load()
+    plt.imshow(img)
+    plt.show();    
+    df = img_classify.classify_image(img_path, class_labels_file)
+    print(df.to_string(index=False))
+    print("--------------------------------------------------------------")
+```
+
+:::
+
+
+# Clustering/Semantic Search 
+
+## Example 5: Finding groups in data 
+
+## Example 6: How to find most similar items? 
+
+# Dealing with sequential data 
+## Example 7: Time series 
+
+# Survival Analysis
+## Example 8: What's the probability of a customer ending their Netflix service?  
+
+
+## ML vs. Rule-based Systems vs. Human Experts {.smaller}
+
+- ML: Complex patterns in large data
+- Rule-based systems: Structured decision logic
+- Human experts: Context, ethics, creativity
+
+# Interactive: Is ML appropriate?
+
+## Exercise 1.1: ML or not? {.smaller}
+
+**Select all that apply: Which problems are suitable for ML?**
+
+- (A) Identifying objects in digital images
+- (B) Providing solutions via a troubleshooting guide
+- (C) Evaluating eligibility for financial services via strict rules
+- (D) Detecting fraudulent banking transactions
+- (E) Analyzing medical images for diagnosis
+
+## Exercise 1.2: Human expert or not? {.smaller}
+
+**Select all that apply: Which problems are better handled by human experts?**
+
+- (A) Ensuring regulatory compliance
+- (B) Recommending products based on user history
+- (C) Evaluating legal cases involving context
+- (D) Making ethical end-of-life decisions
+- (E) Providing mental health support
 
 ## Summary: When is ML suitable?
 
-- ML excels when the problem involve identifying complex patterns or relationships in large datasets that are difficult for humans to discern manually.
-- Rule-based systems are suitable where clear and deterministic rules can be defined. Good for structured decision making. 
-- Human experts are good with problems which require deep contextual understanding, ethical judgment, creative input, or emotional intelligence.
+- ML: Best for complex patterns, large datasets, fuzzy boundaries
+- Rule-based: Clear, deterministic logic
+- Human expert: Ethics, creativity, empathy, ambiguity
 
 
-## iClicker 1.3 {.smaller}
- 
-**Select all of the following statements which are examples of regression problems.**
+## Activity 1: ML in Your Domain {.smaller}
 
-- (A) Predicting the price of a house based on features such as number of bedrooms and the year built.
-- (B) Predicting if a house will sell or not based on features like the price of the house, number of rooms, etc.
-- (C) Predicting percentage grade in DSCI 571 based on past grades.
-- (D) Predicting whether you should bicycle tomorrow or not based on the weather forecast.
-- (E) Predicting appropriate thermostat temperature based on the wind speed and the number of people in a room.
+Think of a problem from your own research that could be solved using ML. Address the following:
+
+- What are you trying to accomplish? What would success look like?
+- How do humans solve this now? Are there heuristics or rules?
+- What kind of data do you have or could you collect?
+- What are the features? What could the target be?
+
+We'll revisit this activity later to explore how you might frame your problem using supervised learning, unsupervised learning, generative AI, or non-ML approaches.
 
 
-## Activity 1 {.smaller}
-\
-Write one (or several) problems in your area of work where you think Machine Learning could be applied. Try to address the following questions:
 
-* What goal are you trying to accomplish? What would an ideal solution to your problem look like?
-* How would a human solve this problem? What approaches are presently available and utilized?
-* What kind of data is available to you, or might be collected? What features are present in the data?
+# Examples of ML Problem Types 
 
-One of the learning objectives of the workshop will be to determine whether your goal is best addressed using supervised machine learning, inferential statistics, unsupervised learning, deep learning, generative AI, or a non-ML solution.
+## Tabular data
+
+
+- **Tabular data**:
+  - Supervised classification (e.g., disease/no disease)
+  - Supervised regression (e.g., price prediction)
+  - Survival analysis (e.g., time-to-event modeling)
+- **Text data**:
+  - Sentiment analysis, document classification, indexing/search
+- **Image data**:
+  - Image classification, object detection
+- **Time series**:
+  - Forecasting, anomaly detection
+- **Unsupervised learning**:
+  - Clustering, dimensionality reduction
+- **Recommendation systems**:
+  - User-item matching, personalized content
