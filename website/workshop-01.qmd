@@ -16,4 +16,6 @@ editor: { render-on-save: true }
 
 - Machine learning vs. rule-based vs manual 
 - Example problems that could be solved by ML
+- Problem Framing Activity
+
 

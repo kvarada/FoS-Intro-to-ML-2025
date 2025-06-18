@@ -1,5 +1,5 @@
 ---
-title: "When to Use Machine Learning Solutions?"
+title: "Introduction to Machine Learning"
 description: "Understanding when ML is appropriate and how it compares to other approaches."
 format:
   revealjs:
@@ -23,6 +23,7 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.abspath("."), "code"))
 from plotting_functions import *
+from unsupervised_learning_code import *
 from IPython.display import HTML, display
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -58,7 +59,7 @@ DATA_DIR = 'data/'
 :::
 ::::
 
-## Traditional programming vs. ML {.smaller}
+## Traditional programming vs. ML
 
 - **Traditional programming**: Best when rules are explicit and data is predictable
   - Example: Finding the shortest path using Dijkstra’s algorithm
@@ -71,12 +72,11 @@ DATA_DIR = 'data/'
 - It enables computers to learn from examples
 - No single model fits all problems
 
-# Simple examples of machine learning problems 
+# When to use Machine Learning solutions? 
 
-# Supervised Classification 
-## Example 1: Predicting whether a patient has a liver disease or not {.smaller}
-
-- Suppose you have access to the data below: 
+# Tabular data 
+## Example: Supervised classification {.smaller}
+- Suppose you have access to the data below and you want to predict whether a patient has a liver disease or not: 
 ```{python}
 df = pd.read_csv(DATA_DIR + "indian_liver_patient.csv")
 df = df.drop(columns=["Gender"])
@@ -84,25 +84,28 @@ df["Dataset"] = df["Dataset"].replace(1, "Disease")
 df["Dataset"] = df["Dataset"].replace(2, "No Disease")
 df.rename(columns={"Dataset": "Target"}, inplace=True)
 train_df, test_df = train_test_split(df, test_size=4, random_state=42)
-from lightgbm.sklearn import LGBMClassifier
-
 X_train = train_df.drop(columns=["Target"])
 y_train = train_df["Target"]
 X_test = test_df.drop(columns=["Target"])
 y_test = test_df["Target"]
-model = LGBMClassifier(random_state=123, verbose=-1)
-model.fit(X_train, y_train)
 HTML(train_df.head().to_html(index=False))
 ```
 
-## New examples {.smaller}
+## Train a model 
+```{python}
+#| echo: true
+from lightgbm.sklearn import LGBMClassifier
+model = LGBMClassifier(random_state=123, verbose=-1)
+model.fit(X_train, y_train)
+```
+
+## Predict on new examples {.smaller}
 
 - Given features of new patients below we'll use this model to predict whether these patients have the liver disease or not.
 ```{python}
 HTML(X_test.reset_index(drop=True).to_html(index=False))
 ```
-
-## Predict on new examples {.smaller}
+- Let's examine predictions
 
 ```{python}
 pred_df = pd.DataFrame({"Predicted_target": model.predict(X_test).tolist()})
@@ -111,68 +114,7 @@ df_concat = pd.concat([pred_df, X_test.reset_index(drop=True)], axis=1)
 HTML(df_concat.to_html(index=False))
 ```
 
-## Example 2: Spam prediction {.smaller}
-
-- Suppose you are given some data with labeled spam and non-spam messages 
-
-::: panel-tabset
-### Code
-
-```{python}
-#| echo: true
-sms_df = pd.read_csv(DATA_DIR + "spam.csv", encoding="latin-1")
-sms_df = sms_df.drop(columns = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"])
-sms_df = sms_df.rename(columns={"v1": "target", "v2": "sms"})
-train_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)
-```
-
-### Output {.smaller}
-
-::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
-
-```{python}
-HTML(train_df.head().to_html(index=False))
-```
-
-:::
-
-:::
-
-
-## Let's train a model 
-
-```{python}
-#| echo: true
-X_train, y_train = train_df["sms"], train_df["target"]
-X_test, y_test = test_df["sms"], test_df["target"]
-clf = make_pipeline(CountVectorizer(max_features=5000), LogisticRegression(max_iter=5000))
-clf.fit(X_train, y_train); # Training the model
-```
-
-## Unseen messages {.smaller}
-
-- Now use the trained model to predict targets of unseen messages:
-
-```{python}
-pd.DataFrame(X_test[0:4])
-```
-
-## Predicting on unseen data {.smaller}
-
-**The model is accurately predicting labels for the unseen text messages above!**
-
-```{python}
-pred_dict = {
-    "sms": X_test[0:4],
-    "spam_predictions": clf.predict(X_test[0:4]),
-}
-pred_df = pd.DataFrame(pred_dict)
-pred_df.style.set_properties(**{"text-align": "left"})
-```
-
-# Supervised Regression
-
-## Example 3: Predicting housing prices {.smaller}
+## Example: Supervised regression {.smaller}
 
 Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is **continuous** and not **discrete**. 
 
@@ -207,13 +149,94 @@ pred_df = pd.DataFrame(
 df_concat = pd.concat([pred_df, X_test[0:4].reset_index(drop=True)], axis=1)
 HTML(df_concat.to_html(index=False))
 ```
-We are predicting continuous values here as apposed to discrete values in `spam` vs. `ham` example. 
+We are predicting continuous values here as apposed to discrete values in `disease` vs. `no disease` example. 
 
-# Image Classification using Pre-trained Models 
 
-## Example 4: Predicting labels of a given image {.smaller}
 
-- We can also use machine learning to predict labels of given images using a technique called **transfer learning**. 
+# Text data 
+
+## Example: Document classification {.smaller}
+
+- Suppose you are given some data with labeled spam and non-spam messages and you want to predict whether a new message is spam or not spam.  
+
+::: panel-tabset
+### Code
+
+```{python}
+#| echo: true
+sms_df = pd.read_csv(DATA_DIR + "spam.csv", encoding="latin-1")
+sms_df = sms_df.drop(columns = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"])
+sms_df = sms_df.rename(columns={"v1": "target", "v2": "sms"})
+train_df, test_df = train_test_split(sms_df, test_size=0.10, random_state=42)
+```
+
+### Output {.smaller}
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+HTML(train_df.head().to_html(index=False))
+```
+:::
+:::
+
+
+## Let's train a model 
+
+```{python}
+#| echo: true
+X_train, y_train = train_df["sms"], train_df["target"]
+X_test, y_test = test_df["sms"], test_df["target"]
+clf = make_pipeline(CountVectorizer(max_features=5000), LogisticRegression(max_iter=5000))
+clf.fit(X_train, y_train) # Training the model
+```
+
+## Unseen messages {.smaller}
+
+- Now use the trained model to predict targets of unseen messages:
+
+```{python}
+pd.DataFrame(X_test[0:4])
+```
+
+## Predicting on unseen data {.smaller}
+
+**The model is accurately predicting labels for the unseen text messages above!**
+
+```{python}
+pred_dict = {
+    "sms": X_test[0:4],
+    "spam_predictions": clf.predict(X_test[0:4]),
+}
+pred_df = pd.DataFrame(pred_dict)
+pred_df.style.set_properties(**{"text-align": "left"})
+```
+
+## Example: Customer Churn 
+- Imagine that you are working for a subscription-based telecom company.
+- They want to predict when a specific customer will churn so that they can come up with retention strategies for different customer segments.
+- We want to model "time to churn" to understand different factors affecting customer churn.
+- Is it possible to use machine learning to predict whether a specific customer will churn?
+
+
+## Customer Churn Dataset {.smaller}
+
+- Let's look at [Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), which is collected at a fixed time.
+
+```{python}
+df = pd.read_csv(DATA_DIR + "WA_Fn-UseC_-Telco-Customer-Churn.csv")
+train_df, test_df = train_test_split(df, random_state=123)
+train_df.head(4)
+```
+
+- What's different here compared to predicting disease vs. no disease? 
+- Here, we are actually interested in the time until the event of churn is likely to occur.
+
+# Image data
+
+## Example: Predicting labels of a given image {.smaller}
+- Suppose you have a bunch of animal images. You do not have any labels associated with them and you want to predict labels of these images. 
+- We can use machine learning to predict labels of these images using a technique called **transfer learning**. 
 
 ::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
 
@@ -237,10 +260,47 @@ for img_path in images:
 
 :::
 
+# Clustering images
+## Finding groups in food images 
+\
+```{python}
+data_dir = "data/food/train"
+file_names = [image_file for image_file in glob.glob(data_dir + "/*/*.jpg")]
+n_images = len(file_names)
+BATCH_SIZE = n_images  # because our dataset is quite small
+food_inputs, food_classes = read_img_dataset(data_dir, BATCH_SIZE)
+X_food = food_inputs.numpy()
+plot_sample_imgs(food_inputs[0:24,:,:,:])
+```
 
-# Clustering/Semantic Search 
+## K-Means on food dataset
+\
 
-## Example 5: Finding groups in data 
+```{python}
+#| echo: true
+densenet = models.densenet121(weights="DenseNet121_Weights.IMAGENET1K_V1")
+densenet.classifier = torch.nn.Identity()  # remove that last "classification" layer
+```
+
+```{python}
+#| echo: true
+Z_food = get_features(densenet, food_inputs)
+k = 5
+km = KMeans(n_clusters=k, n_init='auto', random_state=123)
+km.fit(Z_food)
+```
+
+## Examining food clusters
+\
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+```{python}
+#| echo: true
+for cluster in range(k):
+    get_cluster_images(km, Z_food, X_food, cluster, n_img=6)
+
+```
+:::
 
 ## Example 6: How to find most similar items? 
 
@@ -288,21 +348,18 @@ for img_path in images:
 
 ## Activity 1: ML in Your Domain {.smaller}
 
-Think of a problem from your own research that could be solved using ML. Address the following:
+Think of a problem from your own research that could be solved using ML and write it down. Address the following:
 
-- What are you trying to accomplish? What would success look like?
+- What are you trying to accomplish? What would be the input and output? 
+- What would success look like?
 - How do humans solve this now? Are there heuristics or rules?
 - What kind of data do you have or could you collect?
-- What are the features? What could the target be?
 
 We'll revisit this activity later to explore how you might frame your problem using supervised learning, unsupervised learning, generative AI, or non-ML approaches.
-
-
 
 # Examples of ML Problem Types 
 
 ## Tabular data
-
 
 - **Tabular data**:
   - Supervised classification (e.g., disease/no disease)

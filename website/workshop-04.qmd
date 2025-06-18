@@ -14,6 +14,10 @@ editor: { render-on-save: true }
 
 ## Outline
 
-- Machine learning terminology
-- Machine learning fundamentals
-- Decision trees
+- Overview of common ML methods:
+- Linear models (e.g., linear regression, logistic regression)
+- KNNs
+- Ensemble methods (e.g., random forests, boosting)
+- Unsupervised learning: K-means clustering
+- When to use which model: strengths and trade-offs
+- Simple comparison or decision guide

@@ -13,7 +13,16 @@ editor: { render-on-save: true }
 {{< revealjs "slides/slides-02-ml-fundamentals.html" height="600px" class="ratio ratio-16x9" >}}
 
 ## Outline
-
-- Machine learning terminology
-- Machine learning fundamentals
-- Decision trees
+- Key ML terminology: model, training, features, target
+- Decision trees as an intuitive starting point
+- Train/Validation/Test splits
+- Generalization, overfitting/underfitting
+- The golden rule: never train on your test data
+- Common data challenges:
+    - Missing data
+    - Mixed data types (numeric, categorical, binary, text)
+    - Different feature scales
+    - Outliers
+    - Small datasets
+    - Proxy variables
+- Overview of a typical ML pipeline
