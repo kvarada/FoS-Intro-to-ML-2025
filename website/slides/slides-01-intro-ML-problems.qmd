@@ -99,17 +99,19 @@ model = LGBMClassifier(random_state=123, verbose=-1)
 model.fit(X_train, y_train)
 ```
 
-## Predict on new examples {.smaller}
+## New examples 
 
 - Given features of new patients below we'll use this model to predict whether these patients have the liver disease or not.
 ```{python}
 HTML(X_test.reset_index(drop=True).to_html(index=False))
 ```
+
+## Predictions on new examples {.smaller}
 - Let's examine predictions
 
 ```{python}
+#| echo: true
 pred_df = pd.DataFrame({"Predicted_target": model.predict(X_test).tolist()})
-
 df_concat = pd.concat([pred_df, X_test.reset_index(drop=True)], axis=1)
 HTML(df_concat.to_html(index=False))
 ```
@@ -142,16 +144,34 @@ model.fit(X_train, y_train);
 ## Predicting prices of unseen houses {.smaller}
 
 ```{python}
+#| echo: true
 pred_df = pd.DataFrame(
-    # {"Predicted target": model.predict(X_test[0:4]).tolist(), "Actual price": y_test[0:4].tolist()}
     {"Predicted_target": model.predict(X_test[0:4]).tolist()}
 )
 df_concat = pd.concat([pred_df, X_test[0:4].reset_index(drop=True)], axis=1)
 HTML(df_concat.to_html(index=False))
 ```
-We are predicting continuous values here as apposed to discrete values in `disease` vs. `no disease` example. 
+We are predicting **continuous values** here as apposed to discrete values in `disease` vs. `no disease` example. 
+
+## Example: Customer Churn 
+- Imagine that you are working for a subscription-based telecom company.
+- They want to predict when a specific customer will churn so that they can come up with retention strategies for different customer segments.
+- We want to model "time to churn" to understand different factors affecting customer churn.
+- Is it possible to use machine learning to predict whether a specific customer will churn?
 
 
+## Customer Churn Dataset {.smaller}
+
+- Let's look at [Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), which is collected at a fixed time.
+
+```{python}
+df = pd.read_csv(DATA_DIR + "WA_Fn-UseC_-Telco-Customer-Churn.csv")
+train_df, test_df = train_test_split(df, random_state=123)
+train_df.head(4)
+```
+
+- What's different here compared to predicting disease vs. no disease? 
+- Here, we are actually interested in the time until the event of churn is likely to occur.
 
 # Text data 
 
@@ -179,7 +199,6 @@ HTML(train_df.head().to_html(index=False))
 ```
 :::
 :::
-
 
 ## Let's train a model 
 
@@ -212,25 +231,8 @@ pred_df = pd.DataFrame(pred_dict)
 pred_df.style.set_properties(**{"text-align": "left"})
 ```
 
-## Example: Customer Churn 
-- Imagine that you are working for a subscription-based telecom company.
-- They want to predict when a specific customer will churn so that they can come up with retention strategies for different customer segments.
-- We want to model "time to churn" to understand different factors affecting customer churn.
-- Is it possible to use machine learning to predict whether a specific customer will churn?
+## Example: Topic modeling
 
-
-## Customer Churn Dataset {.smaller}
-
-- Let's look at [Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), which is collected at a fixed time.
-
-```{python}
-df = pd.read_csv(DATA_DIR + "WA_Fn-UseC_-Telco-Customer-Churn.csv")
-train_df, test_df = train_test_split(df, random_state=123)
-train_df.head(4)
-```
-
-- What's different here compared to predicting disease vs. no disease? 
-- Here, we are actually interested in the time until the event of churn is likely to occur.
 
 # Image data
 
@@ -302,14 +304,65 @@ for cluster in range(k):
 ```
 :::
 
-## Example 6: How to find most similar items? 
+## Example: Finding most similar items
+
 
 # Dealing with sequential data 
-## Example 7: Time series 
+## Example: Time series 
 
-# Survival Analysis
-## Example 8: What's the probability of a customer ending their Netflix service?  
+```{python}
+import mglearn
 
+citibike = mglearn.datasets.load_citibike()
+X = (
+    citibike.index.astype("int64").values.reshape(-1, 1) // 10 ** 9
+)  # convert to POSIX time by dividing by 10**9
+y = citibike.values
+citibike.head()
+```
+
+```{python}
+plt.figure(figsize=(10, 4))
+xticks = pd.date_range(start=citibike.index.min(), end=citibike.index.max(), freq="D")
+plt.xticks(xticks, xticks.strftime("%a %m-%d"), rotation=90, ha="left", fontsize=10)
+plt.plot(citibike, linewidth=1)
+plt.xlabel("Date")
+plt.ylabel("Rentals");
+plt.title("Number of bike rentals over time for a selected bike station");
+```
+
+## Train and test data 
+```{python}
+
+n_train = 184
+train_df = citibike[:
+184]
+test_df = citibike[184:]
+y_train = train_df.values
+y_test = test_df.values
+plt.figure(figsize=(10, 3))
+train_df_sort = train_df.sort_index()
+test_df_sort = test_df.sort_index()
+
+plt.plot(train_df_sort, "b", label="train")
+plt.plot(test_df_sort, "r", label="test")
+plt.xticks(rotation="vertical")
+plt.legend();
+```
+
+## Results 
+```{python}
+from sklearn.ensemble import RandomForestRegressor
+
+regressor = RandomForestRegressor(n_estimators=100, random_state=0)
+X_hour_week = np.hstack(
+    [
+        citibike.index.dayofweek.values.reshape(-1, 1),
+        citibike.index.hour.values.reshape(-1, 1),
+    ]
+)
+eval_on_features(X_hour_week, y, regressor, feat_names = "hour of day + day of week")
+```
 
 ## ML vs. Rule-based Systems vs. Human Experts {.smaller}
 
