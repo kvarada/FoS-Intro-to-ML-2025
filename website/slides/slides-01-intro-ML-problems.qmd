@@ -406,40 +406,23 @@ plt.xticks(rotation="vertical")
 plt.legend();
 ```
 
-## ML vs. Rule-based Systems vs. Human Experts {.smaller}
-
-- ML: Complex patterns in large data
-- Rule-based systems: Structured decision logic
-- Human experts: Context, ethics, creativity
-
 # Interactive: Is ML appropriate?
 
-## Exercise 1.1: ML or not? {.smaller}
+## Exercise 1.1: ML or not?
 
 **Select all that apply: Which problems are suitable for ML?**
 
-- (A) Identifying objects in digital images
-- (B) Providing solutions via a troubleshooting guide
-- (C) Evaluating eligibility for financial services via strict rules
-- (D) Detecting fraudulent banking transactions
-- (E) Analyzing medical images for diagnosis
-
-## Exercise 1.2: Human expert or not? {.smaller}
-
-**Select all that apply: Which problems are better handled by human experts?**
-
-- (A) Ensuring regulatory compliance
-- (B) Recommending products based on user history
-- (C) Evaluating legal cases involving context
-- (D) Making ethical end-of-life decisions
-- (E) Providing mental health support
+- (A) Automatically classifying microscope images of tissue samples into cell types
+- (B) Assisting researchers in finding relevant scientific papers for a literature review
+- (C) Determining authorship disputes in multi-author publications
+- (D) Detecting anomalies in sensor data from an environmental monitoring station
+- (E) Predicting the likelihood of a chemical reaction yielding a desired compound
 
 ## Summary: When is ML suitable?
 
-- ML: Best for complex patterns, large datasets, fuzzy boundaries
-- Rule-based: Clear, deterministic logic
+- ML: Best for large and complex datasets where rules are unknown, fuzzy or too complex to articulate
+- Rule-based: Clear, deterministic logic, know the exact formula or threshold that governs a decision 
 - Human expert: Ethics, creativity, empathy, ambiguity
-
 
 ## Activity 1: ML in Your Domain {.smaller}
 
