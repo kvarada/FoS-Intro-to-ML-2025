@@ -46,6 +46,8 @@ editor:
 :::
 ::::
 
+
+## Meet your instructors 
 :::: {.columns}
 
 ::: {.column width="20%"}
@@ -63,6 +65,24 @@ editor:
 :::
 ::::
 
+
+
+# Pre-survey results 
+
+
+## 
+![](img/survey-ml-knowledge.png)
+
+## 
+![](img/survey-coding-experience.png)
+
+## 
+![](img/survey-topics-of-interest.png)
+
+## 
+![](img/survey-department.png)
+
+
 ## Learning goals of the workshop {.smaller}
 \
 
@@ -71,13 +91,15 @@ The primary learning goal of the workshop is to **familiarize yourself with the 
 
 ## Agenda {.smaller}
 - We will have four modules in the workshop
-  - **Module 1:** Introduction 
+  - **Module 1:** Introduction: When to use Machine Learning solutions? 
   - **Module 2:** Machine learning fundamentals 
   - **Module 3:** Commonly used machine learning models 
   - **Module 4:** Introduction to deep learning
   - **Module 5:** Using pre-trained models and embeddings
 - Most modules will include hands-on exercises to reinforce learning.
 - We'll also make sure to take some breaks in between sessions. 
+
+
 
 ## Source of the website 
 - We are using Quarto to create slides, with live code running in the background. 
