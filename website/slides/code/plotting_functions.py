@@ -558,11 +558,11 @@ def plot_multiclass_lr_ovr(lr, X_train, y_train, n_classes, test_points=None, de
     if decision_boundary:
         mglearn.plots.plot_2d_classification(lr, X_train, fill=True, alpha=0.7)
 
-
 # Code credit: Adapted from 
 # https://learning.oreilly.com/library/view/introduction-to-machine/9781449369880/
 
-def eval_on_features(features, target, regressor, n_train=184, sales_data=False, 
+def eval_on_features(features, target, regressor, xticks, 
+                     n_train=184, sales_data=False,                      
                      ylabel='Rentals', 
                      feat_names="Default", 
                      impute=True):
@@ -624,7 +624,7 @@ def eval_on_features(features, target, regressor, n_train=184, sales_data=False,
 
     # If not sales data, adjust x-ticks for dates (assumes datetime format)
     if not sales_data: 
-        plt.xticks(range(0, len(X), 8), xticks.strftime("%a %m-%d"), rotation=90, ha="left")
+        plt.xticks(range(0, len(features), 8), xticks.strftime("%a %m-%d"), rotation=90, ha="left")
 
     # Plot training and test data, along with predictions
     plt.plot(range(n_train), y_train, label="train")
@@ -638,5 +638,3 @@ def eval_on_features(features, target, regressor, n_train=184, sales_data=False,
     plt.legend(loc=(1.01, 0))
     plt.xlabel("Date")
     plt.ylabel(ylabel)
-    plt.tight_layout()
-    plt.show()
