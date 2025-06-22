@@ -1,32 +1,24 @@
 ---
-title: "Introduction to Machine Learning"
-format: 
-    revealjs:
-      smaller: true
-      center: true
+title: "Machine Learning Fundamentals"
+description: "Machine Learning Fundamentals"
+format:
+  revealjs:
+    html-math-method: plain
+    slide-number: true
+    slide-level: 2
+    theme:
+      - slides.scss
+    resources:
+      - data/
+      - img/
+editor:
+  render-on-save: true
 ---
 
-## Introduction to Machine Learning
-\
-Machine Learning uses computer programs to digest and accurately model data. After *training* on the data, a program can be used to extract hidden patterns, make predictions in new situations or generate novel content.
-
-The program learns based on the *features* present in the data, which represent the information we have about each example.
-
-## Introduction to Machine Learning
+## ML terminology
 \ 
 
 ![](img/sup-ML-terminology.png)
-
-
-## Activity 1
-\
-Write one (or several) problems in your area of work where you think Machine Learning could be applied. Try to address the following questions:
-
-* What goal are you trying to accomplish? What would an ideal solution to your problem look like?
-* How would a human solve this problem? What approaches are presently available and utilized?
-* What kind of data is available to you, or might be collected? What features are present in the data?
-
-One of the learning objectives of the workshop will be to determine whether your goal is best addressed using supervised machine learning, inferential statistics, unsupervised learning, deep learning, generative AI, or a non-ML solution.
 
 ## Classification vs. Regression
 \

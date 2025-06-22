@@ -58,22 +58,30 @@ Neural Networks](https://dl.acm.org/doi/10.1145/3065386)
   - Achieved a winning test error rate of 15.3%, compared to 26.2% achieved by the second-best entry in the ILSVRC-2012 competition. 
 - Let's go over the basics of a neural network.
 
-## Introduction to neural networks
-\
+## A graphical view of a linear model {.smaller}
+:::: {.columns}
 
-- Neural networks can be viewed a generalization of linear models where we apply a series of transformations.
-- Here is graphical representation of a logistic regression model.
-- We have 4 features: x[0], x[1], x[2], x[3]
-
+:::{.column width="50%"}
 ```{python}
 import mglearn
 
 mglearn.plots.plot_logistic_regression_graph()
 ```
+:::
 
-## Adding a layer of transformations 
+:::{.column width="50%"}
+- Remember this graphical view of linear models? 
+- We have 4 features: x[0], x[1], x[2], x[3]
+- The output is calculated as $y = x[0]w[0] + x[1]w[1] + x[2]w[2] + x[3]w[3]$
+- For simplicity, we are ignoring the bias term. 
+:::
+::::
+
+
+## Introduction to neural networks
 \
 
+- Neural networks can be viewed a generalization of linear models where we apply a series of transformations.
 - Below we are adding one "layer" of transformations in between features and the target. 
 - We are repeating the the process of computing the weighted sum multiple times.  
 - The **hidden units** (e.g., h[1], h[2], ...) represent the intermediate processing steps. 
@@ -101,8 +109,7 @@ mglearn.plots.plot_two_hidden_layer_graph()
 - Neural network = neural net
 - Deep learning ~ using neural networks
 
-## Why neural networks?
-\
+## Why neural networks? {.smaller}
 
 - They can learn very complex functions.
   - The fundamental tradeoff is primarily controlled by the **number of layers** and **layer sizes**.
@@ -116,8 +123,7 @@ mglearn.plots.plot_two_hidden_layer_graph()
 - They've had some incredible successes in the last 12 years.
 - Transfer learning (coming later today) is really useful.  
 
-## Why not neural networks?
-\
+## Why not neural networks? {.smaller}
 
 - Often they require a lot of data.
 - They require a lot of compute time, and, to be faster, specialized hardware called [GPUs](https://en.wikipedia.org/wiki/Graphics_processing_unit).
@@ -131,7 +137,6 @@ mglearn.plots.plot_two_hidden_layer_graph()
     - I'll show you some ways to use neural networks without training them yourselves. 
 
 ## Deep learning software
-\
 
 The current big players are:
 
@@ -441,4 +446,4 @@ plt.show()
 
 ## Thank you! 
 
-- That's it for the modules! Now, let's begin the game time.
+- That's it for the module! Now, let's work on the hands on exercises. 

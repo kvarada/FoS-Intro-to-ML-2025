@@ -10,6 +10,7 @@ format:
 \
 
 By the end of this session, participants should be able to:
+
 - Understand what embeddings are and why they're useful
 - Distinguish between training a model from scratch vs. using a pre-trained one
 - Generate and visualize embeddings from images, text, and structured data
@@ -17,11 +18,13 @@ By the end of this session, participants should be able to:
 - Identify ML tasks in their own domain that could benefit from embeddings
 
 
-## What Are Embeddings?
+## What are embeddings?
 
 - Embeddings are **numerical vector representations** of complex objects
 - Similar inputs $\rightarrow$ nearby vectors
-- They enable:
+
+
+## Why embeddings:
   - Similarity search
   - Clustering
   - Visualization
@@ -42,6 +45,7 @@ By the end of this session, participants should be able to:
   - Fine-tune on your domain-specific task
 
 **Examples**:
+
 - Use `MiniLM` to embed scientific abstracts
 - Use `ResNet` to embed microscope images
 
