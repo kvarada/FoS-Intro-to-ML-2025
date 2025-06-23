@@ -16,12 +16,17 @@ editor:
   render-on-save: true
 ---
 
-## Learning outcomes 
-\
-From this module, you will be able to 
+## 🎯 Learning Outcomes
 
-- Explain the role of neural networks in machine learning, including their advantages and disadvantages.
-- 
+By the end of this module, you will be able to:
+
+- **Explain** the basics of neural networks and how they build upon linear models.
+- **Describe** the role of neural networks in machine learning, including their strengths and limitations.
+- **Outline** the key steps involved in training a neural network.
+- **Identify** commonly used neural network architectures (CNNs, RNNs, Transformers) and their typical applications.
+
+---
+
 
 ## Remember this picture we saw earlier? 
 
@@ -43,7 +48,7 @@ Image classification is not an easy problem because of the variations in the loc
 ![](img/cat_variation.png)
 <!-- [Source](https://developers.google.com/machine-learning/practica/image-classification) -->
 
-## Neural networks
+## Neural networks {.smaller}
 \
 
 - Neural networks are perfect for these types of problems where local structures are important. 
@@ -198,13 +203,132 @@ Both are heavily used in industry. If interested, see [comparison of deep learni
 
 <br><br>
 
-# Commonly used neural network architectures 
+## Commonly Used Neural Network Architectures
 
-## Convolutional Neural Networks (CNNs)
+Neural networks come in different shapes depending on the type of data and the task.
 
-## Recurrent Neural Networks (RNNs)
+---
 
-## Transformer Architectures 
+## Convolutional Neural Networks (CNNs) {.smaller}
+
+- Commonly used in **image classification, object detection, and medical imaging.**
+- What's the problem if we use the above feedforward architecture to learn patterns from images? 
+
+![](img/cnn-1.png)
+
+## Filters 
+
+- Uses filters that "slide" over the input to detect local patterns.
+
+![](img/cnn-4.png)
+
+- Play around with filters: https://setosa.io/ev/image-kernels/
+
+## CNNs 
+
+![](img/cnn-5.gif)
+
+## CNNs big picture
+
+![](img/cnn_big_picture.png)
+
+---
+
+## Recurrent Neural Networks (RNNs) {.smaller}
+
+- Designed for **sequential data** like time series, text, or biological sequences.
+- Passes hidden states through time steps to "remember" past information.
+
+👉 Commonly used in **language modeling, speech recognition, and system control.**
+
+![](img/RNN-intro_small.png)
+
+---
+
+## RNN activity {.smaller}
+
+RNN is like your brain reading a sentence word by word. 
+
+- **Input at each time step**: The current word you read
+- **Hidden state**: Your current mental understanding
+- **Output**: Your interpretation, reaction, or prediction at that point in time 
+
+Two rows of students:
+
+- Front row = input layer (observations at each time step)
+- Back row = hidden state at each time step
+- Each column is a time step (0 through 4)
+- So we'll have 4 front-row students: $x_0$ to $x_3$
+- And 4 back-row students: $h_0$ to $h_3$
+
+## RNN activity {.smaller}
+1. At time step 0:
+    - Front-row student $x_0$ gets a word
+    - They pass it to the back-row student behind them ($h_0$).
+2.	At time step 1 (and beyond):
+    - The front-row student (e.g., $x_1$) gets a new word 
+    - The back-row student (e.g., $h_1$) receives:
+        - The current input from the front-row student (e.g., $x_1$)
+        - Whatever "memory" is passed from the previous hidden state (e.g., $h_0$)
+        - $h_1$ combines this (e.g., by writing a summary phrase or combining keywords).
+3.	Repeat until time step 3 or 4.
+4.	Final time step: $h_3$ summarizes what they remember (e.g., predicts next word, gives the "mood" of the sentence, etc.)
+
+
+## RNN architectures
+
+- A number of architectures are possible with RNNs, which makes them a very rich family of models.  
+
+![](img/RNN_architectures.png)
+
+## Transformer architectures
+
+- What kind of neural network models are behind **state-of-the-art Generative AI** systems like ChatGPT, Gemini, Bard, DALL-E, GitHub Copilot, and Meta’s Llama?
+
+- The answer: **Transformer architectures.**
+
+![](img/genai.png)
+
+---
+
+## What makes transformer architectures special?
+
+- Transformers were **designed for sequences** but avoid the limitations of earlier sequence models like RNNs.
+- They use **attention mechanisms** to model relationships between all parts of the sequence at once.
+- They scale well to very large datasets and can handle long-term dependencies effectively.
+
+👉 Transformers power **large language models (LLMs), image captioning models, and multimodal models like CLIP.**
+
+---
+
+## Transformer architecture: Key ideas
+
+:::: {.columns}
+
+:::{.column width="50%"}
+![](img/transformers-multi-layer-LM.png)
+:::
+
+:::{.column width="50%"}
+
+- **Input:** A sequence of tokens (words, image patches, etc.)
+- **Output:** A sequence of rich, context-aware representations for each token.
+- Each layer iteratively refines the token representations.
+- These layers learn **how each token relates to the others, regardless of their position in the sequence.**
+
+:::
+::::
+
+---
+
+## Transformer summary
+
+- Designed to handle **long sequences efficiently.**
+- Learn **contextual meaning** by comparing all tokens to each other (via attention).
+- Now the backbone of **almost all modern Generative AI models.**
+- Examples: BERT, GPT-3, GPT-4, Gemini, DALL-E, GitHub Copilot, Meta’s Llama.
+
+---
 
 ## Summary 
 \
