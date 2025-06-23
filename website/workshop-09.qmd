@@ -15,11 +15,8 @@ editor: { render-on-save: true }
 
 ## Outline
 
-- What are embeddings? Why are they useful?
-- Text embeddings: Word2Vec
-- MiniLM, Sentence Transformers
-- Using pretrained models as feature extractors
+- Pre-trained models and embeddings
+- Image emebddings: Image classification and clustering with pretrained CNNs (e.g., `DenseNetNet`)
+- Text embeddings: Document clustering with `MiniLM`
 - Brief demo or mention of object detection (YOLO)
-- Image embeddings: ResNet / ViT feature extractors, Image classification with pretrained CNNs (e.g., ResNet)
-- Clustering with image embeddings 
-- Multimodal & zero-shot: HuggingFace zero-shot classification pipeline, CLIP: text-to-image and image-to-text similarity
+- CLIP: text-to-image and image-to-text similarity

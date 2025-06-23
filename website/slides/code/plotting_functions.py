@@ -638,3 +638,85 @@ def eval_on_features(features, target, regressor, xticks,
     plt.legend(loc=(1.01, 0))
     plt.xlabel("Date")
     plt.ylabel(ylabel)
+
+
+
+def print_clusters(recipes_df, cluster_labels, n_recipes=10, replace=False, random_state=None):
+    """
+    Given recipes_df containing recipe names and cluster assignment (labels), 
+    sample and print n_recipes recipes per cluster. 
+
+    Parameters
+    -----------
+    recipe_df : pandas dataframe 
+        recipes dataframe containing recipe names in the "name" column
+    cluster_labels : ndarray or a list
+        cluster labels for each row in recipes_df 
+    n_recipes : int
+        number of examples to sample from each cluster
+    replace: bool
+        replace flag to pass to the sampling of recipe names
+
+    Returns
+    -----------
+    None
+    """    
+    
+    grouped = (
+        pd.DataFrame(
+            {
+                "name": recipes_df["name"],
+                "cluster_label": cluster_labels,
+            }
+        )
+        .sort_values("cluster_label")
+        .groupby("cluster_label")    
+    )
+    
+    for name, group in grouped:
+        print(f"Cluster {name}")        
+        print(("----------").format(""))        
+        print("\n".join(group.sample(n_recipes, random_state=random_state)['name'].tolist()))
+        print("\n\n")
+
+
+
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import seaborn as sns
+
+def plot_img_caption_similarities(original_images, captions, similarity_np):
+    fig = plt.figure(figsize=(15, 6))
+    gs = gridspec.GridSpec(nrows=1, ncols=2, width_ratios=[1, 10], wspace=0.05)
+    
+    # Left column: image thumbnails
+    ax_imgs = fig.add_subplot(gs[0])
+    ax_imgs.axis("off")
+    
+    # Stack images into one vertical strip
+    thumbs = [img.resize((60, 60)) for img in original_images]
+    thumb_strip = np.vstack([np.asarray(thumb) for thumb in thumbs])
+    ax_imgs.imshow(thumb_strip)
+    ax_imgs.set_ylim(len(original_images)*60, 0)  # invert y-axis
+    ax_imgs.set_xlim(0, 60)
+    
+    # Right column: similarity heatmap
+    ax_heatmap = fig.add_subplot(gs[1])
+    sns.heatmap(
+        similarity_np,
+        xticklabels=captions,
+        yticklabels=False,  # no text ticks
+        annot=True,
+        fmt=".2f",
+        cmap="YlGnBu",
+        ax=ax_heatmap,
+        cbar_kws={"label": "Similarity"},
+    )
+    ax_heatmap.set_title("CLIP Image-Caption Similarity", fontsize=14)
+    ax_heatmap.set_xlabel("Captions", fontsize=12)
+    ax_heatmap.set_ylabel("Images", fontsize=12)
+    ax_heatmap.set_yticks(np.arange(len(original_images)) + 0.5)
+    ax_heatmap.set_yticklabels([""] * len(original_images))  # suppress matplotlib warnings
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.show()

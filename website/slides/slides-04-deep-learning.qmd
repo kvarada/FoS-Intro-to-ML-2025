@@ -234,6 +234,15 @@ Neural networks come in different shapes depending on the type of data and the t
 
 ---
 
+## Combining CNN and NN {.smaller}
+
+- Sometimes you'll want to combine different types of data in a single network
+- The most common case is combining tabular data with image data, for example, using both real estate data and images of a house to predict its sale price:
+
+![](img/multi-input.png)
+
+Source: "[House](https://www.flickr.com/photos/68089229@N06/17458373552)" by [oatsy40](https://www.flickr.com/photos/68089229@N06), "[House in Vancouver](https://www.flickr.com/photos/17573364@N00/433449690)" by [pnwra](https://www.flickr.com/photos/17573364@N00), "[House](https://www.flickr.com/photos/21098413@N04/5405425139)" by [noona11](https://www.flickr.com/photos/21098413@N04) all licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich).
+
 ## Recurrent Neural Networks (RNNs) {.smaller}
 
 - Designed for **sequential data** like time series, text, or biological sequences.
