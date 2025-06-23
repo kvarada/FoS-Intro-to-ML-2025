@@ -130,7 +130,7 @@ def get_cluster_images(model, Z, inputs, cluster=0, n_img=5):
     plt.show()
 
 
-def get_features(model, inputs):
+def get_features_unsup(model, inputs):
     """Extract output of densenet model"""
     model.eval()
     with torch.no_grad():  # turn off computational graph stuff        

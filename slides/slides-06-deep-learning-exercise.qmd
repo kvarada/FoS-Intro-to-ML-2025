@@ -10,7 +10,7 @@ format:
 
 Here is a Jupyter notebook you can download for further exploration:
 
-[Download and Save the Jupyter Notebook](https://github.com/kvarada/Intro-to-ML-workshop-2024/blob/main/website/slides/downloads/exercise-02-deep-learning.ipynb)
+[Download and Save the Jupyter Notebook](https://github.com/kvarada/FoS-Intro-to-ML-2025/blob/main/website/slides/downloads/exercise-02-deep-learning.ipynb)
 
 <!--
 [Download and Save the Jupyter Notebook](downloads/exercise-02-deep-learning.ipynb){.btn .btn-primary}

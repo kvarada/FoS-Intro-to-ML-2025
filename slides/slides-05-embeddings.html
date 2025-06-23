@@ -400,7 +400,7 @@
 
 </section>
 <section id="learning-objectives" class="slide level2 center">
-<h2>🎯 Learning Objectives</h2>
+<h2>🎯 Learning objectives</h2>
 <p><br>
 </p>
 <p>By the end of this session, participants should be able to:</p>
@@ -409,29 +409,10 @@
 <li>Gain a high-level understanding of transfer learning.</li>
 <li>Distinguish between training a model from scratch vs.&nbsp;using a pre-trained one</li>
 <li>Use transfer learning for your own tasks.</li>
-<li>Generate and visualize embeddings from images, text, and structured data</li>
-<li>Use pre-trained models (e.g., MiniLM, ResNet, CLIP) for scientific tasks</li>
-<li>Identify ML tasks in their own domain that could benefit from embeddings</li>
+<li>Generate and visualize embeddings from images and text</li>
+<li>Use pre-trained models (e.g., MiniLM, DenseNet, CLIP)</li>
+<li>Identify ML tasks in your own domain that could benefit from embeddings</li>
 </ul>
-</section>
-<section id="what-are-embeddings" class="slide level2 center">
-<h2>What are embeddings?</h2>
-<ul>
-<li>Embeddings are <strong>numerical vector representations</strong> of complex objects</li>
-<li>Similar inputs <span class="math inline">\(\rightarrow\)</span> nearby vectors</li>
-</ul>
-</section>
-<section id="why-embeddings" class="slide level2 center">
-<h2>Why embeddings:</h2>
-<ul>
-<li>Similarity search</li>
-<li>Clustering</li>
-<li>Visualization</li>
-<li>Downstream ML models</li>
-</ul>
-<div class="fragment fade-in">
-<p><strong>Analogy</strong>: Embeddings are like a <strong>Google Map of meaning</strong> — you can calculate distances between concepts.</p>
-</div>
 </section>
 <section id="why-pretrained-models" class="slide level2 center">
 <h2>Why Pretrained Models?</h2>
@@ -444,46 +425,45 @@
 <li>Fine-tune on your domain-specific task</li>
 </ul></li>
 </ul>
-<p><strong>Examples</strong>:</p>
+</section>
+<section id="what-are-embeddings" class="slide level2 center">
+<h2>What are embeddings?</h2>
 <ul>
-<li>Use <code>MiniLM</code> to embed scientific abstracts</li>
-<li>Use <code>ResNet</code> to embed microscope images</li>
+<li>Embeddings are <strong>numerical vector representations</strong> of complex objects</li>
+<li>They enable us to calculate distances between concepts
+<ul>
+<li>Similar inputs <span class="math inline">\(\rightarrow\)</span> nearby vectors</li>
+</ul></li>
+</ul>
+
+<img data-src="img/t-SNE_word_embeddings.png" class="r-stretch"></section>
+<section id="embeddings-are-commonly-used-for" class="slide level2 center">
+<h2>Embeddings are commonly used for</h2>
+<ul>
+<li>Similarity search</li>
+<li>Clustering</li>
+<li>Visualization</li>
+<li>Downstream ML models</li>
 </ul>
 </section>
-<section id="types-of-embeddings-and-pretrained-models" class="slide level2 center">
-<h2>Types of Embeddings and Pretrained Models</h2>
-<h3 id="text">Text</h3>
+<section id="popular-embeddings" class="slide level2 center">
+<h2>Popular embeddings</h2>
+<p><strong>Image</strong></p>
 <ul>
+<li><strong>DenseNet</strong>, <strong>ResNet</strong>, <strong>ViT</strong></li>
+<li>Input: microscopy images, wildlife, rock photos</li>
+</ul>
+<p><strong>Text</strong></p>
+<ul>
+<li><strong>Word embeddings</strong></li>
 <li><strong>MiniLM</strong>, <strong>Sentence-BERT</strong></li>
 <li>Input: research descriptions, abstracts, feedback</li>
 </ul>
-<h3 id="image">Image</h3>
-<ul>
-<li><strong>ResNet</strong>, <strong>ViT</strong></li>
-<li>Input: microscopy images, wildlife, rock photos</li>
-</ul>
-<h3 id="multimodal">Multimodal</h3>
-<ul>
-<li><strong>CLIP</strong></li>
-<li>Input: image-text pairs (e.g., photo + caption)</li>
-</ul>
-<h3 id="domain-specific">Domain-Specific</h3>
-<ul>
-<li><strong>ESM-2</strong>, <strong>ProtBERT</strong> (proteins)</li>
-<li><strong>ChemBERTa</strong>, <strong>Graphormer</strong> (molecules)</li>
-</ul>
 </section>
-<section id="hands-on-option-a-text-embeddings-minilm" class="slide level2 center">
-<h2>Hands-On Option A: Text Embeddings (MiniLM)</h2>
-<ul>
-<li>Load 10 short research descriptions (or participants’ own)</li>
-<li>Use <code>sentence-transformers</code> to compute embeddings</li>
-<li>Visualize similarity with:
-<ul>
-<li>Cosine similarity matrix</li>
-<li>PCA or t-SNE plot</li>
-</ul></li>
-</ul>
+<section>
+<section id="image-embeddings" class="title-slide slide level1 center">
+<h1>Image embeddings</h1>
+
 </section>
 <section id="introduction-to-computer-vision" class="slide level2 center">
 <h2>Introduction to computer vision</h2>
@@ -547,7 +527,7 @@
 <li>Let’s predict labels with associated probabilities for unseen images</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="a8f27985" class="cell" data-execution_count="2">
+<div id="d70024d3" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -634,7 +614,7 @@ Walker hound, Walker foxhound              0.580
 <li>It’s not doing very well here because ImageNet doesn’t have proper classes for these images.</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="5938a1f5" class="cell" data-execution_count="3">
+<div id="9ab8130b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -772,7 +752,7 @@ lakeside, lakeshore              0.097
 </p>
 <p>Let’s look at some sample images in the dataset.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="1778c01b" class="cell" data-execution_count="4">
+<div id="9ae2aa40" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -788,7 +768,7 @@ lakeside, lakeshore              0.097
 <p><br>
 </p>
 <p>Here is the stat of our toy dataset.</p>
-<div id="229057e9" class="cell" data-execution_count="5">
+<div id="6b2d34bf" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>Classes: ['beet_salad', 'chocolate_cake', 'edamame', 'french_fries', 'pizza', 'spring_rolls', 'sushi']
 Class count: 40, 38, 40
@@ -797,22 +777,22 @@ First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
 </div>
 </div>
 </section>
-<section id="pre-trained-models-to-extract-features-3" class="slide level2 center">
-<h2>Pre-trained models to extract features</h2>
+<section id="extract-features-embeddings" class="slide level2 center">
+<h2>Extract features (embeddings)</h2>
 <p><br>
 </p>
 <ul>
 <li>Now for each image in our dataset, we’ll extract a feature vector from a pre-trained model called densenet121, which is trained on the ImageNet dataset.</li>
 </ul>
 </section>
-<section id="shape-of-the-feature-vector" class="slide level2 center">
-<h2>Shape of the feature vector</h2>
+<section id="shape-of-the-embeddings" class="slide level2 center">
+<h2>Shape of the embeddings</h2>
 <p><br>
 </p>
 <ul>
-<li>Now we have extracted feature vectors for all examples. What’s the shape of these features?</li>
+<li>Now we have extracted feature vectors for all examples. What’s the shape of these features or embeddings?</li>
 </ul>
-<div id="b4ae4ec1" class="cell" data-execution_count="7">
+<div id="382be56a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>torch.Size([283, 1024])</code></pre>
 </div>
@@ -823,13 +803,13 @@ First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
 
 <img data-src="img/densenet-architecture.png" class="r-stretch"><p><a href="https://towardsdatascience.com/understanding-and-visualizing-densenets-7f688092391a">Source</a></p>
 </section>
-<section id="a-feature-vector-given-by-densenet" class="slide level2 center">
-<h2>A feature vector given by densenet</h2>
+<section id="embeddings-given-by-densenet" class="slide level2 center">
+<h2>Embeddings given by densenet</h2>
 <p>&nbsp;</p>
 <ul>
 <li>Let’s examine the feature vectors.</li>
 </ul>
-<div id="3ee59fde" class="cell" data-execution_count="8">
+<div id="1ed9d742" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <style scoped="">
@@ -1012,12 +992,12 @@ First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
 <ul>
 <li>Let’s try out logistic regression on these extracted features.</li>
 </ul>
-<div id="d42ecaea" class="cell" data-execution_count="9">
+<div id="6c903713" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>Training score:  1.0</code></pre>
 </div>
 </div>
-<div id="57645dd6" class="cell" data-execution_count="10">
+<div id="bbf7fdc9" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>Validation score:  0.835820895522388</code></pre>
 </div>
@@ -1032,11 +1012,678 @@ First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
 </p>
 <p>Let’s examine some sample predictions on the validation set.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="c6aea25f" class="cell" data-execution_count="11">
+<div id="6c191044" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
 <p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-12-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-cluster-images" class="slide level2 center">
+<h2>Let’s cluster images!!</h2>
+<p><br>
+</p>
+<p>What if we don’t have any labels and we want to cluster these images?</p>
+
+<img data-src="slides-05-embeddings_files/figure-revealjs/cell-13-output-1.png" class="r-stretch"></section>
+<section id="k-means-on-food-dataset" class="slide level2 center">
+<h2>K-Means on food dataset</h2>
+<p><br>
+</p>
+<div id="7879db7e" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>densenet <span class="op">=</span> models.densenet121(weights<span class="op">=</span><span class="st">"DenseNet121_Weights.IMAGENET1K_V1"</span>)</span>
+<span id="cb15-2"><a></a>densenet.classifier <span class="op">=</span> torch.nn.Identity()  <span class="co"># remove that last "classification" layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="53e7116f" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>Z_food <span class="op">=</span> get_features_unsup(densenet, food_inputs)</span>
+<span id="cb16-2"><a></a>k <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb16-3"><a></a>km <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, n_init<span class="op">=</span><span class="st">'auto'</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb16-4"><a></a>km.fit(Z_food)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  display: none;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left;
+}
+
+.user-set td.value pre {
+    color:rgb(255, 94, 0) !important;
+    background-color: transparent !important;
+}
+
+.default td {
+    color: black;
+    text-align: left;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=5, random_state=123)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd user-set">
+<td><em></em></td>
+<td class="param">n_clusters&nbsp;</td>
+<td class="value">5</td>
+</tr>
+<tr class="even default">
+<td><em></em></td>
+<td class="param">init&nbsp;</td>
+<td class="value">'k-means++'</td>
+</tr>
+<tr class="odd default">
+<td><em></em></td>
+<td class="param">n_init&nbsp;</td>
+<td class="value">'auto'</td>
+</tr>
+<tr class="even default">
+<td><em></em></td>
+<td class="param">max_iter&nbsp;</td>
+<td class="value">300</td>
+</tr>
+<tr class="odd default">
+<td><em></em></td>
+<td class="param">tol&nbsp;</td>
+<td class="value">0.0001</td>
+</tr>
+<tr class="even default">
+<td><em></em></td>
+<td class="param">verbose&nbsp;</td>
+<td class="value">0</td>
+</tr>
+<tr class="odd user-set">
+<td><em></em></td>
+<td class="param">random_state&nbsp;</td>
+<td class="value">123</td>
+</tr>
+<tr class="even default">
+<td><em></em></td>
+<td class="param">copy_x&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="odd default">
+<td><em></em></td>
+<td class="param">algorithm&nbsp;</td>
+<td class="value">'lloyd'</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling.textContent.trim();
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+</script>
+</div>
+</div>
+</section>
+<section id="examining-food-clusters" class="slide level2 center">
+<h2>Examining food clusters</h2>
+<p><br>
+</p>
+<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
+<div id="96ac3a44" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="cf">for</span> cluster <span class="kw">in</span> <span class="bu">range</span>(k):</span>
+<span id="cb17-2"><a></a>    get_cluster_images(km, Z_food, X_food, cluster, n_img<span class="op">=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>135
+Image indices:  [135  25 133 115  17  93]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-16-output-2.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>55
+Image indices:  [55 20 68  1 47 13]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-16-output-4.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>170
+Image indices:  [170 115  72   5 161  86]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-16-output-6.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>95
+Image indices:  [ 95 233 136 245 266 149]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-16-output-8.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4
+Image indices:  [  4 143  66 167  84 271]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-16-output-10.png"></p>
 </figure>
 </div>
 </div>
@@ -1059,21 +1706,21 @@ First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
 <p><br>
 </p>
 <p>Let’s try this out using a pre-trained model.</p>
-<div id="07d65e84" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> ultralytics <span class="im">import</span> YOLO</span>
-<span id="cb15-2"><a></a>model <span class="op">=</span> YOLO(<span class="st">"yolov8n.pt"</span>)  <span class="co"># pretrained YOLOv8n model</span></span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a>yolo_input <span class="op">=</span> <span class="st">"data/yolo_test/3356700488_183566145b.jpg"</span></span>
-<span id="cb15-5"><a></a>yolo_result <span class="op">=</span> <span class="st">"data/yolo_result.jpg"</span></span>
-<span id="cb15-6"><a></a><span class="co"># Run batched inference on a list of images</span></span>
-<span id="cb15-7"><a></a>result <span class="op">=</span> model(yolo_input)  <span class="co"># return a list of Results objects</span></span>
-<span id="cb15-8"><a></a>result[<span class="dv">0</span>].save(filename<span class="op">=</span>yolo_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3dc034ca" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="im">from</span> ultralytics <span class="im">import</span> YOLO</span>
+<span id="cb23-2"><a></a>model <span class="op">=</span> YOLO(<span class="st">"yolov8n.pt"</span>)  <span class="co"># pretrained YOLOv8n model</span></span>
+<span id="cb23-3"><a></a></span>
+<span id="cb23-4"><a></a>yolo_input <span class="op">=</span> <span class="st">"data/yolo_test/3356700488_183566145b.jpg"</span></span>
+<span id="cb23-5"><a></a>yolo_result <span class="op">=</span> <span class="st">"data/yolo_result.jpg"</span></span>
+<span id="cb23-6"><a></a><span class="co"># Run batched inference on a list of images</span></span>
+<span id="cb23-7"><a></a>result <span class="op">=</span> model(yolo_input)  <span class="co"># return a list of Results objects</span></span>
+<span id="cb23-8"><a></a>result[<span class="dv">0</span>].save(filename<span class="op">=</span>yolo_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-image 1/1 /Users/kvarada/EL/workshops/FoS-Intro-to-ML-2025/website/slides/data/yolo_test/3356700488_183566145b.jpg: 512x640 4 persons, 2 cars, 1 stop sign, 110.1ms
-Speed: 2.4ms preprocess, 110.1ms inference, 7.4ms postprocess per image at shape (1, 3, 512, 640)</code></pre>
+image 1/1 /Users/kvarada/EL/workshops/FoS-Intro-to-ML-2025/website/slides/data/yolo_test/3356700488_183566145b.jpg: 512x640 4 persons, 2 cars, 1 stop sign, 74.5ms
+Speed: 2.3ms preprocess, 74.5ms inference, 11.6ms postprocess per image at shape (1, 3, 512, 640)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>'data/yolo_result.jpg'</code></pre>
 </div>
 </div>
@@ -1083,28 +1730,499 @@ Speed: 2.4ms preprocess, 110.1ms inference, 7.4ms postprocess per image at shape
 <p><br>
 </p>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="4152f432" class="cell" data-execution_count="13">
+<div id="decb39bf" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-14-output-1.png"></p>
+<p><img data-src="slides-05-embeddings_files/figure-revealjs/cell-18-output-1.png"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="sentence-embeddings" class="title-slide slide level1 center">
+<h1>Sentence embeddings</h1>
+
 </section>
-<section id="hands-on-option-b-image-embeddings-resnet" class="slide level2 center">
-<h2>Hands-On Option B: Image Embeddings (ResNet)</h2>
-<ul>
-<li>Use pretrained ResNet from PyTorch or HuggingFace</li>
-<li>Extract image embeddings</li>
-<li>Compare images using cosine similarity</li>
-<li>Optional: cluster or visualize</li>
-</ul>
+<section id="document-clustering" class="slide level2 center">
+<h2>Document clustering</h2>
+<p>Let’s cluster these recipe names:</p>
+<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
+<div id="379b5b20" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>0                            i yam what i yam  muffins
+1                              to your health  muffins
+2                        250 00 chocolate chip cookies
+3                                        lplermagronen
+4                              california roll   salad
+5                                 chef salad  dressing
+6                         ma s  oatmeal cake and icing
+7              real new york style  cheesecake supreme
+8                          aunt johnnie s   pound cake
+9                              buffalo wing  mushrooms
+10                                   funny bones  cake
+11                                         green  soup
+12      i coulda had a stuffed pepper  stuffed peppers
+13                       kelly s chinese cabbage salad
+14                            lofthouse  sugar cookies
+15                                    marco    polenta
+16                                     oh boy  waffles
+17          oops  there it is   chocolate cake low fat
+18                                        orange  soup
+19              peanut butter   jam sandwich   muffins
+20     perfect chocolate cake  mccall s cooking school
+21      real  strawberry pie with french cream topping
+22                                     ritz  y chicken
+23                           starbucks  oat fudge bars
+24                                            the cake
+25                           the heavy one  cheesecake
+26                                the ultimate brownie
+27                                            57 chevy
+28                                 nilla wafer martini
+29                                spicy  pasta fagioli
+30                       guaranteed 5 star banana cake
+31                                   spaghetti squares
+32                                        007 cocktail
+33                       1 lb abm hawaiian sweet bread
+34                                1 2 3 4 cake  orange
+35                               1 bowl fudgy brownies
+36    10 minute baked halibut with garlic butter sauce
+37          100  honey whole wheat cracked wheat bread
+38                               100  parmesan chicken
+39                        100  whole grain wheat bread
+40                             15 minute taco in a pan
+41                              16 bean soup  crockpot
+42                                            17 twist
+43               1880 chocolate spice cake  with icing
+44                          1905 salad dressing recipe
+45                      1930 recipe for mincemeat cake
+46                                     1950 s meatloaf
+47                                        2 bean chili
+48                        20 minute applesauce cookies
+49                                 20 pound cheesecake
+Name: name, dtype: object</code></pre>
+</div>
+</div>
+</div>
 </section>
-<section id="hands-on-option-c-multimodal-clip" class="slide level2 center">
-<h2>Hands-On Option C: Multimodal (CLIP)</h2>
+<section id="recipe-names-embeddings" class="slide level2 smaller center">
+<h2>Recipe names embeddings</h2>
+<div id="b24fba4a" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb27-2"><a></a>embedder <span class="op">=</span> SentenceTransformer(<span class="st">'all-MiniLM-L6-v2'</span>)</span>
+<span id="cb27-3"><a></a>recipe_names <span class="op">=</span> recipes_df[<span class="st">"name"</span>].tolist()</span>
+<span id="cb27-4"><a></a>embeddings <span class="op">=</span> embedder.encode(recipe_names)</span>
+<span id="cb27-5"><a></a>recipe_names_embeddings <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb27-6"><a></a>    embeddings,</span>
+<span id="cb27-7"><a></a>    index<span class="op">=</span>recipes_df.index,</span>
+<span id="cb27-8"><a></a>)</span>
+<span id="cb27-9"><a></a>recipe_names_embeddings.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">374</th>
+<th data-quarto-table-cell-role="th">375</th>
+<th data-quarto-table-cell-role="th">376</th>
+<th data-quarto-table-cell-role="th">377</th>
+<th data-quarto-table-cell-role="th">378</th>
+<th data-quarto-table-cell-role="th">379</th>
+<th data-quarto-table-cell-role="th">380</th>
+<th data-quarto-table-cell-role="th">381</th>
+<th data-quarto-table-cell-role="th">382</th>
+<th data-quarto-table-cell-role="th">383</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.019592</td>
+<td>-0.088336</td>
+<td>0.072677</td>
+<td>-0.034575</td>
+<td>-0.048741</td>
+<td>-0.049801</td>
+<td>0.175334</td>
+<td>-0.055191</td>
+<td>0.020301</td>
+<td>0.019828</td>
+<td>...</td>
+<td>0.063293</td>
+<td>-0.067171</td>
+<td>0.087499</td>
+<td>-0.061550</td>
+<td>0.039297</td>
+<td>-0.050147</td>
+<td>0.027708</td>
+<td>0.056843</td>
+<td>0.056151</td>
+<td>-0.122506</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>-0.000567</td>
+<td>-0.011825</td>
+<td>0.073199</td>
+<td>0.058176</td>
+<td>0.031688</td>
+<td>-0.015428</td>
+<td>0.168134</td>
+<td>0.000466</td>
+<td>0.033078</td>
+<td>-0.013923</td>
+<td>...</td>
+<td>-0.012926</td>
+<td>-0.015949</td>
+<td>0.031315</td>
+<td>-0.059074</td>
+<td>0.014143</td>
+<td>-0.047270</td>
+<td>0.007844</td>
+<td>0.035501</td>
+<td>0.076061</td>
+<td>-0.078119</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>-0.022604</td>
+<td>0.065034</td>
+<td>-0.033065</td>
+<td>0.014450</td>
+<td>-0.105039</td>
+<td>-0.050559</td>
+<td>0.100076</td>
+<td>0.022929</td>
+<td>-0.037398</td>
+<td>0.011857</td>
+<td>...</td>
+<td>0.007971</td>
+<td>-0.019165</td>
+<td>0.004935</td>
+<td>0.009005</td>
+<td>0.000919</td>
+<td>-0.040078</td>
+<td>0.008650</td>
+<td>-0.075781</td>
+<td>-0.083477</td>
+<td>-0.123240</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>-0.066915</td>
+<td>0.025988</td>
+<td>-0.087689</td>
+<td>-0.006847</td>
+<td>-0.012861</td>
+<td>0.049035</td>
+<td>0.035351</td>
+<td>0.124966</td>
+<td>-0.011697</td>
+<td>-0.050179</td>
+<td>...</td>
+<td>-0.042345</td>
+<td>-0.005794</td>
+<td>-0.031800</td>
+<td>0.120664</td>
+<td>-0.057335</td>
+<td>-0.077068</td>
+<td>0.001653</td>
+<td>-0.048223</td>
+<td>0.116455</td>
+<td>0.021789</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>-0.007068</td>
+<td>-0.007308</td>
+<td>-0.026629</td>
+<td>-0.004153</td>
+<td>-0.052810</td>
+<td>0.011126</td>
+<td>0.024000</td>
+<td>-0.036993</td>
+<td>0.023526</td>
+<td>-0.046870</td>
+<td>...</td>
+<td>-0.018432</td>
+<td>0.051918</td>
+<td>0.036101</td>
+<td>-0.035312</td>
+<td>0.005817</td>
+<td>0.101802</td>
+<td>-0.063171</td>
+<td>-0.007917</td>
+<td>0.089744</td>
+<td>0.006997</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 384 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cluster-embeddings" class="slide level2 center">
+<h2>Cluster embeddings</h2>
+<div id="47ceaf10" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb28-2"><a></a>km_labels_dict <span class="op">=</span> {</span>
+<span id="cb28-3"><a></a>    k: KMeans(k, n_init<span class="op">=</span><span class="st">'auto'</span>, random_state<span class="op">=</span><span class="dv">123</span>).fit(embeddings).predict(embeddings)</span>
+<span id="cb28-4"><a></a>    <span class="cf">for</span> k <span class="kw">in</span> np.arange(<span class="dv">4</span>, <span class="dv">15</span>)</span>
+<span id="cb28-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="print-clusters" class="slide level2 center">
+<h2>Print clusters</h2>
+<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
+<div id="de664697" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>print_clusters(recipes_df, km_labels_dict[<span class="dv">14</span>], random_state<span class="op">=</span><span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cluster 0
+----------
+creamy mushroom   roasted onion soup
+regular 13 bean soup
+mushroom and split pea soup
+green cheese soup
+roasted red pepper soup with tomato   feta
+cabbage soup with cheese
+cheesy chicken tortilla soup
+sweet potato soup  curried kumara soup
+basque lentil potato soup
+hillbilly soup
+
+
+
+Cluster 1
+----------
+chocolate chunk muffins
+almond creme bars
+creamy buttermilk scones
+super sized ginger chewies
+strawberry greek yogurt balsamic muffins
+kahlua chocolate pecan pie
+peanut butter brownie bars
+snickers cream pie
+amy s ranch cheese ball
+artpark brownies
+
+
+
+Cluster 2
+----------
+tomato lentil pasta sauce
+goat cheese   marinated peppers
+bobby flay s hot wings with blue cheese yogurt sauce
+baked cavatini
+pizza bubble ring
+grandma szcz s spaghetti sauce
+chorizo potato quesadillas
+cornbread with jalapeno peppers
+macaroni and bacon casserole
+tomato   maple syrup glazed drumsticks
+
+
+
+Cluster 3
+----------
+oatmeal coconut chocolate chip cookies
+cherry chocolate oat bars
+oatmeal cookies w white chocolate chips and cranberries
+kossmans oatmeal cookies
+oatmeal peanut butter chip cookies
+levain bakery oatmeal raisin scones
+chocolate chocolate chip oatmeal cookies
+oatmeal banana bread cookies
+brown sugar oatmeal muffins
+weight watchers banana oatmeal cookies 1 pt
+
+
+
+Cluster 4
+----------
+slow cooker crock pot thai red curry chicken
+easy mediterranean chicken
+cat cora s crispy baked  fried  chicken
+tequila lime chicken breasts
+chinese  brown sauce  chicken
+walnut chicken with lime sauce
+big john s grilled chicken with gouda sauce   cilantro pesto
+baked chicken chimichanga
+chicken l  orange
+somerset chicken
+
+
+
+Cluster 5
+----------
+the life changing loaf of bread
+granny s southern cornbread dressing
+swedish thin bread
+apple cranberry bread
+sweet bread pudding
+oat flour pumpkin bread
+scrumptious pumpkin spice  bread
+carrot apple zucchini bread
+best banana bread recipe
+machine mixed whole wheat sandwich bread
+
+
+
+Cluster 6
+----------
+southwestern vegetable stew
+nutty cranberry scones
+moroccan spiced nuts
+texas tater tots casserole
+chinese water chestnuts
+regina s lazy golamki  lazy cabbage rolls
+indian potatoes
+creamy ham and potatoes
+veggie calzones   5 ww points
+shepherd s vegetable pie
+
+
+
+Cluster 7
+----------
+chocolate cherry rye cake with cherry chip mocha glaze
+gooey mandarin cake
+low fat lemon poppy seed cake
+yellow pudding cake with chocolate chips
+banana white chocolate cake with icing   absolutely decadent
+1930 recipe for mincemeat cake
+japanese green tea kasutera cake
+gamma d s boiled spice cake
+buttermilk spice cake
+p m s  cake
+
+
+
+Cluster 8
+----------
+zucchini salsa burgers
+quick and creamy sausage and pasta
+barbecued meatballs
+veal piccata meatloaf
+budget swiss style steak
+steakhouse meatloaf
+orange scented beef stir fry
+creamy swiss steak
+wing king s bbq buffalo wings
+franks  n beans with bacon and cheddar
+
+
+
+Cluster 9
+----------
+7th inning stretch layered potato salad
+green spring salad
+greek salad with shredded chicken
+enlightened caesar salad
+spring barley salad
+spinach mushroom salad
+jen s taco salad
+my best salad dressing
+lemony caesar salad dressing
+lime horseradish salad
+
+
+
+Cluster 10
+----------
+nutcracker
+take out tabbouleh
+matcha cocoa
+mutabbak
+enchiladas de pollo   paula deen
+bamieh okra  and lamb  middle east  palestine
+hazelnut torte
+carmelitas
+goober bars
+grilled baby bok choy
+
+
+
+Cluster 11
+----------
+toffee bits cookies
+almond flour stevia cookies
+fannie farmer sugar cookies
+jack s chocolate chip cookies
+rocky road cookie sandwiches
+kelly s amazing andes mint thumbprint cookies
+swedish sugar cookies
+kamish bread   cookies
+chocolate malted whopper cookies
+white chip chocolate cookies
+
+
+
+Cluster 12
+----------
+deliciously soft gingersnaps
+peachtree martini
+pomegrante martini
+strawberry or raspberry margarita
+black santa martini
+mcdonald s vanilla iced coffee
+peach margarita
+lime in de coconut macaroons
+banana paralyzer
+italian stallion cocktail
+
+
+
+Cluster 13
+----------
+hellman s country style coleslaw
+all purpose hawaiian marinade
+red cabbage coleslaw  rotkohlsalat
+sarasota s shrimp burgers  avocado and a chili lime mayo
+victory s good homemade country coleslaw
+indian spiced salmon
+cheddar biscuits   red lobster style
+mediterranean shrimp wraps
+crispy squid with orange chipotle vinaigrette
+lobster tails
+
+
+</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="multimodal-clip" class="slide level2 center">
+<h2>Multimodal (CLIP)</h2>
 <ul>
 <li>Input: image + several possible captions</li>
 <li>CLIP computes similarity scores between image and each caption</li>
@@ -1116,8 +2234,50 @@ Speed: 2.4ms preprocess, 110.1ms inference, 7.4ms postprocess per image at shape
 </ul></li>
 </ul>
 </section>
+<section id="which-text-string-is-this-picture-most-similar-to" class="slide level2 center">
+<h2>Which text string is this picture most similar to?</h2>
+<ul>
+<li>Caption 1: a girl walking in the trails</li>
+<li>Caption 2: two cats playing</li>
+</ul>
+
+<img data-src="slides-05-embeddings_files/figure-revealjs/cell-23-output-1.png" class="r-stretch"></section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div id="41a222a3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>model, preprocess <span class="op">=</span> clip.load(<span class="st">"ViT-B/32"</span>, device<span class="op">=</span><span class="st">"cpu"</span>)</span>
+<span id="cb31-2"><a></a>image <span class="op">=</span> preprocess(Image.<span class="bu">open</span>(<span class="st">"img/cats_playing.jpg"</span>)).unsqueeze(<span class="dv">0</span>)</span>
+<span id="cb31-3"><a></a>text <span class="op">=</span> clip.tokenize([<span class="st">"a girl walking in the trails"</span>, <span class="st">"two cats playing"</span>, ])</span>
+<span id="cb31-4"><a></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb31-5"><a></a>    logits_per_image, logits_per_text <span class="op">=</span> model(image, text)</span>
+<span id="cb31-6"><a></a>    probs <span class="op">=</span> logits_per_image.softmax(dim<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb31-7"><a></a>probs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>tensor([[1.6534e-08, 1.0000e+00]])</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+</section>
+<section id="captions-and-images" class="slide level2 smaller center">
+<h2>Captions and images</h2>
+<ul>
+<li>Caption 1: A girl walking in the trails</li>
+<li>Caption 2: A woman walking her dog on a leash</li>
+<li>Caption 3: Two cats playing</li>
+<li>Caption 4: A group of people hiking</li>
+<li>Caption 5: Canada wins hockey</li>
+<li>Caption 6: Cherry blossoms on UBC campus</li>
+</ul>
+
+<img data-src="slides-05-embeddings_files/figure-revealjs/cell-26-output-1.png" class="r-stretch"></section>
+<section id="similarities-between-captions-and-images" class="slide level2 center">
+<h2>Similarities between captions and images</h2>
+
+<img data-src="slides-05-embeddings_files/figure-revealjs/cell-27-output-1.png" class="r-stretch"></section>
 <section id="real-world-scientific-use-cases" class="slide level2 center">
-<h2>Real-World Scientific Use Cases</h2>
+<h2>Real-world scientific use cases</h2>
 <ul>
 <li><strong>RNA-seq clustering</strong>: gene expression <span class="math inline">\(\rightarrow\)</span> embedding <span class="math inline">\(\rightarrow\)</span> UMAP</li>
 <li><strong>Rock photo classification</strong>: ResNet for mineral detection</li>
@@ -1125,37 +2285,46 @@ Speed: 2.4ms preprocess, 110.1ms inference, 7.4ms postprocess per image at shape
 <li><strong>Chemical reaction prediction</strong>: ChemBERTa for SMILES strings</li>
 </ul>
 </section>
-<section id="reflection-discussion" class="slide level2 center">
-<h2>Reflection &amp; Discussion</h2>
+<section id="reflection-and-discussion" class="slide level2 center">
+<h2>Reflection and discussion</h2>
+<p>✨ We hope you now see how embeddings and pretrained models can power up your research.</p>
+<ul>
+<li>Checkout <a href="https://docs.google.com/presentation/d/1LTw-oyQSQ0rNNend7jogW3tv3GDs11zdhxQZCCvoJoQ/edit?usp=sharing">these example projects from UBC</a>, and you will see that many of them use pre-trained models and embeddings.</li>
+</ul>
 <p><strong>Prompt</strong>: What kinds of data in your research could be turned into embeddings?</p>
 <ul>
 <li>Text? Images? Molecules? Signals?</li>
 <li>What would you want to compare, cluster, or visualize?</li>
 </ul>
-<div class="note">
-<p>Consider pairing up or discussing in small groups.</p>
-</div>
 </section>
 <section id="wrap-up-resources" class="slide level2 center">
-<h2>Wrap-Up &amp; Resources</h2>
+<h2>Wrap-up &amp; resources</h2>
 <ul>
 <li><strong>Embeddings</strong> let you encode complex input into useful numbers</li>
 <li><strong>Pretrained models</strong> save time, data, and compute</li>
 <li>These tools are ready to use, even for small datasets</li>
 </ul>
-<p><strong>Resources</strong>: - <a href="https://huggingface.co/models">Hugging Face Model Hub</a> - <a href="https://www.sbert.net/">Sentence Transformers</a> - <a href="https://huggingface.co/openai/clip-vit-base-patch32">CLIP demo</a> - Sample notebooks on Colab (to be shared)</p>
+<p><strong>Resources</strong>:</p>
+<ul>
+<li>Some domain-specific embeddings to explore:
+<ul>
+<li><strong>ESM-2</strong>, <strong>ProtBERT</strong> (proteins)</li>
+<li><strong>ChemBERTa</strong>, <strong>Graphormer</strong> (molecules)</li>
+</ul></li>
+<li><a href="https://huggingface.co/models">Hugging Face Model Hub</a></li>
+<li><a href="https://www.sbert.net/">Sentence Transformers</a></li>
+<li><a href="https://huggingface.co/openai/clip-vit-base-patch32">CLIP demo</a></li>
+</ul>
 </section>
-<section id="thank-you" class="slide level2 center">
-<h2>Thank You!</h2>
-<p>✨ We hope you now see how embeddings and pretrained models can power up your research.</p>
-<p>Questions? Thoughts? Let’s discuss.</p>
+<section class="slide level2 center">
+
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

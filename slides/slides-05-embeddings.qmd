@@ -13,7 +13,9 @@ import numpy as np
 import pandas as pd
 import sys, os
 sys.path.append(os.path.join(os.path.abspath("."), "code"))
+from unsupervised_learning_code import *
 from deep_learning_code import *
+from plotting_functions import *
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from torchvision import datasets, models, transforms, utils
@@ -23,7 +25,7 @@ import matplotlib.image as mpimg
 %matplotlib inline
 ```
 
-## 🎯 Learning Objectives
+## 🎯 Learning objectives
 \
 
 By the end of this session, participants should be able to:
@@ -32,27 +34,10 @@ By the end of this session, participants should be able to:
 - Gain a high-level understanding of transfer learning.
 - Distinguish between training a model from scratch vs. using a pre-trained one
 - Use transfer learning for your own tasks. 
-- Generate and visualize embeddings from images, text, and structured data
-- Use pre-trained models (e.g., MiniLM, ResNet, CLIP) for scientific tasks
-- Identify ML tasks in their own domain that could benefit from embeddings
+- Generate and visualize embeddings from images and text
+- Use pre-trained models (e.g., MiniLM, DenseNet, CLIP)
+- Identify ML tasks in your own domain that could benefit from embeddings
 
-## What are embeddings?
-
-- Embeddings are **numerical vector representations** of complex objects
-- Similar inputs $\rightarrow$ nearby vectors
-
-
-## Why embeddings:
-  - Similarity search
-  - Clustering
-  - Visualization
-  - Downstream ML models
-
-::: {.fragment .fade-in}
-**Analogy**: Embeddings are like a **Google Map of meaning** — you can calculate distances between concepts.
-:::
-
----
 
 ## Why Pretrained Models?
 
@@ -62,43 +47,36 @@ By the end of this session, participants should be able to:
   - Extract features (embeddings)
   - Fine-tune on your domain-specific task
 
-**Examples**:
+## What are embeddings?
 
-- Use `MiniLM` to embed scientific abstracts
-- Use `ResNet` to embed microscope images
+- Embeddings are **numerical vector representations** of complex objects
+- They enable us to calculate distances between concepts 
+  - Similar inputs $\rightarrow$ nearby vectors
 
----
+![](img/t-SNE_word_embeddings.png)
 
-## Types of Embeddings and Pretrained Models
+## Embeddings are commonly used for 
 
-### Text
+  - Similarity search
+  - Clustering
+  - Visualization
+  - Downstream ML models
+
+## Popular embeddings  
+
+**Image**
+
+- **DenseNet**, **ResNet**, **ViT**
+- Input: microscopy images, wildlife, rock photos
+
+**Text**
+
+- **Word embeddings**
 - **MiniLM**, **Sentence-BERT**
 - Input: research descriptions, abstracts, feedback
 
-### Image
-- **ResNet**, **ViT**
-- Input: microscopy images, wildlife, rock photos
 
-### Multimodal
-- **CLIP**
-- Input: image-text pairs (e.g., photo + caption)
-
-### Domain-Specific
-- **ESM-2**, **ProtBERT** (proteins)
-- **ChemBERTa**, **Graphormer** (molecules)
-
----
-
-## Hands-On Option A: Text Embeddings (MiniLM)
-
-- Load 10 short research descriptions (or participants' own)
-- Use `sentence-transformers` to compute embeddings
-- Visualize similarity with:
-  - Cosine similarity matrix
-  - PCA or t-SNE plot
-
----
-
+# Image embeddings 
 
 ## Introduction to computer vision
 \
@@ -258,7 +236,7 @@ Here is the stat of our toy dataset.
 ```
 
 
-## Pre-trained models to extract features 
+## Extract features (embeddings)
 \
 
 - Now for each image in our dataset, we'll extract a feature vector from a pre-trained model called densenet121, which is trained on the ImageNet dataset.  
@@ -271,10 +249,10 @@ Z_train, y_train, Z_valid, y_valid = get_features(
 )
 ```
 
-## Shape of the feature vector
+## Shape of the embeddings
 \
 
-- Now we have extracted feature vectors for all examples. What's the shape of these features?
+- Now we have extracted feature vectors for all examples. What's the shape of these features or embeddings?
 
 ```{python}
 Z_train.shape
@@ -286,7 +264,7 @@ Z_train.shape
 
 [Source](https://towardsdatascience.com/understanding-and-visualizing-densenets-7f688092391a)
 
-## A feature vector given by densenet 
+## Embeddings given by densenet 
 \ 
 
 - Let's examine the feature vectors. 
@@ -327,6 +305,51 @@ show_predictions(pipe, Z_valid, y_valid, dataloaders['valid'], class_names, num_
 ```
 :::
 
+
+## Let's cluster images!! 
+\
+
+What if we don't have any labels and we want to cluster these images? 
+
+```{python}
+data_dir = "data/food/train"
+file_names = [image_file for image_file in glob.glob(data_dir + "/*/*.jpg")]
+n_images = len(file_names)
+BATCH_SIZE = n_images  # because our dataset is quite small
+food_inputs, food_classes = read_img_dataset(data_dir, BATCH_SIZE)
+X_food = food_inputs.numpy()
+plot_sample_imgs(food_inputs[0:24,:,:,:])
+```
+
+## K-Means on food dataset
+\
+
+```{python}
+#| echo: true
+densenet = models.densenet121(weights="DenseNet121_Weights.IMAGENET1K_V1")
+densenet.classifier = torch.nn.Identity()  # remove that last "classification" layer
+```
+
+```{python}
+#| echo: true
+Z_food = get_features_unsup(densenet, food_inputs)
+k = 5
+km = KMeans(n_clusters=k, n_init='auto', random_state=123)
+km.fit(Z_food)
+```
+
+## Examining food clusters
+\
+
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+#| echo: true
+for cluster in range(k):
+    get_cluster_images(km, Z_food, X_food, cluster, n_img=6)
+
+```
+:::
 
 ## Object detection 
 \
@@ -387,16 +410,56 @@ plt.show()
 :::
 
 
-## Hands-On Option B: Image Embeddings (ResNet)
+# Sentence embeddings 
 
-- Use pretrained ResNet from PyTorch or HuggingFace
-- Extract image embeddings
-- Compare images using cosine similarity
-- Optional: cluster or visualize
+## Document clustering
 
----
+Let's cluster these recipe names: 
 
-## Hands-On Option C: Multimodal (CLIP)
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+recipes_df = pd.read_csv("data/recipes_sample.csv")
+recipes_df["name"].head(50)
+```
+:::
+
+## Recipe names embeddings {.smaller}
+
+```{python}
+#| echo: true
+from sentence_transformers import SentenceTransformer
+embedder = SentenceTransformer('all-MiniLM-L6-v2')
+recipe_names = recipes_df["name"].tolist()
+embeddings = embedder.encode(recipe_names)
+recipe_names_embeddings = pd.DataFrame(
+    embeddings,
+    index=recipes_df.index,
+)
+recipe_names_embeddings.head()
+```
+
+## Cluster embeddings
+
+```{python}
+#| echo: true
+np.random.seed(42)
+km_labels_dict = {
+    k: KMeans(k, n_init='auto', random_state=123).fit(embeddings).predict(embeddings)
+    for k in np.arange(4, 15)
+}
+```
+
+## Print clusters
+::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
+
+```{python}
+#| echo: true
+print_clusters(recipes_df, km_labels_dict[14], random_state=123)
+```
+:::
+
+## Multimodal (CLIP)
 
 - Input: image + several possible captions
 - CLIP computes similarity scores between image and each caption
@@ -405,9 +468,110 @@ plt.show()
   - **Text-to-image search**
   - **Image-to-text retrieval**
 
+
+## Which text string is this picture most similar to?
+
+- Caption 1: a girl walking in the trails
+- Caption 2: two cats playing
+
+```{python}
+import clip
+import torch
+from PIL import Image
+
+img = Image.open("img/cats_playing.jpg")
+plt.imshow(img);
+```
+
+## 
+```{python}
+#| echo: true
+model, preprocess = clip.load("ViT-B/32", device="cpu")
+image = preprocess(Image.open("img/cats_playing.jpg")).unsqueeze(0)
+text = clip.tokenize(["a girl walking in the trails", "two cats playing", ])
+with torch.no_grad():
+    logits_per_image, logits_per_text = model(image, text)
+    probs = logits_per_image.softmax(dim=-1)
+probs
+```
+
+##
+```{python}
+import seaborn as sns
+import os
+
+# Load model
+device = "cuda" if torch.cuda.is_available() else "mps"
+model, preprocess = clip.load("ViT-B/32", device=device)
+
+# Paths to images
+image_paths = [
+    "img/cats_playing.jpg",
+    "img/woman_walking_her_dog_on_a_leash.jpg",
+    "img/canada-wins-4-nations-cup.jpeg",
+    "img/cherry-blossoms.jpg"
+]
+
+# captions
+captions = [
+    "A girl walking in the trails",
+    "A woman walking her dog on a leash",
+    "Two cats playing",
+    "A group of people hiking",
+    "Canada wins hockey",
+    "Cherry blossoms on UBC campus"    
+]
+
+# Preprocess images
+original_images = [Image.open(p) for p in image_paths]
+images = [preprocess(img).unsqueeze(0).to(device) for img in original_images]
+images_tensor = torch.cat(images, dim=0)
+
+# Tokenize text
+text_tokens = clip.tokenize(captions).to(device)
+
+# Encode
+with torch.no_grad():
+    image_features = model.encode_image(images_tensor)
+    text_features = model.encode_text(text_tokens)
+
+    # Normalize
+    image_features /= image_features.norm(dim=-1, keepdim=True)
+    text_features /= text_features.norm(dim=-1, keepdim=True)
+
+    # Similarity matrix
+    similarity = image_features @ text_features.T
+    similarity_np = similarity.cpu().numpy()
+```
 ---
 
-## Real-World Scientific Use Cases
+## Captions and images {.smaller}
+
+- Caption 1: A girl walking in the trails 
+- Caption 2: A woman walking her dog on a leash
+- Caption 3: Two cats playing
+- Caption 4: A group of people hiking
+- Caption 5: Canada wins hockey
+- Caption 6: Cherry blossoms on UBC campus
+
+```{python}
+plt.figure(figsize=(10, 3))
+for i, img in enumerate(original_images):
+    ax = plt.subplot(1, len(original_images), i + 1)
+    ax.imshow(img)
+    ax.set_title(f"Image {i+1}")
+    ax.axis("off")
+plt.suptitle("Test Images", fontsize=16)
+plt.tight_layout()
+plt.show()
+```
+
+## Similarities between captions and images
+```{python}
+plot_img_caption_similarities(original_images, captions, similarity_np)
+```
+
+## Real-world scientific use cases
 
 - **RNA-seq clustering**: gene expression $\rightarrow$ embedding $\rightarrow$ UMAP
 - **Rock photo classification**: ResNet for mineral detection
@@ -416,35 +580,32 @@ plt.show()
 
 ---
 
-## Reflection & Discussion
+## Reflection and discussion 
+
+✨ We hope you now see how embeddings and pretrained models can power up your research.
+
+- Checkout [these example projects from UBC](https://docs.google.com/presentation/d/1LTw-oyQSQ0rNNend7jogW3tv3GDs11zdhxQZCCvoJoQ/edit?usp=sharing), and you will see that many of them use pre-trained models and embeddings.
 
 **Prompt**: What kinds of data in your research could be turned into embeddings?
 
 - Text? Images? Molecules? Signals?
 - What would you want to compare, cluster, or visualize?
 
-::: {.note}
-Consider pairing up or discussing in small groups.
-:::
-
 ---
 
-## Wrap-Up & Resources
+## Wrap-up & resources
 
 - **Embeddings** let you encode complex input into useful numbers
 - **Pretrained models** save time, data, and compute
 - These tools are ready to use, even for small datasets
 
 **Resources**:
+
+- Some domain-specific embeddings to explore: 
+  - **ESM-2**, **ProtBERT** (proteins)
+  - **ChemBERTa**, **Graphormer** (molecules)
 - [Hugging Face Model Hub](https://huggingface.co/models)
 - [Sentence Transformers](https://www.sbert.net/)
 - [CLIP demo](https://huggingface.co/openai/clip-vit-base-patch32)
-- Sample notebooks on Colab (to be shared)
 
 ---
-
-## Thank You!
-
-✨ We hope you now see how embeddings and pretrained models can power up your research.
-
-Questions? Thoughts? Let’s discuss.

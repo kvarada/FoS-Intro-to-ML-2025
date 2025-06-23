@@ -126,7 +126,7 @@ def show_predictions(pipe, Z_valid, y_valid, dataloader, class_names, num_images
                 ax = plt.subplot(num_images // 5, 5, images_so_far + 1)  # 5 images per row
                 ax.axis('off')
                 ax.set_title(f'Predicted: {class_names[int(preds[images_so_far])]}'
-                             f'\nTrue: {class_names[int(y_valid[images_so_far])]}')
+                             f'\nTrue: {class_names[int(y_valid[images_so_far])]}', fontsize=9)
                 inp = inputs.data[j].numpy().transpose((1, 2, 0))
                 mean = np.array([0.5, 0.5, 0.5])
                 std = np.array([0.5, 0.5, 0.5])

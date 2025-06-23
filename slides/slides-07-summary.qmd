@@ -58,3 +58,18 @@ editor:
 - Your input will also help us advocate for organizing more workshops like this in the future.
 
 ![](img/eva-signing-off.png)
+
+
+## What to learn more? 
+
+Here are some resources if you want to dig deeper
+
+- Books 
+  - 
+  - [Understanding Deep Learning](https://udlbook.github.io/udlbook/)
+- UBC courses 
+  - [CPSC 340](), [CPSC 330](),  
+
+
+
+
