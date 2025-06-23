@@ -17,6 +17,4 @@ editor: { render-on-save: true }
 
 - Neural networks in a nutshell
 - What is deep learning? How is it different from traditional ML?
-- Image classification with pretrained CNNs (e.g., ResNet)
-- Using pretrained models as feature extractors
-- Brief demo or mention of object detection (YOLO)
+- Different architectures of neural networks 
