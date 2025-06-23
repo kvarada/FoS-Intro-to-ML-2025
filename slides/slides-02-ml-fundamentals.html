@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Introduction to Machine Learning Workshop – Introduction to Machine Learning</title>
+  <title>Introduction to Machine Learning Workshop – Machine Learning Fundamentals</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -328,41 +329,24 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction to Machine Learning</h1>
+  <h1 class="title">Machine Learning Fundamentals</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="introduction-to-machine-learning" class="slide level2 center">
-<h2>Introduction to Machine Learning</h2>
-<p><br>
-Machine Learning uses computer programs to digest and accurately model data. After <em>training</em> on the data, a program can be used to extract hidden patterns, make predictions in new situations or generate novel content.</p>
-<p>The program learns based on the <em>features</em> present in the data, which represent the information we have about each example.</p>
-</section>
-<section id="introduction-to-machine-learning-1" class="slide level2 center">
-<h2>Introduction to Machine Learning</h2>
+<section id="ml-terminology" class="slide level2">
+<h2>ML terminology</h2>
 <p>&nbsp;</p>
 
 <img data-src="img/sup-ML-terminology.png" class="r-stretch"></section>
-<section id="activity-1" class="slide level2 center">
-<h2>Activity 1</h2>
-<p><br>
-Write one (or several) problems in your area of work where you think Machine Learning could be applied. Try to address the following questions:</p>
-<ul>
-<li>What goal are you trying to accomplish? What would an ideal solution to your problem look like?</li>
-<li>How would a human solve this problem? What approaches are presently available and utilized?</li>
-<li>What kind of data is available to you, or might be collected? What features are present in the data?</li>
-</ul>
-<p>One of the learning objectives of the workshop will be to determine whether your goal is best addressed using supervised machine learning, inferential statistics, unsupervised learning, deep learning, generative AI, or a non-ML solution.</p>
-</section>
-<section id="classification-vs.-regression" class="slide level2 center">
+<section id="classification-vs.-regression" class="slide level2">
 <h2>Classification vs.&nbsp;Regression</h2>
 <p><br>
 </p>
 
 <img data-src="img/classification-vs-regression.png" class="r-stretch"></section>
-<section id="measuring-performance" class="slide level2 center">
+<section id="measuring-performance" class="slide level2">
 <h2>Measuring Performance</h2>
 <p><br>
 </p>
@@ -371,7 +355,7 @@ Write one (or several) problems in your area of work where you think Machine Lea
 <li><p>Performance on a regression task can be measured based on <em>error</em>. Mean squared error is one choice, but there are many others!</p></li>
 </ul>
 </section>
-<section id="inference-vs.-prediction" class="slide level2 center">
+<section id="inference-vs.-prediction" class="slide level2">
 <h2>Inference vs.&nbsp;Prediction</h2>
 <p><br>
 </p>
@@ -380,7 +364,7 @@ Write one (or several) problems in your area of work where you think Machine Lea
 <li><p><em>Prediction</em> is the use of a model to predict the target value for a new example not seen in training.</p></li>
 </ul>
 </section>
-<section id="what-outcome-do-we-care-about" class="slide level2 center">
+<section id="what-outcome-do-we-care-about" class="slide level2">
 <h2>What outcome do we care about?</h2>
 <p><br>
 </p>
@@ -390,13 +374,13 @@ Write one (or several) problems in your area of work where you think Machine Lea
 <li><p>Of course, these goals are related, so in many situations we may be interested in both.</p></li>
 </ul>
 </section>
-<section id="example-linear-regression" class="slide level2 center">
+<section id="example-linear-regression" class="slide level2">
 <h2>Example: Linear Regression</h2>
 <p><br>
 <img data-src="img/visualization.png"></p>
 <p>Is this inference or prediction?</p>
 </section>
-<section id="types-of-machine-learning" class="slide level2 center">
+<section id="types-of-machine-learning" class="slide level2">
 <h2>Types of Machine Learning</h2>
 <p><br>
 There are many kinds of machine learning, including</p>
@@ -409,25 +393,25 @@ There are many kinds of machine learning, including</p>
 </ul>
 <p>We will also discuss which problems each type might be best suited for.</p>
 </section>
-<section id="supervised-learning" class="slide level2 center">
+<section id="supervised-learning" class="slide level2">
 <h2>Supervised Learning</h2>
 <p><br>
 Here the training data is comprised of a set of <em>features</em>, and each example comes with a corresponding <em>target</em>. The goal is to get a machine learning model to accurately predict the target based on the feature values.</p>
 <p>Examples could include spam filtering, face recognition or weather forecasting.</p>
 <p>By contrast, in unsupervised learning there are no targets. The goal is instead to uncover underlying patterns. These can be used to provide a concise summary of the data, or group similar examples together. Examples could include customer segmentation, anomaly detection or online recommendation systems (think Netflix).</p>
 </section>
-<section id="activity-2" class="slide level2 center">
+<section id="activity-2" class="slide level2">
 <h2>Activity 2</h2>
 <p>&nbsp;</p>
 <p>Return to the problems you identified in Activity 1. Try to decide if they involve performing inference or prediction.</p>
 <p>Also suggest whether you think they are best approached with supervised or unsupervised learning. What aspects of the problem particularly suggest one approach over another?</p>
 </section>
-<section id="a-simple-supervised-learning-model" class="slide level2 center">
+<section id="a-simple-supervised-learning-model" class="slide level2">
 <h2>A Simple Supervised Learning Model</h2>
 <p><br>
 We will use a simple machine learning model– a decision tree– to demonstrate some fundamental concepts in machine learning. Suppose we have the following dataset:<br>
 </p>
-<div id="6384c6de" class="cell" data-execution_count="1">
+<div id="1833f1c8" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <style scoped="">
@@ -522,59 +506,59 @@ We will use a simple machine learning model– a decision tree– to demonstrate
 </div>
 <p>&nbsp; How would you go about predicting the Quiz 2 grade?</p>
 </section>
-<section id="decision-trees" class="slide level2 center">
+<section id="decision-trees" class="slide level2">
 <h2>Decision Trees</h2>
 <p><br>
 A decision tree iteratively splits the data by asking questions about feature values.</p>
 <p>The algorithm tries to ask questions that best separate one class from another. It’s like a game of twenty questions!</p>
 </section>
-<section id="a-decision-stump" class="slide level2 center">
+<section id="a-decision-stump" class="slide level2">
 <h2>A Decision Stump</h2>
 <p><br>
 </p>
 
 <img data-src="slides-02-ml-fundamentals_files/figure-revealjs/cell-3-output-1.png" class="r-stretch"><p>We could start by splitting the data based on the students’ Lab 3 grades.</p>
 </section>
-<section id="iterating-the-procedure" class="slide level2 center">
+<section id="iterating-the-procedure" class="slide level2">
 <h2>Iterating the procedure</h2>
 <p>&nbsp;</p>
 
 <img data-src="slides-02-ml-fundamentals_files/figure-revealjs/cell-4-output-1.png" class="r-stretch"><p>Then we further split each of the resulting nodes, again asking questions involving features in the dataset.</p>
 </section>
-<section id="building-a-decision-tree" class="slide level2 center">
+<section id="building-a-decision-tree" class="slide level2">
 <h2>Building a Decision Tree</h2>
 <p>&nbsp;</p>
 
 <img data-src="slides-02-ml-fundamentals_files/figure-revealjs/cell-5-output-1.png" class="r-stretch"></section>
-<section id="decision-boundary" class="slide level2 center">
+<section id="decision-boundary" class="slide level2">
 <h2>Decision Boundary</h2>
 <p><br>
 The first two questions in our tree involved Lab 3 and Quiz 1 grades. We can make a plot involving these two features to better understand our tree.</p>
 
 <img data-src="img/dbound.png" class="r-stretch"></section>
-<section id="model-parameters" class="slide level2 center">
+<section id="model-parameters" class="slide level2">
 <h2>Model Parameters</h2>
 <p><br>
 </p>
 <p>During training, the model decides which feature to use to split at each node. It also decides which value of the feature to split at. This is the ‘learning’ phase, where the algorithm is trying different options and selecting the ‘best’ feature and value for splitting.</p>
 </section>
-<section id="hyperparameters" class="slide level2 center">
+<section id="hyperparameters" class="slide level2">
 <h2>Hyperparameters</h2>
 <p><br>
 The maximum depth of a decision tree (at most how many questions it asks) is a <em>hyper-parameter</em> of the model. We can build different trees to test which choice of hyper-parameter gives the best result.</p>
 <p>Some models may have a continuous range of options for a given hyper-parameter. This gives rise to a potentially infinite choice of “models” to test.</p>
 </section>
-<section id="trying-to-recognize-faces" class="slide level2 center">
+<section id="trying-to-recognize-faces" class="slide level2">
 <h2>Trying to Recognize Faces</h2>
 <p><br>
 To demonstrate some fundamental concepts in machine learning, we will attempt to biuld a decision tree that can recognize faces. Our data will be taken from the Olivetti Faces dataset, which is a collection of 400 images of faces.</p>
 <p>The labels correspond to the forty individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo.</p>
 </section>
-<section id="a-look-at-the-data" class="slide level2 center">
+<section id="a-look-at-the-data" class="slide level2">
 <h2>A Look at the Data</h2>
 <p><br>
 Each photo is 64x64 pixels in grayscale. The images are represented by a row of pixel intensities showing how dark each individual pixel should be.</p>
-<div id="163fd8c5" class="cell" data-execution_count="5">
+<div id="6bf14a51" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
@@ -698,23 +682,23 @@ Each photo is 64x64 pixels in grayscale. The images are represented by a row of 
 </div>
 </div>
 </div>
-<div id="cc4433af" class="cell" data-execution_count="6">
+<div id="e5d48fad" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>The dataset has 4096 features.</code></pre>
 </div>
 </div>
 </section>
-<section id="a-decision-tree-classifier" class="slide level2 center">
+<section id="a-decision-tree-classifier" class="slide level2">
 <h2>A Decision Tree Classifier</h2>
 <p><br>
 We can build a decision tree classifier on the dataset of faces and see how it performs. For now we will train on a random subset of the data that contains 80% of the images (we’ll explain why later)</p>
 <p>Let’s see how accurate this model gets after training.</p>
 </section>
-<section id="a-decision-tree-classifier-1" class="slide level2 center">
+<section id="a-decision-tree-classifier-1" class="slide level2">
 <h2>A Decision Tree Classifier</h2>
 <p><br>
 </p>
-<div id="61d0ab76" class="cell" data-execution_count="7">
+<div id="5f82d9ed" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>The model classified 100.0% of training examples correctly by 
  building a decision tree of depth 42</code></pre>
@@ -724,43 +708,43 @@ We can build a decision tree classifier on the dataset of faces and see how it p
 That’s very accurate indeed! Maybe decision trees are a really good way to detect and classify faces.</p>
 <p>Remember, we only trained on 80% of the data. Let’s see how our model performs on the remaining 20%</p>
 </section>
-<section id="did-we-build-a-good-model" class="slide level2 center">
+<section id="did-we-build-a-good-model" class="slide level2">
 <h2>Did we build a good model?</h2>
 <p><br>
 </p>
-<div id="e94f4724" class="cell" data-execution_count="8">
+<div id="0a7f35a1" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
-<pre><code>The model acheived an accuracy of 46.25% on new data</code></pre>
+<pre><code>The model acheived an accuracy of 45.0% on new data</code></pre>
 </div>
 </div>
 <p><br>
 …oops.</p>
 </section>
-<section id="whats-going-on" class="slide level2 center">
+<section id="whats-going-on" class="slide level2">
 <h2>What’s going on?</h2>
 
 <img data-src="slides-02-ml-fundamentals_files/figure-revealjs/cell-10-output-1.png" class="r-stretch"></section>
-<section id="practice-makes-perfect" class="slide level2 center">
+<section id="practice-makes-perfect" class="slide level2">
 <h2>Practice makes perfect</h2>
 <p><br>
 Our deep decision tree likely just memorized the dataset. After all, with a tree of depth 38, we could actually memorize up to 2<sup>38</sup> distinct examples!</p>
 <p>Clearly this does not make for a good model. We want a model that can recognize faces, even when they appear in new images.</p>
 </section>
-<section id="overfitting" class="slide level2 center">
+<section id="overfitting" class="slide level2">
 <h2>Overfitting</h2>
 <p><br>
 <em>Overfitting</em> refers to a situation where the model learns noise from the training data, leading to a poor performance when deployed on new data.</p>
 <p>Complex models are prone to overfitting– we cannot just rely on training error to measure their performance. Simple models typically have similar train and test errors, but both will be high.</p>
 </section>
-<section id="section" class="slide level2 center">
+<section id="section" class="slide level2">
 <h2></h2>
 <p>Thus we have our “fundamental tradeoff”: as we increase model complexity, the training error will reduce but the gap between training and test error will increase.</p>
 </section>
-<section id="section-1" class="slide level2 center">
+<section id="section-1" class="slide level2">
 <h2></h2>
 
 <img data-src="img/spot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="scenario-1" class="slide level2 center">
+<section id="scenario-1" class="slide level2">
 <h2>Scenario 1</h2>
 <p><br>
 Your colleague is trying to build a machine learning model to detect cancers in medical imaging. They know about overfitting, so they separate their data into a training set and a test set.</p>
@@ -768,14 +752,14 @@ Your colleague is trying to build a machine learning model to detect cancers in 
 <p>The best model achieves 99% accuracy on the test set. Your colleague tells you they have found a machine learning model that diagnoses cancer with 99% accuracy.</p>
 <p><strong>Do you believe them?</strong></p>
 </section>
-<section id="the-golden-rule-of-machine-learning" class="slide level2 center">
+<section id="the-golden-rule-of-machine-learning" class="slide level2">
 <h2>The Golden Rule of Machine Learning</h2>
 <p><br>
 By using the same test set for each of the 10,000 models they tried, your colleague has violated the <em>golden rule of machine learning</em>.</p>
 <p>The golden rule tells us that <strong>test data must not influence the model training in any way</strong>.</p>
 <p>Even though your colleague never directly trained on test data, they used test data multiple times to validate model performance. As a result, they may have found good performance <em>purely by accident</em>.</p>
 </section>
-<section id="scenario-2" class="slide level2 center">
+<section id="scenario-2" class="slide level2">
 <h2>Scenario 2</h2>
 <p><br>
 Your colleague now separates their data into a training set, a validation set <em>and</em> a test set.</p>
@@ -805,7 +789,6 @@ Your colleague now separates their data into a training set, a validation set <e
   <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -820,7 +803,7 @@ Your colleague now separates their data into a training set, a validation set <e
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -840,7 +823,7 @@ Your colleague now separates their data into a training set, a validation set <e
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -869,7 +852,7 @@ Your colleague now separates their data into a training set, a validation set <e
         disableLayout: false,
 
         // Vertical centering of slides
-        center: true,
+        center: false,
 
         // Enables touch navigation on devices with touch input
         touch: true,
@@ -972,27 +955,9 @@ Your colleague now separates their data into a training set, a validation set <e
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

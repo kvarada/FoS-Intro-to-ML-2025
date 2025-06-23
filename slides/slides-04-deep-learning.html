@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Introduction to Machine Learning Workshop – Deep Learning</title>
+  <title>Introduction to Machine Learning Workshop – Introduction to Deep Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,71 +28,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -384,47 +320,53 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Deep Learning</h1>
+  <h1 class="title">Introduction to Deep Learning</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="learning-outcomes" class="slide level2 center">
-<h2>Learning outcomes</h2>
-<p><br>
-From this module, you will be able to</p>
+<section id="learning-outcomes" class="slide level2">
+<h2>🎯 Learning Outcomes</h2>
+<p>By the end of this module, you will be able to:</p>
 <ul>
-<li>Explain the role of neural networks in machine learning, including their advantages and disadvantages.</li>
-<li>Discuss why traditional methods are less effective for image data.</li>
-<li>Gain a high-level understanding of transfer learning.</li>
-<li>Use transfer learning for your own tasks.</li>
-<li>Differentiate between image classification and object detection.</li>
+<li><strong>Explain</strong> the basics of neural networks and how they build upon linear models.</li>
+<li><strong>Describe</strong> the role of neural networks in machine learning, including their strengths and limitations.</li>
+<li><strong>Outline</strong> the key steps involved in training a neural network.</li>
+<li><strong>Identify</strong> commonly used neural network architectures (CNNs, RNNs, Transformers) and their typical applications.</li>
 </ul>
 </section>
-<section id="image-classification" class="slide level2 center">
+<section id="remember-this-picture-we-saw-earlier" class="slide level2">
+<h2>Remember this picture we saw earlier?</h2>
+<ul>
+<li><strong>Deep Learning (DL)</strong> is a subset of machine learning</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ai-ml-dl.png" class="quarto-figure quarto-figure-center" width="700"></p>
+</figure>
+</div>
+</section>
+<section id="image-classification" class="slide level2">
 <h2>Image classification</h2>
 <p><br>
 </p>
 <p>Have you used search in Google Photos? You can search for “my photos of cat” and it will retrieve photos from your libraries containing cats. This can be done using <strong>image classification</strong>, which is treated as a supervised learning problem, where we define a set of target classes (objects to identify in images), and train a model to recognize them using labeled example photos.</p>
 </section>
-<section id="image-classification-1" class="slide level2 center">
+<section id="image-classification-1" class="slide level2">
 <h2>Image classification</h2>
 <p><br>
 </p>
 <p>Image classification is not an easy problem because of the variations in the location of the object, lighting, background, camera angle, camera focus etc.</p>
 <p><img data-src="img/cat_variation.png"> <!-- [Source](https://developers.google.com/machine-learning/practica/image-classification) --></p>
 </section>
-<section id="neural-networks" class="slide level2 center">
+<section id="neural-networks" class="slide level2 smaller">
 <h2>Neural networks</h2>
 <p><br>
 </p>
@@ -438,30 +380,42 @@ From this module, you will be able to</p>
 <li>Let’s go over the basics of a neural network.</li>
 </ul>
 </section>
-<section id="introduction-to-neural-networks" class="slide level2 center">
+<section id="a-graphical-view-of-a-linear-model" class="slide level2 smaller">
+<h2>A graphical view of a linear model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="fe89ab76" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+<figure>
+<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-2-output-1.svg"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Remember this graphical view of linear models?</li>
+<li>We have 4 features: x[0], x[1], x[2], x[3]</li>
+<li>The output is calculated as <span class="math inline"><em>y</em> = <em>x</em>[0]<em>w</em>[0] + <em>x</em>[1]<em>w</em>[1] + <em>x</em>[2]<em>w</em>[2] + <em>x</em>[3]<em>w</em>[3]</span></li>
+<li>For simplicity, we are ignoring the bias term.</li>
+</ul>
+</div></div>
+</section>
+<section id="introduction-to-neural-networks" class="slide level2">
 <h2>Introduction to neural networks</h2>
 <p><br>
 </p>
 <ul>
 <li>Neural networks can be viewed a generalization of linear models where we apply a series of transformations.</li>
-<li>Here is graphical representation of a logistic regression model.</li>
-<li>We have 4 features: x[0], x[1], x[2], x[3]</li>
-</ul>
-
-<img data-src="slides-04-deep-learning_files/figure-revealjs/cell-3-output-1.svg" class="r-stretch"></section>
-<section id="adding-a-layer-of-transformations" class="slide level2 center">
-<h2>Adding a layer of transformations</h2>
-<p><br>
-</p>
-<ul>
 <li>Below we are adding one “layer” of transformations in between features and the target.</li>
 <li>We are repeating the the process of computing the weighted sum multiple times.<br>
 </li>
 <li>The <strong>hidden units</strong> (e.g., h[1], h[2], …) represent the intermediate processing steps.</li>
 </ul>
 
-<img data-src="slides-04-deep-learning_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"></section>
-<section id="one-more-layer-of-transformations" class="slide level2 center">
+<img data-src="slides-04-deep-learning_files/figure-revealjs/cell-3-output-1.svg" class="r-stretch"></section>
+<section id="one-more-layer-of-transformations" class="slide level2">
 <h2>One more layer of transformations</h2>
 <p><br>
 </p>
@@ -469,8 +423,8 @@ From this module, you will be able to</p>
 <li>Now we are adding one more layer of transformations.</li>
 </ul>
 
-<img data-src="slides-04-deep-learning_files/figure-revealjs/cell-5-output-1.svg" class="r-stretch"></section>
-<section id="neural-networks-1" class="slide level2 center">
+<img data-src="slides-04-deep-learning_files/figure-revealjs/cell-4-output-1.svg" class="r-stretch"></section>
+<section id="neural-networks-1" class="slide level2">
 <h2>Neural networks</h2>
 <p><br>
 </p>
@@ -484,10 +438,61 @@ From this module, you will be able to</p>
 <li>Deep learning ~ using neural networks</li>
 </ul>
 </section>
-<section id="why-neural-networks" class="slide level2 center">
+<section id="neural-networks-example-and-terminology" class="slide level2">
+<h2>Neural networks example and terminology</h2>
+
+<img data-src="img/nn-10.png" class="r-stretch"></section>
+<section id="how-does-training-work-in-neural-networks-high-level" class="slide level2 smaller">
+<h2>How does training work in neural networks? (High-Level)</h2>
+<p>Training a neural network has <strong>two main steps:</strong></p>
+<ul>
+<li><p><strong>Forward pass:</strong><br>
+Feed the input through the network to calculate the predicted output using the current parameter values (weights).</p></li>
+<li><p><strong>Backward pass:</strong></p>
+<ul>
+<li>Measure how far the predicted output is from the actual target (this is the <strong>loss</strong>).</li>
+<li>Calculate how to adjust each parameter to improve future predictions (<strong>gradients</strong>).</li>
+<li>Update the parameters using these gradients — this helps the model improve.</li>
+</ul></li>
+<li><p>Summary</p>
+<ul>
+<li><strong>Input <span class="math inline">→</span> Forward Pass <span class="math inline">→</span> Loss <span class="math inline">→</span> Backward Pass <span class="math inline">→</span> Parameter Update <span class="math inline">→</span> Repeat</strong></li>
+<li>The model repeats this process many times, gradually improving its predictions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="forward-pass-calculate-the-output" class="slide level2">
+<h2>Forward pass: Calculate the output</h2>
+
+<img data-src="img/backprop-2.png" class="r-stretch"><p>In the <strong>forward pass</strong>:</p>
+<ul>
+<li>Multiply the inputs by the weights</li>
+<li>Pass through activation functions (non-linearities)</li>
+<li>Calculate the predicted output</li>
+</ul>
+</section>
+<section id="forward-pass-continue-through-the-layers" class="slide level2">
+<h2>Forward pass: Continue through the layers</h2>
+<ul>
+<li>The calculations continue through each layer of the network.</li>
+</ul>
+
+<img data-src="img/backprop-3.png" class="r-stretch"></section>
+<section id="backward-pass-adjust-the-parameters-high-level" class="slide level2">
+<h2>Backward pass: Adjust the parameters (high-level)</h2>
+<ul>
+<li><p><strong>Step 1:</strong> Compare the predicted output to the actual target using a <strong>loss function</strong> (how wrong was the prediction?).</p></li>
+<li><p><strong>Step 2:</strong> Calculate how much each parameter contributed to the error (this is the <strong>gradient</strong> — it tells us which direction to adjust).</p></li>
+<li><p><strong>Step 3:</strong> Update the parameters slightly in the direction that <strong>reduces the loss</strong> (this is called gradient descent).</p></li>
+</ul>
+</section>
+<section id="backward-pass" class="slide level2">
+<h2>Backward pass</h2>
+
+<img data-src="img/backprop-6.png" class="r-stretch"><p>👉 <strong>Good news:</strong> We don’t have to compute these gradients by hand — modern ML libraries like PyTorch and TensorFlow handle this for us automatically using <strong>backpropagation</strong>.</p>
+</section>
+<section id="why-neural-networks" class="slide level2 smaller">
 <h2>Why neural networks?</h2>
-<p><br>
-</p>
 <ul>
 <li>They can learn very complex functions.
 <ul>
@@ -505,10 +510,8 @@ From this module, you will be able to</p>
 <li>Transfer learning (coming later today) is really useful.</li>
 </ul>
 </section>
-<section id="why-not-neural-networks" class="slide level2 center">
+<section id="why-not-neural-networks" class="slide level2 smaller">
 <h2>Why not neural networks?</h2>
-<p><br>
-</p>
 <ul>
 <li>Often they require a lot of data.</li>
 <li>They require a lot of compute time, and, to be faster, specialized hardware called <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPUs</a>.</li>
@@ -526,10 +529,8 @@ From this module, you will be able to</p>
 </ul></li>
 </ul>
 </section>
-<section id="deep-learning-software" class="slide level2 center">
+<section id="deep-learning-software" class="slide level2">
 <h2>Deep learning software</h2>
-<p><br>
-</p>
 <p>The current big players are:</p>
 <ol type="1">
 <li><a href="http://pytorch.org">PyTorch</a></li>
@@ -538,623 +539,139 @@ From this module, you will be able to</p>
 <p>Both are heavily used in industry. If interested, see <a href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software">comparison of deep learning software</a>.</p>
 <p><br><br></p>
 </section>
-<section id="introduction-to-computer-vision" class="slide level2 center">
-<h2>Introduction to computer vision</h2>
-<p><br>
-</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Computer_vision">Computer vision</a> refers to understanding images/videos, usually using ML/AI.</li>
-<li>In the last decade this field has been dominated by deep learning. We will explore <strong>image classification</strong> and <strong>object detection</strong>.</li>
-</ul>
+<section id="commonly-used-neural-network-architectures" class="slide level2">
+<h2>Commonly Used Neural Network Architectures</h2>
+<p>Neural networks come in different shapes depending on the type of data and the task.</p>
 </section>
-<section id="introduction-to-computer-vision-1" class="slide level2 center">
-<h2>Introduction to computer vision</h2>
-<p><br>
-</p>
+<section id="convolutional-neural-networks-cnns" class="slide level2 smaller">
+<h2>Convolutional Neural Networks (CNNs)</h2>
 <ul>
-<li>image classification: is this a cat or a dog?</li>
-<li>object localization: where is the cat in this image?</li>
-<li>object detection: What are the various objects in the image?</li>
-<li>instance segmentation: What are the shapes of these various objects in the image?</li>
-<li>and much more…</li>
+<li>Commonly used in <strong>image classification, object detection, and medical imaging.</strong></li>
+<li>What’s the problem if we use the above feedforward architecture to learn patterns from images?</li>
 </ul>
-<p><img data-src="img/vision-apps.jpeg"> <!-- Source: https://learning.oreilly.com/library/view/python-advanced-guide/9781789957211/--></p>
-</section>
-<section id="pre-trained-models" class="slide level2 center">
-<h2>Pre-trained models</h2>
-<p><br>
-</p>
-<ul>
-<li>In practice, very few people train an entire CNN from scratch because it requires a large dataset, powerful computers, and a huge amount of human effort to train the model.</li>
-<li>Instead, a common practice is to download a pre-trained model and fine tune it for your task. This is called <strong>transfer learning</strong>.</li>
-<li>Transfer learning is one of the most common techniques used in the context of computer vision and natural language processing.</li>
-<li>It refers to using a model already trained on one task as a starting point for learning to perform another task.</li>
-</ul>
-</section>
-<section id="pre-trained-models-out-of-the-box" class="slide level2 center">
-<h2>Pre-trained models out-of-the-box</h2>
-<p><br>
-</p>
 
-<!-- Source: https://cezannec.github.io/Convolutional_Neural_Networks/ -->
-<img data-src="img/cnn-ex.png" class="r-stretch"><ul>
-<li>Let’s first apply one of these pre-trained models to our own problem right out of the box.</li>
+<img data-src="img/cnn-1.png" class="r-stretch"></section>
+<section id="filters" class="slide level2">
+<h2>Filters</h2>
+<ul>
+<li>Uses filters that “slide” over the input to detect local patterns.</li>
+</ul>
+
+<img data-src="img/cnn-4.png" class="r-stretch"><ul>
+<li>Play around with filters: https://setosa.io/ev/image-kernels/</li>
 </ul>
 </section>
-<section id="pre-trained-models-out-of-the-box-1" class="slide level2 center">
-<h2>Pre-trained models out-of-the-box</h2>
-<p><br>
-</p>
+<section id="cnns" class="slide level2">
+<h2>CNNs</h2>
+
+<img data-src="img/cnn-5.gif" class="r-stretch"></section>
+<section id="cnns-big-picture" class="slide level2">
+<h2>CNNs big picture</h2>
+
+<img data-src="img/cnn_big_picture.png" class="r-stretch"></section>
+<section id="recurrent-neural-networks-rnns" class="slide level2 smaller">
+<h2>Recurrent Neural Networks (RNNs)</h2>
 <ul>
-<li>We can easily download famous models using the <code>torchvision.models</code> module. All models are available with pre-trained weights (based on ImageNet’s 224 x 224 images)</li>
-<li>We used a pre-trained model vgg16 which is trained on the ImageNet data.</li>
-<li>We preprocess the given image.</li>
-<li>We get prediction from this pre-trained model on a given image along with prediction probabilities.<br>
-</li>
-<li>For a given image, this model will spit out one of the 1000 classes from ImageNet.</li>
+<li>Designed for <strong>sequential data</strong> like time series, text, or biological sequences.</li>
+<li>Passes hidden states through time steps to “remember” past information.</li>
+</ul>
+<p>👉 Commonly used in <strong>language modeling, speech recognition, and system control.</strong></p>
+
+<img data-src="img/RNN-intro_small.png" class="r-stretch"></section>
+<section id="rnn-activity" class="slide level2 smaller">
+<h2>RNN activity</h2>
+<p>RNN is like your brain reading a sentence word by word.</p>
+<ul>
+<li><strong>Input at each time step</strong>: The current word you read</li>
+<li><strong>Hidden state</strong>: Your current mental understanding</li>
+<li><strong>Output</strong>: Your interpretation, reaction, or prediction at that point in time</li>
+</ul>
+<p>Two rows of students:</p>
+<ul>
+<li>Front row = input layer (observations at each time step)</li>
+<li>Back row = hidden state at each time step</li>
+<li>Each column is a time step (0 through 4)</li>
+<li>So we’ll have 4 front-row students: <span class="math inline"><em>x</em><sub>0</sub></span> to <span class="math inline"><em>x</em><sub>3</sub></span></li>
+<li>And 4 back-row students: <span class="math inline"><em>h</em><sub>0</sub></span> to <span class="math inline"><em>h</em><sub>3</sub></span></li>
 </ul>
 </section>
-<section id="pre-trained-models-out-of-the-box-2" class="slide level2 scrollable center">
-<h2>Pre-trained models out-of-the-box</h2>
-<ul>
-<li>Let’s predict labels with associated probabilities for unseen images</li>
-</ul>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="465eb7e3" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-6-output-1.png" width="434" height="325"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                         Class  Probability score
-                     tiger cat              0.353
-              tabby, tabby cat              0.207
-               lynx, catamount              0.050
-Pembroke, Pembroke Welsh corgi              0.046
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-6-output-3.png" width="324" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                     Class  Probability score
-         cheetah, chetah, Acinonyx jubatus              0.983
-                  leopard, Panthera pardus              0.012
-jaguar, panther, Panthera onca, Felis onca              0.004
-       snow leopard, ounce, Panthera uncia              0.001
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-6-output-5.png" width="309" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                   Class  Probability score
-                                 macaque              0.714
-patas, hussar monkey, Erythrocebus patas              0.122
-      proboscis monkey, Nasalis larvatus              0.098
-                   guenon, guenon monkey              0.017
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-6-output-7.png" width="299" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                        Class  Probability score
-Walker hound, Walker foxhound              0.580
-             English foxhound              0.091
-                  EntleBucher              0.080
-                       beagle              0.065
---------------------------------------------------------------</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="pre-trained-models-out-of-the-box-3" class="slide level2 center">
-<h2>Pre-trained models out-of-the-box</h2>
-<p><br>
-</p>
-<ul>
-<li>We got these predictions without “doing the ML ourselves”.</li>
-<li>We are using <strong>pre-trained</strong> <code>vgg16</code> model which is available in <code>torchvision</code>.
-<ul>
-<li><code>torchvision</code> has many such pre-trained models available that have been very successful across a wide range of tasks: AlexNet, VGG, ResNet, Inception, MobileNet, etc.</li>
-</ul></li>
-<li>Many of these models have been pre-trained on famous datasets like <strong>ImageNet</strong>.</li>
-<li>So if we use them out-of-the-box, they will give us one of the ImageNet classes as classification.</li>
-</ul>
-</section>
-<section id="pre-trained-models-out-of-the-box-4" class="slide level2 smaller center">
-<h2>Pre-trained models out-of-the-box</h2>
-<p><br>
-</p>
-<ul>
-<li>Let’s try some images which are unlikely to be there in ImageNet.</li>
-<li>It’s not doing very well here because ImageNet doesn’t have proper classes for these images.</li>
-</ul>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="f4a243ed" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-1.png" width="549" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         Class  Probability score
-cucumber, cuke              0.146
-         plate              0.117
-     guacamole              0.099
-  Granny Smith              0.091
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-3.png" width="702" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                      Class  Probability score
-                                        fig              0.637
-                                pomegranate              0.193
-grocery store, grocery, food market, market              0.041
-                                      crate              0.023
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-5.png" width="611" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                               Class  Probability score
-                                         toilet seat              0.171
-                                          safety pin              0.060
-bannister, banister, balustrade, balusters, handrail              0.039
-                                              bubble              0.035
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-7.png" width="428" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                  Class  Probability score
-                   vase              0.078
-                thimble              0.074
-             plate rack              0.049
-saltshaker, salt shaker              0.047
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-9.png" width="331" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                      Class  Probability score
-           pizza, pizza pie              0.998
-frying pan, frypan, skillet              0.001
-                     potpie              0.000
-                French loaf              0.000
---------------------------------------------------------------</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-7-output-11.png" width="607" height="416"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              Class  Probability score
-     patio, terrace              0.213
-           fountain              0.164
-lakeside, lakeshore              0.097
-            sundial              0.088
---------------------------------------------------------------</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="pre-trained-models-out-of-the-box-5" class="slide level2 center">
-<h2>Pre-trained models out-of-the-box</h2>
-<p><br>
-</p>
-<ul>
-<li>Here we are using pre-trained models out-of-the-box.</li>
-<li>Can we use pre-trained models for our own classification problem with our classes?</li>
-<li>Yes!! We have two options here:
+<section id="rnn-activity-1" class="slide level2 smaller">
+<h2>RNN activity</h2>
 <ol type="1">
-<li>Add some extra layers to the pre-trained network to suit our particular task</li>
-<li>Pass training data through the network and save the output to use as features for training some other model</li>
-</ol></li>
-</ul>
-</section>
-<section id="pre-trained-models-to-extract-features" class="slide level2 center">
-<h2>Pre-trained models to extract features</h2>
-<p><br>
-</p>
+<li>At time step 0:
 <ul>
-<li>Let’s use pre-trained models to extract features.</li>
-<li>We will pass our specific data through a pre-trained network to get a feature vector for each example in the data.</li>
-<li>The feature vector is usually extracted from the last layer, before the classification layer from the pre-trained network.</li>
-<li>You can think of each layer a transformer applying some transformations on the input received to that later.</li>
+<li>Front-row student <span class="math inline"><em>x</em><sub>0</sub></span> gets a word</li>
+<li>They pass it to the back-row student behind them (<span class="math inline"><em>h</em><sub>0</sub></span>).</li>
+</ul></li>
+<li>At time step 1 (and beyond):
+<ul>
+<li>The front-row student (e.g., <span class="math inline"><em>x</em><sub>1</sub></span>) gets a new word</li>
+<li>The back-row student (e.g., <span class="math inline"><em>h</em><sub>1</sub></span>) receives:
+<ul>
+<li>The current input from the front-row student (e.g., <span class="math inline"><em>x</em><sub>1</sub></span>)</li>
+<li>Whatever “memory” is passed from the previous hidden state (e.g., <span class="math inline"><em>h</em><sub>0</sub></span>)</li>
+<li><span class="math inline"><em>h</em><sub>1</sub></span> combines this (e.g., by writing a summary phrase or combining keywords).</li>
+</ul></li>
+</ul></li>
+<li>Repeat until time step 3 or 4.</li>
+<li>Final time step: <span class="math inline"><em>h</em><sub>3</sub></span> summarizes what they remember (e.g., predicts next word, gives the “mood” of the sentence, etc.)</li>
+</ol>
+</section>
+<section id="rnn-architectures" class="slide level2">
+<h2>RNN architectures</h2>
+<ul>
+<li>A number of architectures are possible with RNNs, which makes them a very rich family of models.</li>
 </ul>
 
-<img data-src="img/cnn-ex.png" class="r-stretch"></section>
-<section id="pre-trained-models-to-extract-features-1" class="slide level2 center">
-<h2>Pre-trained models to extract features</h2>
-<p><br>
-</p>
+<img data-src="img/RNN_architectures.png" class="r-stretch"></section>
+<section id="transformer-architectures" class="slide level2">
+<h2>Transformer architectures</h2>
 <ul>
-<li>Once we extract these feature vectors for all images in our training data, we can train a machine learning classifier such as logistic regression or random forest.</li>
-<li>This classifier will be trained on our classes using feature representations extracted from the pre-trained models.<br>
-</li>
-<li>Let’s try this out.</li>
-<li>It’s better to train such models with GPU. Since our dataset is quite small, we won’t have problems running it on a CPU.</li>
-</ul>
-</section>
-<section id="pre-trained-models-to-extract-features-2" class="slide level2 center">
-<h2>Pre-trained models to extract features</h2>
-<p><br>
-</p>
-<p>Let’s look at some sample images in the dataset.</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="27fcb433" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-8-output-1.png" width="611" height="631"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="dataset-statistics" class="slide level2 center">
-<h2>Dataset statistics</h2>
-<p><br>
-</p>
-<p>Here is the stat of our toy dataset.</p>
-<div id="2861674f" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdout">
-<pre><code>Classes: ['beet_salad', 'chocolate_cake', 'edamame', 'french_fries', 'pizza', 'spring_rolls', 'sushi']
-Class count: 40, 38, 40
-Samples: 283
-First sample: ('data/food/train/beet_salad/104294.jpg', 0)</code></pre>
-</div>
-</div>
-</section>
-<section id="pre-trained-models-to-extract-features-3" class="slide level2 center">
-<h2>Pre-trained models to extract features</h2>
-<p><br>
-</p>
-<ul>
-<li>Now for each image in our dataset, we’ll extract a feature vector from a pre-trained model called densenet121, which is trained on the ImageNet dataset.</li>
-</ul>
-</section>
-<section id="shape-of-the-feature-vector" class="slide level2 center">
-<h2>Shape of the feature vector</h2>
-<p><br>
-</p>
-<ul>
-<li>Now we have extracted feature vectors for all examples. What’s the shape of these features?</li>
-</ul>
-<div id="4cc98652" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>torch.Size([283, 1024])</code></pre>
-</div>
-</div>
-<ul>
-<li>The size of each feature vector is 1024 because the size of the last layer in densenet architecture is 1024.</li>
+<li><p>What kind of neural network models are behind <strong>state-of-the-art Generative AI</strong> systems like ChatGPT, Gemini, Bard, DALL-E, GitHub Copilot, and Meta’s Llama?</p></li>
+<li><p>The answer: <strong>Transformer architectures.</strong></p></li>
 </ul>
 
-<img data-src="img/densenet-architecture.png" class="r-stretch"><p><a href="https://towardsdatascience.com/understanding-and-visualizing-densenets-7f688092391a">Source</a></p>
-</section>
-<section id="a-feature-vector-given-by-densenet" class="slide level2 center">
-<h2>A feature vector given by densenet</h2>
-<p>&nbsp;</p>
+<img data-src="img/genai.png" class="r-stretch"></section>
+<section id="what-makes-transformer-architectures-special" class="slide level2">
+<h2>What makes transformer architectures special?</h2>
 <ul>
-<li>Let’s examine the feature vectors.</li>
+<li>Transformers were <strong>designed for sequences</strong> but avoid the limitations of earlier sequence models like RNNs.</li>
+<li>They use <strong>attention mechanisms</strong> to model relationships between all parts of the sequence at once.</li>
+<li>They scale well to very large datasets and can handle long-term dependencies effectively.</li>
 </ul>
-<div id="0a075ad5" class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-<th data-quarto-table-cell-role="th">3</th>
-<th data-quarto-table-cell-role="th">4</th>
-<th data-quarto-table-cell-role="th">5</th>
-<th data-quarto-table-cell-role="th">6</th>
-<th data-quarto-table-cell-role="th">7</th>
-<th data-quarto-table-cell-role="th">8</th>
-<th data-quarto-table-cell-role="th">9</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">1014</th>
-<th data-quarto-table-cell-role="th">1015</th>
-<th data-quarto-table-cell-role="th">1016</th>
-<th data-quarto-table-cell-role="th">1017</th>
-<th data-quarto-table-cell-role="th">1018</th>
-<th data-quarto-table-cell-role="th">1019</th>
-<th data-quarto-table-cell-role="th">1020</th>
-<th data-quarto-table-cell-role="th">1021</th>
-<th data-quarto-table-cell-role="th">1022</th>
-<th data-quarto-table-cell-role="th">1023</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0.000290</td>
-<td>0.003821</td>
-<td>0.005015</td>
-<td>0.001307</td>
-<td>0.052690</td>
-<td>0.063403</td>
-<td>0.000626</td>
-<td>0.001850</td>
-<td>0.256254</td>
-<td>0.000223</td>
-<td>...</td>
-<td>0.229935</td>
-<td>1.046375</td>
-<td>2.241259</td>
-<td>0.229641</td>
-<td>0.033674</td>
-<td>0.742792</td>
-<td>1.338698</td>
-<td>2.130880</td>
-<td>0.625475</td>
-<td>0.463088</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>0.000407</td>
-<td>0.005973</td>
-<td>0.003206</td>
-<td>0.001932</td>
-<td>0.090702</td>
-<td>0.438523</td>
-<td>0.001513</td>
-<td>0.003906</td>
-<td>0.166081</td>
-<td>0.000286</td>
-<td>...</td>
-<td>0.910680</td>
-<td>1.580815</td>
-<td>0.087191</td>
-<td>0.606904</td>
-<td>0.436106</td>
-<td>0.306456</td>
-<td>0.940102</td>
-<td>1.159818</td>
-<td>1.712705</td>
-<td>1.624753</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>0.000626</td>
-<td>0.005090</td>
-<td>0.002887</td>
-<td>0.001299</td>
-<td>0.091715</td>
-<td>0.548537</td>
-<td>0.000491</td>
-<td>0.003587</td>
-<td>0.266537</td>
-<td>0.000408</td>
-<td>...</td>
-<td>0.465152</td>
-<td>0.678276</td>
-<td>0.946387</td>
-<td>1.194697</td>
-<td>2.537747</td>
-<td>1.642383</td>
-<td>0.701200</td>
-<td>0.115620</td>
-<td>0.186433</td>
-<td>0.166605</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>0.000169</td>
-<td>0.006087</td>
-<td>0.002489</td>
-<td>0.002167</td>
-<td>0.087537</td>
-<td>0.623212</td>
-<td>0.000427</td>
-<td>0.000226</td>
-<td>0.460680</td>
-<td>0.000388</td>
-<td>...</td>
-<td>0.394083</td>
-<td>0.700158</td>
-<td>0.105200</td>
-<td>0.856323</td>
-<td>0.038457</td>
-<td>0.023948</td>
-<td>0.131838</td>
-<td>1.296370</td>
-<td>0.723323</td>
-<td>1.915215</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>0.000286</td>
-<td>0.005520</td>
-<td>0.001906</td>
-<td>0.001599</td>
-<td>0.186034</td>
-<td>0.850148</td>
-<td>0.000835</td>
-<td>0.003025</td>
-<td>0.036309</td>
-<td>0.000142</td>
-<td>...</td>
-<td>3.313760</td>
-<td>0.565744</td>
-<td>0.473564</td>
-<td>0.139446</td>
-<td>0.029283</td>
-<td>1.165938</td>
-<td>0.442319</td>
-<td>0.227593</td>
-<td>0.884266</td>
-<td>1.592698</td>
-</tr>
-</tbody>
-</table>
-
-<p>5 rows × 1024 columns</p>
-</div>
-</div>
-</div>
+<p>👉 Transformers power <strong>large language models (LLMs), image captioning models, and multimodal models like CLIP.</strong></p>
+</section>
+<section id="transformer-architecture-key-ideas" class="slide level2">
+<h2>Transformer architecture: Key ideas</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/transformers-multi-layer-LM.png"></p>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>The features are hard to interpret but they have some important information about the images which can be useful for classification.</li>
+<li><strong>Input:</strong> A sequence of tokens (words, image patches, etc.)</li>
+<li><strong>Output:</strong> A sequence of rich, context-aware representations for each token.</li>
+<li>Each layer iteratively refines the token representations.</li>
+<li>These layers learn <strong>how each token relates to the others, regardless of their position in the sequence.</strong></li>
+</ul>
+</div></div>
+</section>
+<section id="transformer-summary" class="slide level2">
+<h2>Transformer summary</h2>
+<ul>
+<li>Designed to handle <strong>long sequences efficiently.</strong></li>
+<li>Learn <strong>contextual meaning</strong> by comparing all tokens to each other (via attention).</li>
+<li>Now the backbone of <strong>almost all modern Generative AI models.</strong></li>
+<li>Examples: BERT, GPT-3, GPT-4, Gemini, DALL-E, GitHub Copilot, Meta’s Llama.</li>
 </ul>
 </section>
-<section id="logistic-regression-with-the-extracted-features" class="slide level2 center">
-<h2>Logistic regression with the extracted features</h2>
-<p><br>
-</p>
-<ul>
-<li>Let’s try out logistic regression on these extracted features.</li>
-</ul>
-<div id="01e0e644" class="cell" data-execution_count="12">
-<div class="cell-output cell-output-stdout">
-<pre><code>Training score:  1.0</code></pre>
-</div>
-</div>
-<div id="06f76692" class="cell" data-execution_count="13">
-<div class="cell-output cell-output-stdout">
-<pre><code>Validation score:  0.835820895522388</code></pre>
-</div>
-</div>
-<ul>
-<li>This is great accuracy for so little data and little effort!!!</li>
-</ul>
-</section>
-<section id="sample-predictions" class="slide level2 center">
-<h2>Sample predictions</h2>
-<p><br>
-</p>
-<p>Let’s examine some sample predictions on the validation set.</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="2ad168d1" class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-15-output-1.png" width="1151" height="1901"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="object-detection" class="slide level2 center">
-<h2>Object detection</h2>
-<p><br>
-</p>
-<ul>
-<li>Another useful task and tool to know is object detection using YOLO model.</li>
-<li>Let’s identify objects in a sample image using a pretrained model called YOLO8.</li>
-<li>List the objects present in this image.</li>
-</ul>
-
-<img data-src="data/yolo_test/3356700488_183566145b.jpg" class="r-stretch"></section>
-<section id="object-detection-using-yolo" class="slide level2 center">
-<h2>Object detection using <a href="https://docs.ultralytics.com/">YOLO</a></h2>
-<p><br>
-</p>
-<p>Let’s try this out using a pre-trained model.</p>
-<div id="2d4605ae" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> ultralytics <span class="im">import</span> YOLO</span>
-<span id="cb15-2"><a></a>model <span class="op">=</span> YOLO(<span class="st">"yolov8n.pt"</span>)  <span class="co"># pretrained YOLOv8n model</span></span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a>yolo_input <span class="op">=</span> <span class="st">"data/yolo_test/3356700488_183566145b.jpg"</span></span>
-<span id="cb15-5"><a></a>yolo_result <span class="op">=</span> <span class="st">"data/yolo_result.jpg"</span></span>
-<span id="cb15-6"><a></a><span class="co"># Run batched inference on a list of images</span></span>
-<span id="cb15-7"><a></a>result <span class="op">=</span> model(yolo_input)  <span class="co"># return a list of Results objects</span></span>
-<span id="cb15-8"><a></a>result[<span class="dv">0</span>].save(filename<span class="op">=</span>yolo_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-image 1/1 /Users/kvarada/EL/workshops/Intro-to-ML-workshop-2024/website/slides/data/yolo_test/3356700488_183566145b.jpg: 512x640 4 persons, 2 cars, 1 stop sign, 68.4ms
-Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape (1, 3, 512, 640)</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>'data/yolo_result.jpg'</code></pre>
-</div>
-</div>
-</section>
-<section id="object-detection-output" class="slide level2 center">
-<h2>Object detection output</h2>
-<p><br>
-</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="d12564f8" class="cell" data-execution_count="16">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides-04-deep-learning_files/figure-revealjs/cell-17-output-1.png" width="950" height="401"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="summary" class="slide level2 center">
+<section id="summary" class="slide level2">
 <h2>Summary</h2>
 <p><br>
 </p>
 <ul>
 <li>Neural networks are a flexible class of models.
 <ul>
-<li>They are particular powerful for structured input like images, videos, audio, etc.</li>
+<li>They are particular powerful for structured input like images, videos, audio, text etc.</li>
 <li>They can be challenging to train and often require significant computational resources.</li>
 </ul></li>
 <li>The good news is we can use pre-trained neural networks.
@@ -1162,12 +679,6 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
 <li>This saves us a huge amount of time/cost/effort/resources.</li>
 <li>We can use these pre-trained networks directly or use them as feature transformers.</li>
 </ul></li>
-</ul>
-</section>
-<section id="thank-you" class="slide level2 center">
-<h2>Thank you!</h2>
-<ul>
-<li>That’s it for the modules! Now, let’s begin the game time.</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -1192,7 +703,6 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
   <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1207,7 +717,7 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -1227,7 +737,7 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -1256,7 +766,7 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
         disableLayout: false,
 
         // Vertical centering of slides
-        center: true,
+        center: false,
 
         // Enables touch navigation on devices with touch input
         touch: true,
@@ -1359,27 +869,9 @@ Speed: 1.2ms preprocess, 68.4ms inference, 6.6ms postprocess per image at shape 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
