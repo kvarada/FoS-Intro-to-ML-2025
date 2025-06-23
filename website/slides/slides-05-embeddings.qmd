@@ -6,13 +6,32 @@ format:
       center: true
 ---
 
+```{python}
+import mglearn
+import json
+import numpy as np
+import pandas as pd
+import sys, os
+sys.path.append(os.path.join(os.path.abspath("."), "code"))
+from deep_learning_code import *
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from torchvision import datasets, models, transforms, utils
+from sklearn.pipeline import Pipeline, make_pipeline
+from sklearn.preprocessing import StandardScaler
+import matplotlib.image as mpimg
+%matplotlib inline
+```
+
 ## 🎯 Learning Objectives
 \
 
 By the end of this session, participants should be able to:
 
 - Understand what embeddings are and why they're useful
+- Gain a high-level understanding of transfer learning.
 - Distinguish between training a model from scratch vs. using a pre-trained one
+- Use transfer learning for your own tasks. 
 - Generate and visualize embeddings from images, text, and structured data
 - Use pre-trained models (e.g., MiniLM, ResNet, CLIP) for scientific tasks
 - Identify ML tasks in their own domain that could benefit from embeddings

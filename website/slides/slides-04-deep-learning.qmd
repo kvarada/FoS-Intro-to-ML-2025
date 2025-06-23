@@ -1,38 +1,33 @@
 ---
-title: "Deep Learning"
-format: 
-    revealjs:
-      smaller: true
-      center: true
----
+title: "Introduction to Deep Learning"
+description: "Basics of neural networks"
 
-```{python}
-import mglearn
-import json
-import numpy as np
-import pandas as pd
-import sys, os
-sys.path.append(os.path.join(os.path.abspath("."), "code"))
-from deep_learning_code import *
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression
-from torchvision import datasets, models, transforms, utils
-from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import StandardScaler
-import matplotlib.image as mpimg
-%matplotlib inline
-```
+format:
+  revealjs:
+    html-math-method: plain
+    slide-number: true
+    slide-level: 2
+    theme:
+      - slides.scss
+    resources:
+      - data/
+      - img/
+editor:
+  render-on-save: true
+---
 
 ## Learning outcomes 
 \
 From this module, you will be able to 
 
 - Explain the role of neural networks in machine learning, including their advantages and disadvantages.
-- Discuss why traditional methods are less effective for image data.
-- Gain a high-level understanding of transfer learning.
-- Use transfer learning for your own tasks. 
-- Differentiate between image classification and object detection.
+- 
 
+## Remember this picture we saw earlier? 
+
+- **Deep Learning (DL)** is a subset of machine learning 
+
+![](img/ai-ml-dl.png){.nostretch fig-align="center" width="700px"}
 
 ## Image classification
 \
@@ -109,6 +104,62 @@ mglearn.plots.plot_two_hidden_layer_graph()
 - Neural network = neural net
 - Deep learning ~ using neural networks
 
+## Neural networks example and terminology
+
+![](img/nn-10.png)
+
+## How does training work in neural networks? (High-Level) {.smaller}
+
+Training a neural network has **two main steps:**
+
+- **Forward pass:**  
+  Feed the input through the network to calculate the predicted output using the current parameter values (weights).
+
+- **Backward pass:**  
+  - Measure how far the predicted output is from the actual target (this is the **loss**).
+  - Calculate how to adjust each parameter to improve future predictions (**gradients**).
+  - Update the parameters using these gradients — this helps the model improve.
+
+- Summary
+  - **Input $\rightarrow$ Forward Pass $\rightarrow$ Loss $\rightarrow$ Backward Pass $\rightarrow$ Parameter Update $\rightarrow$ Repeat**
+  - The model repeats this process many times, gradually improving its predictions.
+---
+
+## Forward pass: Calculate the output
+
+![](img/backprop-2.png)
+
+In the **forward pass**: 
+
+- Multiply the inputs by the weights
+- Pass through activation functions (non-linearities)
+- Calculate the predicted output
+
+---
+
+## Forward pass: Continue through the layers
+
+- The calculations continue through each layer of the network.
+
+![](img/backprop-3.png)
+
+---
+
+## Backward pass: Adjust the parameters (high-level)
+
+- **Step 1:** Compare the predicted output to the actual target using a **loss function** (how wrong was the prediction?).
+
+- **Step 2:** Calculate how much each parameter contributed to the error (this is the **gradient** — it tells us which direction to adjust).
+
+- **Step 3:** Update the parameters slightly in the direction that **reduces the loss** (this is called gradient descent).
+
+
+## Backward pass 
+
+![](img/backprop-6.png)
+
+👉 **Good news:** We don’t have to compute these gradients by hand — modern ML libraries like PyTorch and TensorFlow handle this for us automatically using **backpropagation**.
+
 ## Why neural networks? {.smaller}
 
 - They can learn very complex functions.
@@ -146,6 +197,8 @@ The current big players are:
 Both are heavily used in industry. If interested, see [comparison of deep learning software](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software).
 
 <br><br>
+
+# Commonly used neural network architectures 
 
 ## Convolutional Neural Networks (CNNs)
 
