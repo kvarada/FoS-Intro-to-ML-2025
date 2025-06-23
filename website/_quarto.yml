@@ -34,7 +34,6 @@ website:
     - id: workshop
       contents:
         - workshop.qmd
-        - workshop.qmd
         - workshop-00.qmd
         - workshop-01.qmd
         - workshop-02.qmd
@@ -43,11 +42,10 @@ website:
         - workshop-05-exercise1.qmd
         - workshop-06-lunch.qmd
         - workshop-07.qmd
-        - workshop-08-exercise2.qmd
+        - workshop-08-break.qmd
         - workshop-09.qmd
-        - workshop-10-break.qmd
-        - workshop-11-exercise3.qmd
-        - workshop-12.qmd
+        - workshop-10-exercise2.qmd
+        - workshop-11.qmd
 format:
   html:
     theme: [zephyr]

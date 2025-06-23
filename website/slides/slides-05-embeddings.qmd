@@ -419,18 +419,7 @@ Let's cluster these recipe names:
 ::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
 
 ```{python}
-orig_recipes_df = pd.read_csv("data/RAW_recipes.csv")
-def get_recipes_sample(orig_recipes_df, n_tags=300, min_len=5):
-    orig_recipes_df = orig_recipes_df.dropna()  # Remove rows with NaNs.    
-    orig_recipes_df = orig_recipes_df.drop_duplicates(
-        "name"
-    )  # Remove rows with duplicate names.
-    orig_recipes_df = orig_recipes_df[orig_recipes_df["name"].apply(len) >= min_len] # Remove rows where recipe names are too short (< 5 characters).
-    first_n = orig_recipes_df["tags"].value_counts()[0:n_tags].index.tolist() # Only consider the rows where tags are one of the most frequent n tags.
-    recipes_df = orig_recipes_df[orig_recipes_df["tags"].isin(first_n)]
-    return recipes_df
-
-recipes_df = get_recipes_sample(orig_recipes_df)
+recipes_df = pd.read_csv("data/recipes_sample.csv")
 recipes_df["name"].head(50)
 ```
 :::

@@ -3,7 +3,7 @@ title: "Exercise 2: Transfer Learning"
 description: Hands on exercise on transfer learning
 description-short: 
 duration: 30 mins
-time: 14:30 - 15:00
+time: 15:15 - 16:15
 
 editor: { render-on-save: true }
 ---

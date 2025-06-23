@@ -4,7 +4,7 @@ description: >
   Get up and move around!
   We'll start back up at 15:40
 duration: 10 min
-time: 15:30 - 15:40
+time: 14:25 - 14:30
 countdown:
   box_shadow: none
 ---

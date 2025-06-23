@@ -1,9 +1,9 @@
 ---
 title: "Module 4: Introduction to Deep Learning"
-description: "Introduction to Deep Learning and trasfer learning"
-description-short: "Introduction to Deep Learning and trasfer learning"
+description: "Introduction to Deep Learning"
+description-short: "Introduction to Deep Learning"
 duration: 60 mins
-time: 13:30 - 14:30
+time: 13:30 - 14:25
 
 editor: { render-on-save: true }
 ---

@@ -3,7 +3,7 @@ title: "Module 5: Using pre-trained models and embeddings"
 description: Using pre-trained models and embeddings
 description-short: Using pre-trained models and embeddings
 duration: 30 mins
-time: 15:00 - 15:30
+time: 14:30 - 15:45
 
 editor: { render-on-save: true }
 ---
