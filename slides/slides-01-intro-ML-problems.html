@@ -438,16 +438,121 @@
 <li>This can be done using <strong>image classification</strong>.</li>
 </ul>
 </section>
-<section id="image-classification" class="slide level2">
+<section id="image-classification" class="slide level2 smaller">
 <h2>Image classification</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><img data-src="img/cat-or-fox.png"></p>
-</div><div class="column" style="width:40%;">
 <ul>
 <li>Imagine we want a system that can tell cats and foxes apart.</li>
 <li>How might we do this with traditional programming? With ML?</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/cat-or-fox.png"></p>
+</div><div class="column" style="width:60%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 21%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Image ID</th>
+<th>Whiskers Present</th>
+<th>Ear Size</th>
+<th>Face Shape</th>
+<th>Fur Color</th>
+<th>Eye Shape</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Yes</td>
+<td>Small</td>
+<td>Round</td>
+<td>Mixed</td>
+<td>Round</td>
+<td>Cat</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Yes</td>
+<td>Medium</td>
+<td>Round</td>
+<td>Brown</td>
+<td>Almond</td>
+<td>Cat</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Yes</td>
+<td>Large</td>
+<td>Pointed</td>
+<td>Red</td>
+<td>Narrow</td>
+<td>Fox</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Yes</td>
+<td>Large</td>
+<td>Pointed</td>
+<td>Red</td>
+<td>Narrow</td>
+<td>Fox</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Yes</td>
+<td>Small</td>
+<td>Round</td>
+<td>Mixed</td>
+<td>Round</td>
+<td>Cat</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Yes</td>
+<td>Large</td>
+<td>Pointed</td>
+<td>Red</td>
+<td>Narrow</td>
+<td>Fox</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Yes</td>
+<td>Small</td>
+<td>Round</td>
+<td>Grey</td>
+<td>Round</td>
+<td>Cat</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Yes</td>
+<td>Small</td>
+<td>Round</td>
+<td>Black</td>
+<td>Round</td>
+<td>Cat</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Yes</td>
+<td>Large</td>
+<td>Pointed</td>
+<td>Red</td>
+<td>Narrow</td>
+<td>Fox</td>
+</tr>
+</tbody>
+</table>
 </div></div>
 </section>
 <section id="traditional-programming-example" class="slide level2">
@@ -457,27 +562,28 @@
 <p><img data-src="img/cat-or-fox.png"></p>
 </div><div class="column" style="width:60%;">
 <ul>
-<li>You hard-code rules: “If the image has prominent whiskers, small nose, round face, it’s a cat.”</li>
-<li>This works for normal cases, but what if there are exceptions (e.g., a cat is missing whiskers)</li>
+<li>You hard-code rules. If all of the following satisfy, it’s a fox.
+<ul>
+<li>pointed face ✅</li>
+<li>red fur ✅</li>
+<li>narrow eyes ✅<br>
+</li>
+</ul></li>
+<li>This works for normal cases, but what if there are exceptions</li>
 </ul>
 </div></div>
 </section>
 <section id="ml-approach-example" class="slide level2">
 <h2>ML approach: example</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:60%;">
 <p><img data-src="img/cat-or-fox.png"></p>
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="width:40%;">
 <ul>
-<li>We don’t tell the model the exact rule. Instead, we give it many labeled images, and it learns which features matter most.
+<li>We don’t tell the model the exact rule. Instead, we give it many labeled images, and it learns probabilistic patterns across multiple features, not rigid rules.
 <ul>
-<li>small nose ✅</li>
-<li>round face ✅</li>
-<li>prominent whiskers ✅<br>
-</li>
+<li>If fur is red <span class="math inline">→</span> 90% chance of Fox.</li>
 </ul></li>
-<li>Instead of giving rules, we let the model figure out the best combination of features from data.<br>
-</li>
 </ul>
 </div></div>
 </section>
@@ -489,9 +595,18 @@
 </div><div class="column" style="width:60%;">
 <ul>
 <li>A neural network automatically learns which features to look at (edges <span class="math inline">→</span> textures <span class="math inline">→</span> objects).</li>
-<li>No need to even specify whiskers, nose, or face shape.</li>
+<li>No need to even specify face shape or fur colour. It learns relevant features on its own.</li>
 </ul>
 </div></div>
+</section>
+<section id="what-is-ml" class="slide level2">
+<h2>What is ML?</h2>
+<ul>
+<li>Learn patterns from examples (data)</li>
+<li>Make predictions, identify patterns, generate content</li>
+<li>ML systems <strong>improve over time</strong> with more data</li>
+<li>No single model fits all problems</li>
+</ul>
 </section>
 <section id="traditional-programming-vs.-ml" class="slide level2">
 <h2>Traditional programming vs.&nbsp;ML</h2>
@@ -518,15 +633,6 @@
 </tbody>
 </table>
 </section>
-<section id="what-is-ml" class="slide level2">
-<h2>What is ML?</h2>
-<ul>
-<li>Learn patterns from examples (data)</li>
-<li>Make predictions, identify patterns, generate content</li>
-<li>ML systems <strong>improve over time</strong> with more data</li>
-<li>No single model fits all problems</li>
-</ul>
-</section>
 <section id="when-to-use-ml" class="slide level2">
 <h2>When to use ML?</h2>
 <ul>
@@ -536,8 +642,8 @@
 </ul>
 </section>
 <section>
-<section id="when-to-use-machine-learning-solutions" class="title-slide slide level1 center">
-<h1>When to use Machine Learning solutions?</h1>
+<section id="when-to-use-machine-learning-ml-solutions" class="title-slide slide level1 center">
+<h1>When to use Machine Learning (ML) solutions?</h1>
 
 </section>
 <section id="example-supervised-classification" class="slide level2 smaller">
@@ -545,7 +651,7 @@
 <ul>
 <li>We want to predict liver disease from tabular features:</li>
 </ul>
-<div id="50c24172" class="cell" data-execution_count="2">
+<div id="8f031358" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -630,7 +736,7 @@
 </section>
 <section id="model-training" class="slide level2">
 <h2>Model training</h2>
-<div id="9522466d" class="cell" data-execution_count="3">
+<div id="92d945d1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> lightgbm.sklearn <span class="im">import</span> LGBMClassifier</span>
 <span id="cb1-2"><a></a>model <span class="op">=</span> LGBMClassifier(random_state<span class="op">=</span><span class="dv">123</span>, verbose<span class="op">=-</span><span class="dv">1</span>)</span>
 <span id="cb1-3"><a></a>model.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1275,7 +1381,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <ul>
 <li>Given features of new patients below we’ll use this model to predict whether these patients have the liver disease or not.</li>
 </ul>
-<div id="179f6575" class="cell" data-execution_count="4">
+<div id="ca545a43" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1346,7 +1452,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <ul>
 <li>Let’s examine predictions</li>
 </ul>
-<div id="187837fc" class="cell" data-execution_count="5">
+<div id="b933b8f3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>pred_df <span class="op">=</span> pd.DataFrame({<span class="st">"Predicted_target"</span>: model.predict(X_test).tolist()})</span>
 <span id="cb2-2"><a></a>df_concat <span class="op">=</span> pd.concat([pred_df, X_test.reset_index(drop<span class="op">=</span><span class="va">True</span>)], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb2-3"><a></a>HTML(df_concat.to_html(index<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1423,7 +1529,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="example-supervised-regression" class="slide level2 smaller">
 <h2>Example: Supervised regression</h2>
 <p>Suppose we want to predict housing prices given a number of attributes associated with houses. The target here is <strong>continuous</strong> and not <strong>discrete</strong>.</p>
-<div id="0b4c059c" class="cell" data-execution_count="6">
+<div id="d63d9c68" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1562,7 +1668,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="building-a-regression-model" class="slide level2">
 <h2>Building a regression model</h2>
-<div id="970ab983" class="cell" data-execution_count="7">
+<div id="c42d25b8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> lightgbm.sklearn <span class="im">import</span> LGBMRegressor</span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a>X_train, y_train <span class="op">=</span> train_df.drop(columns<span class="op">=</span> [<span class="st">"target"</span>]), train_df[<span class="st">"target"</span>]</span>
@@ -1574,7 +1680,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="predicting-prices-of-unseen-houses" class="slide level2 smaller">
 <h2>Predicting prices of unseen houses</h2>
-<div id="7c472db2" class="cell" data-execution_count="8">
+<div id="b852bd49" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>pred_df <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb4-2"><a></a>    {<span class="st">"Predicted_target"</span>: model.predict(X_test[<span class="dv">0</span>:<span class="dv">4</span>]).tolist()}</span>
 <span id="cb4-3"><a></a>)</span>
@@ -1710,7 +1816,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="16178be4" class="cell" data-execution_count="9">
+<div id="2492bb2b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>sms_df <span class="op">=</span> pd.read_csv(DATA_DIR <span class="op">+</span> <span class="st">"spam.csv"</span>, encoding<span class="op">=</span><span class="st">"latin-1"</span>)</span>
 <span id="cb5-2"><a></a>sms_df <span class="op">=</span> sms_df.drop(columns <span class="op">=</span> [<span class="st">"Unnamed: 2"</span>, <span class="st">"Unnamed: 3"</span>, <span class="st">"Unnamed: 4"</span>])</span>
 <span id="cb5-3"><a></a>sms_df <span class="op">=</span> sms_df.rename(columns<span class="op">=</span>{<span class="st">"v1"</span>: <span class="st">"target"</span>, <span class="st">"v2"</span>: <span class="st">"sms"</span>})</span>
@@ -1719,7 +1825,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <div id="tabset-1-2">
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="0a3bf944" class="cell" data-execution_count="10">
+<div id="2dfc2f63" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -1760,7 +1866,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </section>
 <section id="lets-train-a-model" class="slide level2">
 <h2>Let’s train a model</h2>
-<div id="50e6eed5" class="cell" data-execution_count="11">
+<div id="bf588f44" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>X_train, y_train <span class="op">=</span> train_df[<span class="st">"sms"</span>], train_df[<span class="st">"target"</span>]</span>
 <span id="cb6-2"><a></a>X_test, y_test <span class="op">=</span> test_df[<span class="st">"sms"</span>], test_df[<span class="st">"target"</span>]</span>
 <span id="cb6-3"><a></a>clf <span class="op">=</span> make_pipeline(CountVectorizer(max_features<span class="op">=</span><span class="dv">5000</span>), LogisticRegression(max_iter<span class="op">=</span><span class="dv">5000</span>))</span>
@@ -2511,7 +2617,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <ul>
 <li>Now use the trained model to predict targets of unseen messages:</li>
 </ul>
-<div id="053db01b" class="cell" data-execution_count="12">
+<div id="6aae6e52" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <style scoped="">
@@ -2562,42 +2668,42 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="predicting-on-unseen-data" class="slide level2 smaller">
 <h2>Predicting on unseen data</h2>
 <p><strong>The model is accurately predicting labels for the unseen text messages above!</strong></p>
-<div id="e1839570" class="cell" data-execution_count="13">
+<div id="57db1c9d" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display" data-execution_count="13">
 <style type="text/css">
-#T_a1fbf_row0_col0, #T_a1fbf_row0_col1, #T_a1fbf_row1_col0, #T_a1fbf_row1_col1, #T_a1fbf_row2_col0, #T_a1fbf_row2_col1, #T_a1fbf_row3_col0, #T_a1fbf_row3_col1 {
+#T_f9f9b_row0_col0, #T_f9f9b_row0_col1, #T_f9f9b_row1_col0, #T_f9f9b_row1_col1, #T_f9f9b_row2_col0, #T_f9f9b_row2_col1, #T_f9f9b_row3_col0, #T_f9f9b_row3_col1 {
   text-align: left;
 }
 </style>
 
-<table id="T_a1fbf" class="caption-top" data-quarto-postprocess="true">
+<table id="T_f9f9b" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_a1fbf_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
-<th id="T_a1fbf_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">spam_predictions</th>
+<th id="T_f9f9b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sms</th>
+<th id="T_f9f9b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">spam_predictions</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_a1fbf_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
-<td id="T_a1fbf_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
-<td id="T_a1fbf_row0_col1" class="data row0 col1">ham</td>
+<td id="T_f9f9b_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">3245</td>
+<td id="T_f9f9b_row0_col0" class="data row0 col0">Funny fact Nobody teaches volcanoes 2 erupt, tsunamis 2 arise, hurricanes 2 sway aroundn no 1 teaches hw 2 choose a wife Natural disasters just happens</td>
+<td id="T_f9f9b_row0_col1" class="data row0 col1">ham</td>
 </tr>
 <tr class="even">
-<td id="T_a1fbf_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
-<td id="T_a1fbf_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
-<td id="T_a1fbf_row1_col1" class="data row1 col1">ham</td>
+<td id="T_f9f9b_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">944</td>
+<td id="T_f9f9b_row1_col0" class="data row1 col0">I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones</td>
+<td id="T_f9f9b_row1_col1" class="data row1 col1">ham</td>
 </tr>
 <tr class="odd">
-<td id="T_a1fbf_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
-<td id="T_a1fbf_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
-<td id="T_a1fbf_row2_col1" class="data row2 col1">spam</td>
+<td id="T_f9f9b_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">1044</td>
+<td id="T_f9f9b_row2_col0" class="data row2 col0">We know someone who you know that fancies you. Call 09058097218 to find out who. POBox 6, LS15HB 150p</td>
+<td id="T_f9f9b_row2_col1" class="data row2 col1">spam</td>
 </tr>
 <tr class="even">
-<td id="T_a1fbf_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
-<td id="T_a1fbf_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
-<td id="T_a1fbf_row3_col1" class="data row3 col1">ham</td>
+<td id="T_f9f9b_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">2484</td>
+<td id="T_f9f9b_row3_col0" class="data row3 col0">Only if you promise your getting out as SOON as you can. And you'll text me in the morning to let me know you made it in ok.</td>
+<td id="T_f9f9b_row3_col1" class="data row3 col1">ham</td>
 </tr>
 </tbody>
 </table>
@@ -2607,7 +2713,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="examplel-text-classification-with-llms" class="slide level2">
 <h2>Examplel: Text classification with LLMs</h2>
 <p>&nbsp;</p>
-<div id="3b3c130e" class="cell" data-execution_count="14">
+<div id="71d683d6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> transformers <span class="im">import</span> pipeline, AutoModelForTokenClassification, AutoTokenizer</span>
 <span id="cb7-2"><a></a><span class="co"># Sentiment analysis pipeline</span></span>
 <span id="cb7-3"><a></a>analyzer <span class="op">=</span> pipeline(<span class="st">"sentiment-analysis"</span>, model<span class="op">=</span><span class="st">'distilbert-base-uncased-finetuned-sst-2-english'</span>)</span>
@@ -2628,7 +2734,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <li>Now suppose you want to identify the emotion expressed in the text rather than just positive or negative.</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="1aa024fb" class="cell" data-execution_count="15">
+<div id="abf1466c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>['im feeling rather rotten so im not very ambitious right now',
  'im updating my blog because i feel shitty',
@@ -2648,7 +2754,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <h2>Zero-shot learning for emotion detection</h2>
 <p><br>
 </p>
-<div id="8dbf30de" class="cell" data-execution_count="16">
+<div id="56aee77e" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer</span>
 <span id="cb10-2"><a></a><span class="im">from</span> transformers <span class="im">import</span> pipeline </span>
 <span id="cb10-3"><a></a><span class="im">import</span> torch</span>
@@ -2666,7 +2772,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p><br>
 </p>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="b085f273" class="cell" data-execution_count="17">
+<div id="2b010368" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 <style scoped="">
@@ -2773,7 +2879,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <li>We can use machine learning to predict labels of these images using a technique called <strong>transfer learning</strong>.</li>
 </ul>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="5e20076f" class="cell" data-execution_count="18">
+<div id="7fc1a74a" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2853,12 +2959,12 @@ Walker hound, Walker foxhound              0.582
 <h2>K-Means on food dataset</h2>
 <p><br>
 </p>
-<div id="7af017fd" class="cell" data-execution_count="20">
+<div id="ecbf9d71" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>densenet <span class="op">=</span> models.densenet121(weights<span class="op">=</span><span class="st">"DenseNet121_Weights.IMAGENET1K_V1"</span>)</span>
 <span id="cb15-2"><a></a>densenet.classifier <span class="op">=</span> torch.nn.Identity()  <span class="co"># remove that last "classification" layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="de584356" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>Z_food <span class="op">=</span> get_features(densenet, food_inputs)</span>
+<div id="7ba867d9" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>Z_food <span class="op">=</span> get_features_unsup(densenet, food_inputs)</span>
 <span id="cb16-2"><a></a>k <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb16-3"><a></a>km <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, n_init<span class="op">=</span><span class="st">'auto'</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
 <span id="cb16-4"><a></a>km.fit(Z_food)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3448,7 +3554,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p><br>
 </p>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="73d988dc" class="cell" data-execution_count="22">
+<div id="5690f258" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="cf">for</span> cluster <span class="kw">in</span> <span class="bu">range</span>(k):</span>
 <span id="cb17-2"><a></a>    get_cluster_images(km, Z_food, X_food, cluster, n_img<span class="op">=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3514,7 +3620,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 <ul>
 <li>Consider the following titles and queries.</li>
 </ul>
-<div id="b3aec9c7" class="cell" data-execution_count="23">
+<div id="cc9b2d50" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="co"># Corpus of existing paper titles or abstracts</span></span>
 <span id="cb23-2"><a></a>corpus <span class="op">=</span> [</span>
 <span id="cb23-3"><a></a>    <span class="st">"Mapping eelgrass beds in British Columbia using remote sensing"</span>,</span>
@@ -3537,7 +3643,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 </section>
 <section id="which-queries-are-similar-to-which-titles" class="slide level2">
 <h2>Which queries are similar to which titles?</h2>
-<div id="02af2550" class="cell" data-execution_count="24">
+<div id="abc444f7" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer, util</span>
 <span id="cb24-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb24-3"><a></a></span>
@@ -3555,7 +3661,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 <section id="which-queries-are-similar-to-which-titles-1" class="slide level2">
 <h2>Which queries are similar to which titles?</h2>
 <div class="scroll-container" style="overflow-y: scroll; height: 400px;">
-<div id="ca2b3f7a" class="cell" data-execution_count="25">
+<div id="f4d3f6be" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 🔍 Query 1: Predicting yield of chemical reactions using optimization techniques
@@ -3600,7 +3706,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 <ul>
 <li>Let’s look at <a href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn">Customer Churn Dataset</a>, which is collected at a fixed time.</li>
 </ul>
-<div id="31937a04" class="cell" data-execution_count="26">
+<div id="ae48593f" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
@@ -3755,7 +3861,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 <li>What’s different here compared to predicting disease vs.&nbsp;no disease?</li>
 <li>Here, we are actually interested in the time until the event of churn is likely to occur.</li>
 </ul>
-<div id="dbbb7f80" class="cell" data-execution_count="27">
+<div id="6c0cb4c3" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <style scoped="">
@@ -3819,7 +3925,7 @@ Image indices:  [120 268 244  94  72  87]</code></pre>
 <img data-src="slides-01-intro-ML-problems_files/figure-revealjs/cell-29-output-1.png" class="r-stretch"></section>
 <section id="example-time-series" class="slide level2">
 <h2>Example: Time series</h2>
-<div id="ffa4c790" class="cell" data-execution_count="29">
+<div id="7198af90" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>starttime
 2015-08-01 00:00:00     3
@@ -3838,7 +3944,7 @@ Freq: 3h, Name: one, dtype: int64</code></pre>
 <img data-src="slides-01-intro-ML-problems_files/figure-revealjs/cell-32-output-1.png" class="r-stretch"></section>
 <section id="predictions" class="slide level2">
 <h2>Predictions</h2>
-<div id="8d05b670" class="cell" data-execution_count="32">
+<div id="fafa9fec" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-stdout">
 <pre><code>Train-set R^2: 0.89
 Test-set R^2: 0.84</code></pre>

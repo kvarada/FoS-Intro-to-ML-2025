@@ -70,21 +70,34 @@ DATA_DIR = 'data/'
 - Have you used search in Google Photos? You can search for "cat" and it will retrieve photos from your libraries containing cats.
 - This can be done using **image classification**. 
 
-## Image classification
+## Image classification {.smaller}
+- Imagine we want a system that can tell cats and foxes apart.
+- How might we do this with traditional programming? With ML?
 
 :::: {.columns}
 
-::: {.column width="60%"}
+::: {.column width="40%"}
 ![](img/cat-or-fox.png) 
 :::
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 
-- Imagine we want a system that can tell cats and foxes apart.
-- How might we do this with traditional programming? With ML?
+| Image ID | Whiskers Present | Ear Size  | Face Shape | Fur Color  | Eye Shape   | Label |
+|----------|------------------|-----------|------------|------------|-------------|-------|
+| 1        | Yes              | Small     | Round      | Mixed      | Round       | Cat   |
+| 2        | Yes              | Medium    | Round      | Brown      | Almond      | Cat   |
+| 3        | Yes              | Large     | Pointed    | Red        | Narrow      | Fox   |
+| 4        | Yes              | Large     | Pointed    | Red        | Narrow      | Fox   |
+| 5        | Yes              | Small     | Round      | Mixed      | Round       | Cat   |
+| 6        | Yes              | Large     | Pointed    | Red        | Narrow      | Fox   |
+| 7        | Yes              | Small     | Round      | Grey       | Round       | Cat   |
+| 8        | Yes              | Small     | Round      | Black      | Round       | Cat   |
+| 9        | Yes              | Large     | Pointed    | Red        | Narrow      | Fox   |
+
 ::: 
 
 ::::
+
 
 ## Traditional programming: example
 
@@ -95,8 +108,11 @@ DATA_DIR = 'data/'
 :::
 
 ::: {.column width="60%"}
-- You hard-code rules: "If the image has prominent whiskers, small nose, round face, it's a cat."
-- This works for normal cases, but what if there are exceptions (e.g., a cat is missing whiskers) 
+- You hard-code rules. If all of the following satisfy, it's a fox.     
+    - pointed face ✅
+    - red fur ✅
+    - narrow eyes ✅    
+- This works for normal cases, but what if there are exceptions
 ::: 
 
 ::::
@@ -105,16 +121,14 @@ DATA_DIR = 'data/'
 
 :::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 ![](img/cat-or-fox.png) 
 :::
 
-::: {.column width="60%"}
-- We don't tell the model the exact rule. Instead, we give it many labeled images, and it learns which features matter most.
-    - small nose ✅
-    - round face ✅
-    - prominent whiskers ✅    
-- Instead of giving rules, we let the model figure out the best combination of features from data.    
+::: {.column width="40%"}
+- We don't tell the model the exact rule. Instead, we give it many labeled images, and it learns probabilistic patterns across multiple features, not rigid rules.
+    - If fur is red $\rightarrow$ 90% chance of Fox.
+
 ::: 
 
 ::::
@@ -129,17 +143,10 @@ DATA_DIR = 'data/'
 
 ::: {.column width="60%"}
 - A neural network automatically learns which features to look at (edges $\rightarrow$ textures $\rightarrow$ objects).
-- No need to even specify whiskers, nose, or face shape.
+- No need to even specify face shape or fur colour. It learns relevant features on its own. 
 ::: 
 
 ::::
-
-## Traditional programming vs. ML
-
-| Approach                 | Best for                                 |
-|--------------------------|-------------------------------------------|
-| Traditional Programming  | Rules are known, data is clean/predictable |
-| Machine Learning         | Rules are complex/unknown, data is noisy  |
 
 ## What is ML? 
 
@@ -148,13 +155,20 @@ DATA_DIR = 'data/'
 - ML systems **improve over time** with more data
 - No single model fits all problems
 
+## Traditional programming vs. ML
+
+| Approach                 | Best for                                 |
+|--------------------------|-------------------------------------------|
+| Traditional Programming  | Rules are known, data is clean/predictable |
+| Machine Learning         | Rules are complex/unknown, data is noisy  |
+
 ## When to use ML? 
 
 - When the problem can't be solved with a fixed set of rules
 - When you have **lots of data** and **complex relationships**
 - When human decision-making is too slow or inconsistent
 
-# When to use Machine Learning solutions? 
+# When to use Machine Learning (ML) solutions? 
 
 ## Example: Supervised classification {.smaller}
 - We want to predict liver disease from tabular features:
@@ -400,7 +414,7 @@ densenet.classifier = torch.nn.Identity()  # remove that last "classification" l
 
 ```{python}
 #| echo: true
-Z_food = get_features(densenet, food_inputs)
+Z_food = get_features_unsup(densenet, food_inputs)
 k = 5
 km = KMeans(n_clusters=k, n_init='auto', random_state=123)
 km.fit(Z_food)
