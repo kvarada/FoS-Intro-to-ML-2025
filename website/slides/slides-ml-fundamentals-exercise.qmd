@@ -1,0 +1,12 @@
+---
+format: 
+    revealjs:
+      smaller: true
+      center: true
+---
+
+## Your turn
+
+Here is a Jupyter notebook you can download for further exploration:
+
+[Download and Save the Jupyter Notebook](https://github.com/kvarada/FoS-Intro-to-ML-2025/blob/main/website/slides/downloads/exercise-01-ml-fundamentals.ipynb)
