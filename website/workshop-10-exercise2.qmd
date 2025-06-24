@@ -10,4 +10,4 @@ editor: { render-on-save: true }
 
 ## Slides
 
-{{< revealjs "slides/slides-06-deep-learning-exercise.html" height="600px" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-deep-learning-exercise.html" height="600px" class="ratio ratio-16x9" >}}
