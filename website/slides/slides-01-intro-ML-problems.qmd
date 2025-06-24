@@ -37,6 +37,16 @@ pd.set_option("display.max_colwidth", 200)
 DATA_DIR = 'data/' 
 ```
 
+## 🎯 Learning Outcomes {.smaller}
+
+By the end of this module, you will be able to:
+
+- Explain the difference between traditional programming, machine learning, and deep learning approaches.
+- Describe what machine learning is and when it is appropriate to use ML-based solutions.
+- Identify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting.
+- Recognize common data types in machine learning, including tabular, text, and image data.
+- Evaluate whether a machine learning solution is suitable for your problem or whether a rule-based or human-expert solution is more appropriate.
+
 ## Which cat do you think is AI-generated? {.smaller}
 
 :::: {.columns}
@@ -121,11 +131,11 @@ DATA_DIR = 'data/'
 
 :::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ![](img/cat-or-fox.png) 
 :::
 
-::: {.column width="60%"}
+::: {.column width="50%"}
 - We don't tell the model the exact rule. Instead, we give it many labeled images, and it learns probabilistic patterns across multiple features, not rigid rules.
     - If fur is red $\rightarrow$ 90% chance of Fox.
 
@@ -155,20 +165,18 @@ DATA_DIR = 'data/'
 - ML systems **improve over time** with more data
 - No single model fits all problems
 
-## Traditional programming vs. ML
-
-| Approach                 | Best for                                 |
-|--------------------------|-------------------------------------------|
-| Traditional Programming  | Rules are known, data is clean/predictable |
-| Machine Learning         | Rules are complex/unknown, data is noisy  |
-
 ## When to use ML? 
 
 - When the problem can't be solved with a fixed set of rules
 - When you have **lots of data** and **complex relationships**
 - When human decision-making is too slow or inconsistent
 
-# When to use Machine Learning solutions? 
+| Approach                 | Best for                                 |
+|--------------------------|-------------------------------------------|
+| Traditional Programming  | Rules are known, data is clean/predictable |
+| Machine Learning         | Rules are complex/unknown, data is noisy  |
+
+# When to use Machine Learning (ML) solutions? 
 
 ## Example: Supervised classification {.smaller}
 - We want to predict liver disease from tabular features:
