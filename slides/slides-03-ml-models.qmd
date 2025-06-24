@@ -1,5 +1,5 @@
 ---
-title: "Supervised Machine Learning Models"
+title: "A First Look at Some ML Models"
 format: 
     revealjs:
       smaller: true
@@ -99,12 +99,16 @@ Can you guess what this dataset is?
 
 Logistic Regression predicts a *linear* decision boundary.
 
+<!--
+
 ## Sentiment Analysis: An Example
 
 ```{python}
 import sys, os
 sys.path.append(os.path.join(os.path.abspath("."), "code"))
 from sup_learning import *
+from sklearn.datasets import make_blobs
+from mglearn import discrete_scatter
 ```
 \
 Let us attempt to use logistic regression to do sentiment analysis on a database of IMDB reviews. The database is available [here](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews?resource=download).
@@ -185,6 +189,8 @@ pd.DataFrame(scores)
 \
 We're able to predict with roughly 84% accuracy on validation sets. Looks like our model learned something!
 
+<!--
+
 ## Tuning hyperparameters
 \
 
@@ -215,6 +221,8 @@ best_model = random_search.best_estimator_
 
 ```
 
+
+
 ## Investigating the model
 ::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
 \
@@ -234,6 +242,7 @@ word_coeff_df = pd.DataFrame(coeffs, index=feature_names, columns=["Coefficient"
 word_coeff_df.sort_values(by="Coefficient", ascending=False)
 ```
 :::
+
 
 ## Investigating the model
 \
@@ -275,14 +284,15 @@ plot_coeff_example(best_model, fake_reviews[0], coeffs, feature_names)
 :::
 
 
+
 ## Summary
 \
 
 The bag-of-words representation was very simple-- we only counted which words appeared in which reviews. There was no attempt to maintain syntactical or grammatical structure or to study correlations between words.
 
-We also trained on just 5000 examples. Nevertheless, our model performs quite well.
+Modern language models often make use of richer representations that can better capture "meaning" in words and sentences. We will discuss these "embeddings" later on in the workshop!
 
-
+-->
 
 ## Linear Models
 \
@@ -299,7 +309,7 @@ Cons:
 * Linear decision boundaries for classifiers
 * Correlated features can cause problems
 
-# (Optional) Analogy-based models
+# Analogy and similarity in Machine Learning
 
 ## Analogy-based models
 
@@ -327,10 +337,23 @@ Find the *K* nearest neighbours of an example, and predict whichever class was m
 
 No training phase, but the model can get arbitrarily large (and take very long to make predictions).
 
-## SVM with RBF kernel
+## Cosine Similarity
+
+Another popular choice for measuring similarity is "cosine distance". Useful when orientation matters more than absolute size.
+
+Popular choice in word embeddings when working with text data.
+
+## The RBF Kernel
+\
+
+The RBF kernel "transforms" our data into a representation that directly captures similarity between examples. We get a new column (i.e. new feature) for every data point. The value of the new features is determined by computing pairwise distances between points, and then applying a Gaussian.
+
+Feature values are close to zero for far-away points, and close to 1 for nearby points.
+
+## Linear models with RBF kernel
 \ 
 
-Another 'analogy-based' classification method.
+We can train a linear model on the new features!
 
 The model stores examples with positive and negative weights. Being close to a positive example makes your label more likely to be positive.
 
@@ -354,12 +377,53 @@ Cons:
 * Computing distances is time-consuming for large datasets
 * Can't really interpret the model's decisions.
 
+# Clustering
+
+## K-means clustering
+
+```{python}
+X, y = make_blobs(n_samples=10, centers=3, n_features=2, random_state=10)
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+discrete_scatter(X[:, 0], X[:, 1], ax = axes[0]); # user-defined plotting function defined in code/plotting_functions.py
+discrete_scatter(X[:, 0], X[:, 1], y=y, markers='o', ax = axes[1]);
+```
+
+## K-means clustering
+\ 
+- **Algorithm Steps**:
+  1. Select K initial centroids.
+  2. Assign each data point to the nearest centroid.
+  3. Recalculate centroids based on assigned points.
+  4. Repeat until centroids stabilize or reach a maximum number of iterations.
+
+## K-means clustering
+
+![](img/k-means-iterative.png)
+
+## K-Means pros and cons
+- **Advantages**:
+  - Simple and efficient for large datasets.
+  - Works well with spherical clusters.
+
+- **Limitations**:
+  - Needs pre-defined K.
+  - Sensitive to outliers and initial centroid placement.
+  - Poor performance for irregular clusters, or clusters of varying sizes and densities
+
+## Other Clustering Algorithms
+
+Some other clustering options that offer more flexibility than K-means:
+
+- Gaussian Mixture Models
+- Density-based Clustering (DBSCAN)
+- Heirarchical Clustering
+
+Remember, data representation matters! 
+
 ## A Look Ahead
 \
 
-Support Vector Machines (SVM) are also linear classifiers.
-
-The reason we see a *non-linear* decision boundary is the use of the *RBF* kernel, which applies a certain non-linear transformation to the features.
+We saw an example of a linear model that was able to learn a *non-linear* decision boundary. The key was finding a non-linear feature transformation that was appropriate for the problem.
 
 Even if our data is not linearly separable, there could be a good choice of feature transform out there that *makes* it linearly separable.
 

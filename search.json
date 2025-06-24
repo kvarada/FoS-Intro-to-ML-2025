@@ -296,238 +296,203 @@
   {
     "objectID": "slides/slides-03-ml-models.html#supervised-learning",
     "href": "slides/slides-03-ml-models.html#supervised-learning",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Supervised Learning",
     "text": "Supervised Learning\n\n\nIn the next section, we will briefly introduce a few types of machine learning models that are often used for supervised learning tasks.\nWe will discuss some basic intuition around how they work, and also discuss their relative strengths and shortcomings."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#tree-based-models-1",
     "href": "slides/slides-03-ml-models.html#tree-based-models-1",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Tree-based models",
     "text": "Tree-based models\n\nWe have seen that decision trees are prone to overfitting. There are several models that extend the basic idea of using decision trees."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#random-forest",
     "href": "slides/slides-03-ml-models.html#random-forest",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Random Forest",
     "text": "Random Forest\n\nTrain an ensemble of distinct decision trees."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#random-forest-1",
     "href": "slides/slides-03-ml-models.html#random-forest-1",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Random Forest",
     "text": "Random Forest\n\n\nEach tree trains on a random sample of the data. Some times the features used to split are also randomized at each node.\nIdea: Individual trees still learn noise in the data, but the noise should “average out” over the ensemble."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#gradient-boosted-trees",
     "href": "slides/slides-03-ml-models.html#gradient-boosted-trees",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Gradient Boosted Trees",
     "text": "Gradient Boosted Trees\n\nEach tree tries to “correct” or improve the previous tree’s prediction."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#tree-based-models-2",
     "href": "slides/slides-03-ml-models.html#tree-based-models-2",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Tree-Based Models",
     "text": "Tree-Based Models\n \nRandom Forest, XGBoost, etc are all easily available as “out-of-the box solutions”.\nPros:\n\nPerform well on a variety of tasks\nRandom forest in particular are easy to train and robust to outliers.\n\nCons:\n\nNot always interpretable\nNot good at handling sparse data\nCan also still overfit."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-models-1",
     "href": "slides/slides-03-ml-models.html#linear-models-1",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear models",
     "text": "Linear models\n\n\n\nMany of you might be familiar with least-squares regression. We find the line of best fit by minimizing the ‘squared error’ of the predictions."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-models-2",
     "href": "slides/slides-03-ml-models.html#linear-models-2",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Models",
     "text": "Linear Models\n  \nSquared Error is very sensitive to outliers. Far-away points contribute a very large squared error, and even relatively few points can affect the outcome."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-models-3",
     "href": "slides/slides-03-ml-models.html#linear-models-3",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Models",
     "text": "Linear Models\n  \nWe can use other notions of “best fit”. Using absolute error makes the model more resistant to outliers!"
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-classifiers",
     "href": "slides/slides-03-ml-models.html#linear-classifiers",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Classifiers",
     "text": "Linear Classifiers\n\n\nWe can also build linear models for classification tasks. The idea is to convert the output from an arbitrary number to a number between 0 and 1, and treat it like a “probability”.\nIn logistic regression, we squash the output using the sigmoid function and then adjust parameters (in training) to find the choice that makes the data “most likely”."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-classifiers-1",
     "href": "slides/slides-03-ml-models.html#linear-classifiers-1",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Classifiers",
     "text": "Linear Classifiers\n\nCan you guess what this dataset is?"
   },
   {
     "objectID": "slides/slides-03-ml-models.html#linear-classifiers-2",
     "href": "slides/slides-03-ml-models.html#linear-classifiers-2",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Classifiers",
     "text": "Linear Classifiers\n\nLogistic Regression predicts a linear decision boundary."
   },
   {
-    "objectID": "slides/slides-03-ml-models.html#sentiment-analysis-an-example",
-    "href": "slides/slides-03-ml-models.html#sentiment-analysis-an-example",
-    "title": "Supervised Machine Learning Models",
-    "section": "Sentiment Analysis: An Example",
-    "text": "Sentiment Analysis: An Example\n\nLet us attempt to use logistic regression to do sentiment analysis on a database of IMDB reviews. The database is available here.\n\nimdb_df = pd.read_csv(\"data/imdb_master.csv\", encoding=\"ISO-8859-1\")\nimdb_df.rename(columns={\"sentiment\": \"label\"}, inplace = True)\n\n\n\n\n\n\n\n\n\n\nreview\nlabel\n\n\n\n\n0\nOne of the other reviewers has mentioned that ...\npositive\n\n\n1\nA wonderful little production. &lt;br /&gt;&lt;br /&gt;The...\npositive\n\n\n2\nI thought this was a wonderful way to spend ti...\npositive\n\n\n3\nBasically there's a family where a little boy ...\nnegative\n\n\n4\nPetter Mattei's \"Love in the Time of Money\" is...\npositive\n\n\n\n\n\n\n\nWe will use only about 10% of the dataset for training (to speed things up)"
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#bag-of-words",
-    "href": "slides/slides-03-ml-models.html#bag-of-words",
-    "title": "Supervised Machine Learning Models",
-    "section": "Bag of Words",
-    "text": "Bag of Words\n\nTo create features that logistic regression can use, we will represent these reviews via a “bag of words” strategy.\nWe create a new feature for every word that appears in the dataset. Then, if a review contains that word exactly once, the corresponding feature gets a value of 1 for that review. If the word appears four times, the feature gets a value of 4. If the word is not present, it’s marked as 0."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#bag-of-words-1",
-    "href": "slides/slides-03-ml-models.html#bag-of-words-1",
-    "title": "Supervised Machine Learning Models",
-    "section": "Bag of Words",
-    "text": "Bag of Words\n\nNotice that the result is a sparse matrix. Most reviews contain only a small number of words.\n\nvec = CountVectorizer(stop_words=\"english\")\nbow = vec.fit_transform(X_train)\nbow\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 439384 stored elements and shape (5000, 38867)&gt;\n\n\nThere are a total of 38867 “words” among the reviews. Here are some of them:\n\n\narray(['00', 'affection', 'apprehensive', 'barbara', 'blore',\n       'businessman', 'chatterjee', 'commanding', 'cramped', 'defining',\n       'displaced', 'edie', 'evolving', 'fingertips', 'gaffers',\n       'gravitas', 'heist', 'iliad', 'investment', 'kidnappee',\n       'licentious', 'malã', 'mice', 'museum', 'obsessiveness',\n       'parapsychologist', 'plasters', 'property', 'reclined',\n       'ridiculous', 'sayid', 'shivers', 'sohail', 'stomaches', 'syrupy',\n       'tolerance', 'unbidden', 'verneuil', 'wilcox'], dtype=object)"
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#checking-the-class-counts",
-    "href": "slides/slides-03-ml-models.html#checking-the-class-counts",
-    "title": "Supervised Machine Learning Models",
-    "section": "Checking the class counts",
-    "text": "Checking the class counts\nLet us see how many reviews are positive, and how many are negative.  \n\ny_train.value_counts()\n\nlabel\npositive    2517\nnegative    2483\nName: count, dtype: int64\n\n\n\n\nThe dataset looks pretty balanced, so a classifier predicting at random would at best guess about 50% correctly.\nWe will not train our model."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#testing-performance-1",
-    "href": "slides/slides-03-ml-models.html#testing-performance-1",
-    "title": "Supervised Machine Learning Models",
-    "section": "Testing Performance",
-    "text": "Testing Performance\n\n\nLet’s see how the model performs after training.\n\n\n\n\n\n\n\n\n\nfit_time\nscore_time\ntest_score\ntrain_score\n\n\n\n\n0\n0.411476\n0.058247\n0.828\n0.99975\n\n\n1\n0.407961\n0.059842\n0.830\n0.99975\n\n\n2\n0.422086\n0.058663\n0.848\n0.99975\n\n\n3\n0.408087\n0.057880\n0.833\n1.00000\n\n\n4\n0.397947\n0.059378\n0.840\n0.99975\n\n\n\n\n\n\n\n\nWe’re able to predict with roughly 84% accuracy on validation sets. Looks like our model learned something!"
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#tuning-hyperparameters",
-    "href": "slides/slides-03-ml-models.html#tuning-hyperparameters",
-    "title": "Supervised Machine Learning Models",
-    "section": "Tuning hyperparameters",
-    "text": "Tuning hyperparameters\n\n\nHowever, the training scores are perfect (and higher than validation scores) so our model is likely overfitting.\nMaybe it just memorized some rare words, each appearing only in one review, and associated these with the review’s label. We could try reducing the size of our dictionary to prevent this."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#tuning-hyperparameters-1",
-    "href": "slides/slides-03-ml-models.html#tuning-hyperparameters-1",
-    "title": "Supervised Machine Learning Models",
-    "section": "Tuning hyperparameters",
-    "text": "Tuning hyperparameters\n\n\nThere are many tools available to automate the search for good hyperparameters. These can make our life easy, but there is always the danger of optimization bias in the results."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#investigating-the-model",
-    "href": "slides/slides-03-ml-models.html#investigating-the-model",
-    "title": "Supervised Machine Learning Models",
-    "section": "Investigating the model",
-    "text": "Investigating the model\n\n\n\nLet’s see what associations our model learned.\n\n\n\n\n\n\n\n\n\nCoefficient\n\n\n\n\nexcellent\n0.792911\n\n\nperfect\n0.608851\n\n\namazing\n0.602716\n\n\nwonderful\n0.564188\n\n\nsurprised\n0.536449\n\n\n...\n...\n\n\nwaste\n-0.669122\n\n\nterrible\n-0.697831\n\n\nboring\n-0.709981\n\n\nawful\n-0.870623\n\n\nworst\n-1.117365\n\n\n\n\n5775 rows × 1 columns"
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#investigating-the-model-1",
-    "href": "slides/slides-03-ml-models.html#investigating-the-model-1",
-    "title": "Supervised Machine Learning Models",
-    "section": "Investigating the model",
-    "text": "Investigating the model\n\n\nThey make sense! Let’s visualize the 20 most important features."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#making-predictions",
-    "href": "slides/slides-03-ml-models.html#making-predictions",
-    "title": "Supervised Machine Learning Models",
-    "section": "Making Predictions",
-    "text": "Making Predictions\n\n\nFinally, let’s try predicting on some new examples.\n\n\n\n['It got a bit boring at times but the direction was excellent and the acting was flawless. Overall I enjoyed the movie and I highly recommend it!',\n 'The plot was shallower than a kiddie pool in a drought, but hey, at least we now know emojis should stick to texting and avoid the big screen.']\n\n\nHere are the model predictions:\n\n\narray(['positive', 'negative'], dtype=object)\n\n\n\n\nLet’s see which vocabulary words were present in the first review, and how they contributed to the classification."
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#understanding-predictions",
-    "href": "slides/slides-03-ml-models.html#understanding-predictions",
-    "title": "Supervised Machine Learning Models",
-    "section": "Understanding Predictions",
-    "text": "Understanding Predictions\n\n\n\nIt got a bit boring at times but the direction was excellent and the acting was flawless. Overall I enjoyed the movie and I highly recommend it!"
-  },
-  {
-    "objectID": "slides/slides-03-ml-models.html#summary",
-    "href": "slides/slides-03-ml-models.html#summary",
-    "title": "Supervised Machine Learning Models",
-    "section": "Summary",
-    "text": "Summary\n\n\nThe bag-of-words representation was very simple– we only counted which words appeared in which reviews. There was no attempt to maintain syntactical or grammatical structure or to study correlations between words.\nWe also trained on just 5000 examples. Nevertheless, our model performs quite well."
-  },
-  {
     "objectID": "slides/slides-03-ml-models.html#linear-models-4",
     "href": "slides/slides-03-ml-models.html#linear-models-4",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Linear Models",
     "text": "Linear Models\n\n\nPros:\n\nEasy to train and to interpret\nWidely applicable despite some strong assumptions\nIf you have a regression task, check whether a linear regression is already good enough! If you have a classification task, logistic regression is a go-to first option.\n\nCons:\n\nStrong assumptions\nLinear decision boundaries for classifiers\nCorrelated features can cause problems"
   },
   {
     "objectID": "slides/slides-03-ml-models.html#analogy-based-models",
     "href": "slides/slides-03-ml-models.html#analogy-based-models",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Analogy-based models",
     "text": "Analogy-based models\n\nReturning to our older dataset."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#analogy-based-models-1",
     "href": "slides/slides-03-ml-models.html#analogy-based-models-1",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Analogy-based models",
     "text": "Analogy-based models\n\nHow would you classify the green dot?"
   },
   {
     "objectID": "slides/slides-03-ml-models.html#analogy-based-models-2",
     "href": "slides/slides-03-ml-models.html#analogy-based-models-2",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Analogy-based models",
     "text": "Analogy-based models\n\n\nIdea: predict on new data based on “similar” examples in the training data."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#k-nearest-neighbour-classifier",
     "href": "slides/slides-03-ml-models.html#k-nearest-neighbour-classifier",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "K-Nearest-Neighbour Classifier",
     "text": "K-Nearest-Neighbour Classifier\n\n\nFind the K nearest neighbours of an example, and predict whichever class was most common among them.\n‘K’ is a hyperparameter. Choosing K=1 is likely to overfit. If the dataset has N examples, setting K=N just predicts the mode (dummy classifier).\nNo training phase, but the model can get arbitrarily large (and take very long to make predictions)."
   },
   {
-    "objectID": "slides/slides-03-ml-models.html#svm-with-rbf-kernel",
-    "href": "slides/slides-03-ml-models.html#svm-with-rbf-kernel",
-    "title": "Supervised Machine Learning Models",
-    "section": "SVM with RBF kernel",
-    "text": "SVM with RBF kernel\n \nAnother ‘analogy-based’ classification method.\nThe model stores examples with positive and negative weights. Being close to a positive example makes your label more likely to be positive.\nCan lead to “smoother” decision boundaries than K-NNs, and potentially to a smaller trained model."
+    "objectID": "slides/slides-03-ml-models.html#cosine-similarity",
+    "href": "slides/slides-03-ml-models.html#cosine-similarity",
+    "title": "A First Look at Some ML Models",
+    "section": "Cosine Similarity",
+    "text": "Cosine Similarity\nAnother popular choice for measuring similarity is “cosine distance”. Useful when orientation matters more than absolute size.\nPopular choice in word embeddings when working with text data."
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#the-rbf-kernel",
+    "href": "slides/slides-03-ml-models.html#the-rbf-kernel",
+    "title": "A First Look at Some ML Models",
+    "section": "The RBF Kernel",
+    "text": "The RBF Kernel\n\n\nThe RBF kernel “transforms” our data into a representation that directly captures similarity between examples. We get a new column (i.e. new feature) for every data point. The value of the new features is determined by computing pairwise distances between points, and then applying a Gaussian.\nFeature values are close to zero for far-away points, and close to 1 for nearby points."
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#linear-models-with-rbf-kernel",
+    "href": "slides/slides-03-ml-models.html#linear-models-with-rbf-kernel",
+    "title": "A First Look at Some ML Models",
+    "section": "Linear models with RBF kernel",
+    "text": "Linear models with RBF kernel\n \nWe can train a linear model on the new features!\nThe model stores examples with positive and negative weights. Being close to a positive example makes your label more likely to be positive.\nCan lead to “smoother” decision boundaries than K-NNs, and potentially to a smaller trained model."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#knns-and-svms",
     "href": "slides/slides-03-ml-models.html#knns-and-svms",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "KNNs and SVMs",
     "text": "KNNs and SVMs"
   },
   {
     "objectID": "slides/slides-03-ml-models.html#analogy-based-models-3",
     "href": "slides/slides-03-ml-models.html#analogy-based-models-3",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "Analogy-based Models",
     "text": "Analogy-based Models\n\n\nPros:\n\nDo not need to make assumptions about the underlying data\nGiven enough data, should pretty much always work.\n\nCons:\n\nEnough data can mean … a lot\nComputing distances is time-consuming for large datasets\nCan’t really interpret the model’s decisions."
   },
   {
+    "objectID": "slides/slides-03-ml-models.html#k-means-clustering",
+    "href": "slides/slides-03-ml-models.html#k-means-clustering",
+    "title": "A First Look at Some ML Models",
+    "section": "K-means clustering",
+    "text": "K-means clustering"
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#k-means-clustering-1",
+    "href": "slides/slides-03-ml-models.html#k-means-clustering-1",
+    "title": "A First Look at Some ML Models",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n  - Algorithm Steps: 1. Select K initial centroids. 2. Assign each data point to the nearest centroid. 3. Recalculate centroids based on assigned points. 4. Repeat until centroids stabilize or reach a maximum number of iterations."
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#k-means-clustering-2",
+    "href": "slides/slides-03-ml-models.html#k-means-clustering-2",
+    "title": "A First Look at Some ML Models",
+    "section": "K-means clustering",
+    "text": "K-means clustering"
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#k-means-pros-and-cons",
+    "href": "slides/slides-03-ml-models.html#k-means-pros-and-cons",
+    "title": "A First Look at Some ML Models",
+    "section": "K-Means pros and cons",
+    "text": "K-Means pros and cons\n\nAdvantages:\n\nSimple and efficient for large datasets.\nWorks well with spherical clusters.\n\nLimitations:\n\nNeeds pre-defined K.\nSensitive to outliers and initial centroid placement.\nPoor performance for irregular clusters, or clusters of varying sizes and densities"
+  },
+  {
+    "objectID": "slides/slides-03-ml-models.html#other-clustering-algorithms",
+    "href": "slides/slides-03-ml-models.html#other-clustering-algorithms",
+    "title": "A First Look at Some ML Models",
+    "section": "Other Clustering Algorithms",
+    "text": "Other Clustering Algorithms\nSome other clustering options that offer more flexibility than K-means:\n\nGaussian Mixture Models\nDensity-based Clustering (DBSCAN)\nHeirarchical Clustering\n\nRemember, data representation matters!"
+  },
+  {
     "objectID": "slides/slides-03-ml-models.html#a-look-ahead",
     "href": "slides/slides-03-ml-models.html#a-look-ahead",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "A Look Ahead",
-    "text": "A Look Ahead\n\n\nSupport Vector Machines (SVM) are also linear classifiers.\nThe reason we see a non-linear decision boundary is the use of the RBF kernel, which applies a certain non-linear transformation to the features.\nEven if our data is not linearly separable, there could be a good choice of feature transform out there that makes it linearly separable."
+    "text": "A Look Ahead\n\n\nWe saw an example of a linear model that was able to learn a non-linear decision boundary. The key was finding a non-linear feature transformation that was appropriate for the problem.\nEven if our data is not linearly separable, there could be a good choice of feature transform out there that makes it linearly separable."
   },
   {
     "objectID": "slides/slides-03-ml-models.html#section",
     "href": "slides/slides-03-ml-models.html#section",
-    "title": "Supervised Machine Learning Models",
+    "title": "A First Look at Some ML Models",
     "section": "",
     "text": "Wouldn’t it be nice if we could train a machine learning model to find such a transform?"
   },
@@ -884,81 +849,123 @@
     ]
   },
   {
-    "objectID": "old-workshop-02.html",
-    "href": "old-workshop-02.html",
-    "title": "Module 1: ML Fundamentals",
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Our team",
     "section": "",
-    "text": "View slides in full screen"
+    "text": "Prajeet Bajpai\n        Teaching Postdoctoral Fellow, Master of Data Science\n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Varada Kolhatkar\n        Assistant Professor of Teaching, Computer Science, Master of Data Science\n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Deborah Watt\n        Director, Strategic Initiatives\n        \n            Organizer\n        \n        \n    \n\n\n\nNo matching items"
   },
   {
-    "objectID": "old-workshop-02.html#slides",
-    "href": "old-workshop-02.html#slides",
-    "title": "Module 1: ML Fundamentals",
-    "section": "",
-    "text": "View slides in full screen"
-  },
-  {
-    "objectID": "old-workshop-02.html#outline",
-    "href": "old-workshop-02.html#outline",
-    "title": "Module 1: ML Fundamentals",
-    "section": "Outline",
-    "text": "Outline\n\nMachine learning terminology\nMachine learning fundamentals\nDecision trees"
-  },
-  {
-    "objectID": "lab/guiding_questions.html",
-    "href": "lab/guiding_questions.html",
+    "objectID": "lab/example.html",
+    "href": "lab/example.html",
     "title": "ML Problem Framing",
     "section": "",
-    "text": "Choose a dataset and its corresponding objective, and then try to address the following questions:\n\nIs the provided dataset appropriate for the specified objective? What type of data would ideally solve your problem or research question? Are there better-suited datasets available on the internet for this objective?\nClearly define the expected input and the ‘ideal’ output. Determine if machine learning is the appropriate method for addressing this problem.\nIf machine learning is deemed suitable, what should the model aim to achieve? How would you measure the model’s performance?\nHow would a human tackle this issue? Can you propose any heuristic methods to solve this problem?\nWhat are the major steps required to resolve this problem?\nDraw a diagram that illustrates the input, output, and key stages of the problem-solving process.\nWhich type of machine learning would be best suited for your problem?\nWhat specific machine learning technique would be most effective for this problem?"
+    "text": "Imagine you work at a bank, and the current fraud detection workflow isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection and flagging of fraudulent credit card transactions. While researching online, you find Credit Card Fraud Detection dataset on Kaggle that could be useful for creating a prototype."
   },
   {
-    "objectID": "lab/datasets_and_goals.html",
-    "href": "lab/datasets_and_goals.html",
+    "objectID": "lab/example.html#scenario",
+    "href": "lab/example.html#scenario",
     "title": "ML Problem Framing",
     "section": "",
-    "text": "Below are some topics and datasets of real-world issues that could possibly be solved using Machine Learning\n\n\n\n\n\n\n\n\nStock Market Sentiment\n\n\n\n\n\nImagine you work at a bank, and the current workflow to understand the stock market sentiment isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection of stock market sentiment, which is crucial to some of the trading strategies, based on comments in social media platform. While researching online, you find this dataset on Kaggle that could be useful for creating a prototype.\n\n\n\n\n\n\n\n\n\nE-commerce Strategy\n\n\n\n\n\nImagine you are a consultant hired by an E-commerce platform. You are asked to analyze the retail data and explore machine learning approaches to address one of the planned initiatives of the company, which includes but not limited to:\n\ncustomer segmentation based on their purchase history to derive more customized marketing strategy\npersonalized suggestions of items to customers so as to increase the conversion.\n\nWhile researching online, you find this dataset on Kaggle that could be useful as a starting point.\n\n\n\n\n\n\n\n\n\n\n\n\nCancer Diagnosis\n\n\n\n\n\nImagine you work at a medical research institute which specialized in cancer-related research. You try to explore machine learning approaches to diagnoze patients of the risk of cancer based on images of tissues, hoping to achieve early detection and early treatment to patients. While researching online, you find this dataset on NCI that could be useful.\n\n\n\n\n\n\n\n\n\nPolycystic ovary syndrome\n\n\n\n\n\nImagine you work at a university laboratory which specialized in research on Polycystic ovary syndrome (PCOS), which is a disorder involving infrequent, irregular or prolonged menstrual periods of women. You try to explore machine learning approaches to diagnoze patients of the risk of PCOS based on clinical data. While researching online, you find this dataset on Kaggle that could be useful.\n\n\n\n\n\n\n\n\n\n\n\n\nObesity Levels\n\n\n\n\n\nImagine you work at the Health Bureau of a country. You try to explore machine learning approaches to estimate the obesity levels of your citizens, as well as to understand the key factors relevant to obesity. This helps you defining better public health policy. While researching online, you find this dataset on UCI that could be useful."
+    "text": "Imagine you work at a bank, and the current fraud detection workflow isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection and flagging of fraudulent credit card transactions. While researching online, you find Credit Card Fraud Detection dataset on Kaggle that could be useful for creating a prototype."
   },
   {
-    "objectID": "lab/datasets_and_goals.html#example-topics-for-machine-learning-projects",
-    "href": "lab/datasets_and_goals.html#example-topics-for-machine-learning-projects",
+    "objectID": "lab/example.html#problem-framing",
+    "href": "lab/example.html#problem-framing",
     "title": "ML Problem Framing",
-    "section": "",
-    "text": "Below are some topics and datasets of real-world issues that could possibly be solved using Machine Learning\n\n\n\n\n\n\n\n\nStock Market Sentiment\n\n\n\n\n\nImagine you work at a bank, and the current workflow to understand the stock market sentiment isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection of stock market sentiment, which is crucial to some of the trading strategies, based on comments in social media platform. While researching online, you find this dataset on Kaggle that could be useful for creating a prototype.\n\n\n\n\n\n\n\n\n\nE-commerce Strategy\n\n\n\n\n\nImagine you are a consultant hired by an E-commerce platform. You are asked to analyze the retail data and explore machine learning approaches to address one of the planned initiatives of the company, which includes but not limited to:\n\ncustomer segmentation based on their purchase history to derive more customized marketing strategy\npersonalized suggestions of items to customers so as to increase the conversion.\n\nWhile researching online, you find this dataset on Kaggle that could be useful as a starting point.\n\n\n\n\n\n\n\n\n\n\n\n\nCancer Diagnosis\n\n\n\n\n\nImagine you work at a medical research institute which specialized in cancer-related research. You try to explore machine learning approaches to diagnoze patients of the risk of cancer based on images of tissues, hoping to achieve early detection and early treatment to patients. While researching online, you find this dataset on NCI that could be useful.\n\n\n\n\n\n\n\n\n\nPolycystic ovary syndrome\n\n\n\n\n\nImagine you work at a university laboratory which specialized in research on Polycystic ovary syndrome (PCOS), which is a disorder involving infrequent, irregular or prolonged menstrual periods of women. You try to explore machine learning approaches to diagnoze patients of the risk of PCOS based on clinical data. While researching online, you find this dataset on Kaggle that could be useful.\n\n\n\n\n\n\n\n\n\n\n\n\nObesity Levels\n\n\n\n\n\nImagine you work at the Health Bureau of a country. You try to explore machine learning approaches to estimate the obesity levels of your citizens, as well as to understand the key factors relevant to obesity. This helps you defining better public health policy. While researching online, you find this dataset on UCI that could be useful."
+    "section": "Problem Framing",
+    "text": "Problem Framing\n\nIs the provided dataset appropriate for the specified objective? What type of data would ideally solve your problem or research question? Are there better-suited datasets available on the internet for this objective?\n\nThe ideal dataset should contain data about the transactions, e.g. transaction details, customer details, etc., which could be used to classify the fraud transaction. Moreover, it should contain an indicator whether it is a fraud transaction for supervised machine learning methods. If such indicator is not available, we can apply outlier detection to identify transactions which deviate much from normal transactions as frauds.\nThe provided dataset contains target column ‘Class’ that indicates whether it is a fraud transaction. It also contains other columns (‘Time’, ‘Amount’, ‘V1-V28’) which can be used as features to predict the target column ‘Class’.\nThere are some caveats for using the dataset.\n\nThe dataset is a transformed dataset with PCA-transformed columns ‘V1’ - ‘V28’. Without having the original dataset, we are not sure how the PCA transformation is performed. We cannot guarantee if the same transformation can be applied to any new data (e.g. real-world data of new transactions)\nFrom the interpretation perspective, we might fail to draw any meaningful insights between the features and the target as we do not understand the meaning of the columns ‘V1’ - ‘V28’. Moreover, we might not detect any potential bias or unfairness within the ML model if the original dataset contains sensitive information, e.g. age, gender, etc.\n\nThere could possibly be better-suited datasets, for example this dataset.\n\n\n\nClearly define the expected input and the ‘ideal’ output. Determine if machine learning is the appropriate method for addressing this problem.\n\nData Input: Data about the transactions, for example:\n\nmerchandise details: time, amount, merchant information, etc.\ncustomer details: account balance, credit score, cardholder information, etc.\n\nData Output: A soft prediction (probability) whether a transaction is a fraud\nAs we can clearly define the expected input and output and we can collect the data, machine learning is the appropriate method to address the problem.\n\n\n\nIf machine learning is deemed suitable, what should the model aim to achieve? How would you measure the model’s performance?\n\nOur objective is to detect fraudulent transactions by having a soft prediction (probability) and a threshold to determine whether a transaction is a fraud\nWe can expect there would potentially be false positives (legit transactions predicted as fraud) and false negatives (fraudulent transactions predicted as legit) from the predictions and the model should balance both based on our needs. For example, more false negatives might create more bad debts, while more false positives might affect the revenue.\nMoreover, the dataset is an unbalanced dataset with less than 1% are actual fraudulent records.\nWe can use evaluation metrics, e.g. precision, recall, area under precision-recall curve, etc. to measure the model performance. For example, if we are trying to minimize false negatives, we would focus more on recall (true positive rate).\n\n\n\nHow would a human tackle this issue? Can you propose any heuristic methods to solve this problem?\n\nIt would be a data collection -&gt; analysis by expert -&gt; decision making -&gt; remedy approach to solve this issue by human.\n\nData collection: We collect historical legit and fraud transactions and the related information, e.g. transaction, merchant, cardholder, etc.\nAnalysis by expert: Expert will deep dive into the collected data to identify any pattern/traits of the fraud transactions from the data. Moreover, they will provide a score of the likeliness of fraud for a transaction.\nDecision making: A cutoff of the score will be made to classify if a transaction is a fraud.\nRemedy: If the transaction is legit, no action is required. If it is a fraud, the money transfer will be on-hold. Further investigation will undergo.\n\n\n\n\nWhat are the major steps required to resolve this problem?\n\nFor machine-learning based approach, we would go through similar but slightly different steps to resolve the problem\n\nData collection & wrangling: Data collection is similar to the above. We will also carry out data wrangling to handle unclean data (e.g. missing values) and transform data into desired format (e.g. scaling).\nModel training: A subset of the data will be used to train the model to learn any pattern for fraud/legit transactions. The model will then output the predictions.\nValidation/Testing: Another subset(s) of the data will be used to test the model performance, which is helpful in model selection, estimation of performance under real-world scenario, etc.\nDeployment: The defined data processing pipeline and trained model will be deployed to the existing system/workflow, which can intake the transaction data and output the prediction results to the relevant stakeholder(s) for further actions.\n\n\n\n\nDraw a diagram that illustrates the input, output, and key stages of the problem-solving process.\n\n\n\nWhich type of machine learning would be best suited for your problem? What specific machine learning technique would be most effective for this problem?\n\nWe have labelled data of legit/fraud transactions and our goal is to classify the transactions. Supervised machine learning is best-suited.\nLinear regression can be applied first to observe any linear relationship between the target and the features, and we can obtain a baseline performance.\nGiven the possible non-linear relationship between the target and the features, non-linear algorithms (e.g. SVM) can be applied and we can observe if there is any significant improvement in model performance.\nGiven the variety of data types (textual, numerical, etc.), decision tree based algorithm (gradient boosted tree) can be applied and we can observe if there is any significant improvement in model performance."
   },
   {
-    "objectID": "lab/datasets_and_goals.html#open-data-source-for-machine-learning-projects",
-    "href": "lab/datasets_and_goals.html#open-data-source-for-machine-learning-projects",
-    "title": "ML Problem Framing",
-    "section": "Open Data Source for Machine Learning Projects",
-    "text": "Open Data Source for Machine Learning Projects\nBelow are some websites that can provide open data useful for Machine Learning projects.\n\nUCI Machine Learning Repository\nKaggle\nFederal Reserve Bank of St. Louis\nNational Library of Medicine\nGapminder\nThe Humanitarian Data Exchange (HDX)\nStatistics Canada"
+    "objectID": "slides/slides-summary.html#what-did-we-cover",
+    "href": "slides/slides-summary.html#what-did-we-cover",
+    "title": "Summary and conclusion",
+    "section": "What did we cover?",
+    "text": "What did we cover?\n\nWhen to use and not to use machine learning?\nSupervised machine learning fundamentals\nIntroduction to linear models\nIntroduction to deep learning and transfer learning\nUsing pre-trained models and embeddings to solve your problems"
   },
   {
-    "objectID": "slides/slides-06-deep-learning-exercise.html#game-time",
-    "href": "slides/slides-06-deep-learning-exercise.html#game-time",
-    "title": "Exercise 2: Transfer Learning",
-    "section": "Game Time",
-    "text": "Game Time\nHere is a Jupyter notebook you can download for further exploration:\nDownload and Save the Jupyter Notebook"
+    "objectID": "slides/slides-summary.html#a-bit-about-our-mds-program",
+    "href": "slides/slides-summary.html#a-bit-about-our-mds-program",
+    "title": "Summary and conclusion",
+    "section": "A bit about our MDS program",
+    "text": "A bit about our MDS program\n\nMaster of Data Science (MDS) is a 10-month accelerated professional program\n24 1-credit courses in 8 months + 2 months Capstone with industry/academia partners\nUnique partnership between CS, Stats, and Linguistics\nCurriculum designed from scratch"
   },
   {
-    "objectID": "slides/slides-06-deep-learning-exercise.html#how-to-work-on-kaggle",
-    "href": "slides/slides-06-deep-learning-exercise.html#how-to-work-on-kaggle",
-    "title": "Exercise 2: Transfer Learning",
-    "section": "How To Work On Kaggle",
-    "text": "How To Work On Kaggle\n\nGo to https://www.kaggle.com/kernels\nMake an account if you don’t have one, and verify your phone number (to get access to GPUs)\nSelect + New Notebook \nGo to File -&gt; Import Notebook \nUpload the downloaded notebook"
+    "objectID": "slides/slides-summary.html#our-audience",
+    "href": "slides/slides-summary.html#our-audience",
+    "title": "Summary and conclusion",
+    "section": "Our audience",
+    "text": "Our audience\n\nIndividuals with basic knowledge of programming, statistics, calculus, and linear algebra.\nProfessionals currently working with data, seeking a systematic understanding of data science to effectively solve their data problems\nThose looking for a career change, feeling bored, or aiming to upskill\nFresh undergrads with research experience or who have completed co-ops or internships"
   },
   {
-    "objectID": "slides/slides-06-deep-learning-exercise.html#how-to-work-on-kaggle-1",
-    "href": "slides/slides-06-deep-learning-exercise.html#how-to-work-on-kaggle-1",
-    "title": "Exercise 2: Transfer Learning",
-    "section": "How To Work On Kaggle",
-    "text": "How To Work On Kaggle\n\nOn the right-hand side of your Kaggle notebook, make sure:\n\n\nInternet is enabled.\nIn the Accelerator dropdown, choose GPU when you’re ready to use it (you can turn it on/off as you need it).\n\n\nFollow the guidelines in the notebook"
+    "objectID": "slides/slides-summary.html#some-possibilities",
+    "href": "slides/slides-summary.html#some-possibilities",
+    "title": "Summary and conclusion",
+    "section": "Some possibilities",
+    "text": "Some possibilities\n\n\n\nSubmit a data science related Capstone project and work with our students"
   },
   {
-    "objectID": "slides/slides-06-deep-learning-exercise.html#how-to-add-a-dataset",
-    "href": "slides/slides-06-deep-learning-exercise.html#how-to-add-a-dataset",
-    "title": "Exercise 2: Transfer Learning",
-    "section": "How To Add a Dataset",
-    "text": "How To Add a Dataset\n\nClick + Add data at the top right of the notebook.\nChoose Datasets and search for the keyword (e.g. ‘cat-breed-mardhik’). Several datasets will appear. Look for and ‘Add’ the dataset."
+    "objectID": "slides/slides-summary.html#how-did-we-do",
+    "href": "slides/slides-summary.html#how-did-we-do",
+    "title": "Summary and conclusion",
+    "section": "How did we do?",
+    "text": "How did we do?\n\nThat’s it! Thank you for attending our workshop.\nWe would greatly appreciate your feedback.\n\nFeedback form: https://forms.gle/jcY43TE2PTGTiuJK9\n\nYour input will also help us advocate for organizing more workshops like this in the future."
+  },
+  {
+    "objectID": "slides/slides-summary.html#what-to-learn-more",
+    "href": "slides/slides-summary.html#what-to-learn-more",
+    "title": "Summary and conclusion",
+    "section": "What to learn more?",
+    "text": "What to learn more?\nHere are some resources if you want to dig deeper\n\nBooks\n\nUnderstanding Deep Learning\n\nUBC courses\n\nCPSC 340, CPSC 330,"
+  },
+  {
+    "objectID": "slides/slides-intro.html#welcome-to-the-workshop",
+    "href": "slides/slides-intro.html#welcome-to-the-workshop",
+    "title": "Welcome!",
+    "section": "Welcome to the workshop!",
+    "text": "Welcome to the workshop!\n\n\n\n\nWorkshop materials\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
+  },
+  {
+    "objectID": "slides/slides-intro.html#prajeet-bajpai",
+    "href": "slides/slides-intro.html#prajeet-bajpai",
+    "title": "Welcome!",
+    "section": "Prajeet Bajpai",
+    "text": "Prajeet Bajpai\n\n\n\n\n\nTeaching and Learning Postdoctoral Fellow in Computer Science\nTeaches applied machine learning courses in the Master of Data Science Program (MDS)\nContact information\n\nEmail: pbajpai@cs.ubc.ca"
+  },
+  {
+    "objectID": "slides/slides-intro.html#varada-kolhatkar",
+    "href": "slides/slides-intro.html#varada-kolhatkar",
+    "title": "Welcome!",
+    "section": "Varada Kolhatkar",
+    "text": "Varada Kolhatkar\n\n\n\n\n\nAssistant Professor of Teaching in Computer Science\nTeaches applied machine learning courses in CS and the Master of Data Science Program (MDS)\nYou can call me Varada, V, or Ada.\nContact information\n\nEmail: kvarada@cs.ubc.ca\nOffice: ICCS 237"
+  },
+  {
+    "objectID": "slides/slides-intro.html#talk-to-your-neighbour",
+    "href": "slides/slides-intro.html#talk-to-your-neighbour",
+    "title": "Welcome!",
+    "section": "Talk to your neighbour",
+    "text": "Talk to your neighbour\n\nTake 15 seconds to introduce yourself to your neighbour.\n\nJust your name, your department, and maybe one thing you hope to learn today."
+  },
+  {
+    "objectID": "slides/slides-intro.html#learning-goals-of-the-workshop",
+    "href": "slides/slides-intro.html#learning-goals-of-the-workshop",
+    "title": "Welcome!",
+    "section": "Learning goals of the workshop",
+    "text": "Learning goals of the workshop\n\n\nThe main goal today is to help you figure out whether machine learning is suitable for your project. By the end of this workshop, you should be able to:\n\nRecognize different types of ML.\nUnderstand what kinds of problems ML is good for.\nStart thinking about how ML could fit into your research, if at all."
+  },
+  {
+    "objectID": "slides/slides-intro.html#agenda",
+    "href": "slides/slides-intro.html#agenda",
+    "title": "Welcome!",
+    "section": "Agenda",
+    "text": "Agenda\n\nWe will have four modules in the workshop\n\nModule 1: Introduction\nModule 2: Machine learning fundamentals\nModule 3: Commonly used machine learning models\nModule 4: Introduction to deep learning\nModule 5: Using pre-trained models and embeddings\n\nMost modules will include hands-on exercises to reinforce learning.\nWe’ll also make sure to take some breaks in between sessions.\nThe lunch break will be around 12:30, and lunch will be provided!"
+  },
+  {
+    "objectID": "slides/slides-intro.html#source-of-the-website",
+    "href": "slides/slides-intro.html#source-of-the-website",
+    "title": "Welcome!",
+    "section": "Source of the website",
+    "text": "Source of the website\n\nWe are using Quarto to create slides, with live code running in the background.\nYou can access the source for this website and our slides on this GitHub page https://github.com/kvarada/FoS-Intro-to-ML-2025"
   },
   {
     "objectID": "workshop.html",
@@ -990,123 +997,67 @@
     "text": "Welcome\nWelcome, everyone, to our AI-focused workshop for science faculty and postdocs: Is Machine Learning Suitable for Your Projects?\n\nWhen 🕘 9 am to 4:30 pm on June 24th, 2025\nWhere? 📍 Room 4074 of the UBC Orchard Commons, 6363 Agronomy Rd, Vancouver, BC V6T 1Z4\n\n\n\nThis workshop is organized by the Dean’s Office, Faculty of Science. In this workshop, you will discover how machine learning can improve your research projects. The workshop is tailored for participants with some programming background. We will demystify the fundamentals of machine learning and clarify what it can and cannot do for your work and/or research. By the end of the workshop, you will be familiar with the fundamentals of machine learning and basics of deep learning."
   },
   {
-    "objectID": "slides/slides-00-intro.html#welcome-to-the-workshop",
-    "href": "slides/slides-00-intro.html#welcome-to-the-workshop",
-    "title": "Welcome!",
-    "section": "Welcome to the workshop!",
-    "text": "Welcome to the workshop!\n\n\n\n\nWorkshop materials\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
+    "objectID": "slides/slides-deep-learning-exercise.html#game-time",
+    "href": "slides/slides-deep-learning-exercise.html#game-time",
+    "title": "Exercise 2: Transfer Learning",
+    "section": "Game Time",
+    "text": "Game Time\nHere is a Jupyter notebook you can download for further exploration:\nDownload and Save the Jupyter Notebook"
   },
   {
-    "objectID": "slides/slides-00-intro.html#prajeet-bajpai",
-    "href": "slides/slides-00-intro.html#prajeet-bajpai",
-    "title": "Welcome!",
-    "section": "Prajeet Bajpai",
-    "text": "Prajeet Bajpai\n\n\n\n\n\nTeaching and Learning Postdoctoral Fellow in Computer Science\nTeaches applied machine learning courses in the Master of Data Science Program (MDS)\nContact information\n\nEmail: pbajpai@cs.ubc.ca"
+    "objectID": "slides/slides-deep-learning-exercise.html#how-to-work-on-kaggle",
+    "href": "slides/slides-deep-learning-exercise.html#how-to-work-on-kaggle",
+    "title": "Exercise 2: Transfer Learning",
+    "section": "How To Work On Kaggle",
+    "text": "How To Work On Kaggle\n\nGo to https://www.kaggle.com/kernels\nMake an account if you don’t have one, and verify your phone number (to get access to GPUs)\nSelect + New Notebook \nGo to File -&gt; Import Notebook \nUpload the downloaded notebook"
   },
   {
-    "objectID": "slides/slides-00-intro.html#varada-kolhatkar",
-    "href": "slides/slides-00-intro.html#varada-kolhatkar",
-    "title": "Welcome!",
-    "section": "Varada Kolhatkar",
-    "text": "Varada Kolhatkar\n\n\n\n\n\nAssistant Professor of Teaching in Computer Science\nTeaches applied machine learning courses in CS and the Master of Data Science Program (MDS)\nYou can call me Varada, V, or Ada.\nContact information\n\nEmail: kvarada@cs.ubc.ca\nOffice: ICCS 237"
+    "objectID": "slides/slides-deep-learning-exercise.html#how-to-work-on-kaggle-1",
+    "href": "slides/slides-deep-learning-exercise.html#how-to-work-on-kaggle-1",
+    "title": "Exercise 2: Transfer Learning",
+    "section": "How To Work On Kaggle",
+    "text": "How To Work On Kaggle\n\nOn the right-hand side of your Kaggle notebook, make sure:\n\n\nInternet is enabled.\nIn the Accelerator dropdown, choose GPU when you’re ready to use it (you can turn it on/off as you need it).\n\n\nFollow the guidelines in the notebook"
   },
   {
-    "objectID": "slides/slides-00-intro.html#talk-to-your-neighbour",
-    "href": "slides/slides-00-intro.html#talk-to-your-neighbour",
-    "title": "Welcome!",
-    "section": "Talk to your neighbour",
-    "text": "Talk to your neighbour\n\nTake 15 seconds to introduce yourself to your neighbour.\n\nJust your name, your department, and maybe one thing you hope to learn today."
+    "objectID": "slides/slides-deep-learning-exercise.html#how-to-add-a-dataset",
+    "href": "slides/slides-deep-learning-exercise.html#how-to-add-a-dataset",
+    "title": "Exercise 2: Transfer Learning",
+    "section": "How To Add a Dataset",
+    "text": "How To Add a Dataset\n\nClick + Add data at the top right of the notebook.\nChoose Datasets and search for the keyword (e.g. ‘cat-breed-mardhik’). Several datasets will appear. Look for and ‘Add’ the dataset."
   },
   {
-    "objectID": "slides/slides-00-intro.html#learning-goals-of-the-workshop",
-    "href": "slides/slides-00-intro.html#learning-goals-of-the-workshop",
-    "title": "Welcome!",
-    "section": "Learning goals of the workshop",
-    "text": "Learning goals of the workshop\n\n\nThe main goal today is to help you figure out whether machine learning is suitable for your project. By the end of this workshop, you should be able to:\n\nRecognize different types of ML.\nUnderstand what kinds of problems ML is good for.\nStart thinking about how ML could fit into your research, if at all."
+    "objectID": "slides/slides-ml-fundamentals-exercise.html#your-turn",
+    "href": "slides/slides-ml-fundamentals-exercise.html#your-turn",
+    "title": "Introduction to Machine Learning Workshop",
+    "section": "Your turn",
+    "text": "Your turn\nHere is a Jupyter notebook you can download for further exploration:\nDownload and Save the Jupyter Notebook"
   },
   {
-    "objectID": "slides/slides-00-intro.html#agenda",
-    "href": "slides/slides-00-intro.html#agenda",
-    "title": "Welcome!",
-    "section": "Agenda",
-    "text": "Agenda\n\nWe will have four modules in the workshop\n\nModule 1: Introduction\nModule 2: Machine learning fundamentals\nModule 3: Commonly used machine learning models\nModule 4: Introduction to deep learning\nModule 5: Using pre-trained models and embeddings\n\nMost modules will include hands-on exercises to reinforce learning.\nWe’ll also make sure to take some breaks in between sessions.\nThe lunch break will be around 12:30, and lunch will be provided!"
-  },
-  {
-    "objectID": "slides/slides-00-intro.html#source-of-the-website",
-    "href": "slides/slides-00-intro.html#source-of-the-website",
-    "title": "Welcome!",
-    "section": "Source of the website",
-    "text": "Source of the website\n\nWe are using Quarto to create slides, with live code running in the background.\nYou can access the source for this website and our slides on this GitHub page https://github.com/kvarada/FoS-Intro-to-ML-2025"
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#what-did-we-cover",
-    "href": "slides/slides-07-summary.html#what-did-we-cover",
-    "title": "Summary and conclusion",
-    "section": "What did we cover?",
-    "text": "What did we cover?\n\nWhen to use and not to use machine learning?\nSupervised machine learning fundamentals\nIntroduction to linear models\nIntroduction to deep learning and transfer learning\nUsing pre-trained models and embeddings to solve your problems"
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#a-bit-about-our-mds-program",
-    "href": "slides/slides-07-summary.html#a-bit-about-our-mds-program",
-    "title": "Summary and conclusion",
-    "section": "A bit about our MDS program",
-    "text": "A bit about our MDS program\n\nMaster of Data Science (MDS) is a 10-month accelerated professional program\n24 1-credit courses in 8 months + 2 months Capstone with industry/academia partners\nUnique partnership between CS, Stats, and Linguistics\nCurriculum designed from scratch"
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#our-audience",
-    "href": "slides/slides-07-summary.html#our-audience",
-    "title": "Summary and conclusion",
-    "section": "Our audience",
-    "text": "Our audience\n\nIndividuals with basic knowledge of programming, statistics, calculus, and linear algebra.\nProfessionals currently working with data, seeking a systematic understanding of data science to effectively solve their data problems\nThose looking for a career change, feeling bored, or aiming to upskill\nFresh undergrads with research experience or who have completed co-ops or internships"
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#some-possibilities",
-    "href": "slides/slides-07-summary.html#some-possibilities",
-    "title": "Summary and conclusion",
-    "section": "Some possibilities",
-    "text": "Some possibilities\n\n\n\nSubmit a data science related Capstone project and work with our students"
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#how-did-we-do",
-    "href": "slides/slides-07-summary.html#how-did-we-do",
-    "title": "Summary and conclusion",
-    "section": "How did we do?",
-    "text": "How did we do?\n\nThat’s it! Thank you for attending our workshop.\nWe would greatly appreciate your feedback.\n\nFeedback form: https://forms.gle/jcY43TE2PTGTiuJK9\n\nYour input will also help us advocate for organizing more workshops like this in the future."
-  },
-  {
-    "objectID": "slides/slides-07-summary.html#what-to-learn-more",
-    "href": "slides/slides-07-summary.html#what-to-learn-more",
-    "title": "Summary and conclusion",
-    "section": "What to learn more?",
-    "text": "What to learn more?\nHere are some resources if you want to dig deeper\n\nBooks\n\nUnderstanding Deep Learning\n\nUBC courses\n\nCPSC 340, CPSC 330,"
-  },
-  {
-    "objectID": "lab/example.html",
-    "href": "lab/example.html",
+    "objectID": "lab/datasets_and_goals.html",
+    "href": "lab/datasets_and_goals.html",
     "title": "ML Problem Framing",
     "section": "",
-    "text": "Imagine you work at a bank, and the current fraud detection workflow isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection and flagging of fraudulent credit card transactions. While researching online, you find Credit Card Fraud Detection dataset on Kaggle that could be useful for creating a prototype."
+    "text": "Below are some topics and datasets of real-world issues that could possibly be solved using Machine Learning\n\n\n\n\n\n\n\n\nStock Market Sentiment\n\n\n\n\n\nImagine you work at a bank, and the current workflow to understand the stock market sentiment isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection of stock market sentiment, which is crucial to some of the trading strategies, based on comments in social media platform. While researching online, you find this dataset on Kaggle that could be useful for creating a prototype.\n\n\n\n\n\n\n\n\n\nE-commerce Strategy\n\n\n\n\n\nImagine you are a consultant hired by an E-commerce platform. You are asked to analyze the retail data and explore machine learning approaches to address one of the planned initiatives of the company, which includes but not limited to:\n\ncustomer segmentation based on their purchase history to derive more customized marketing strategy\npersonalized suggestions of items to customers so as to increase the conversion.\n\nWhile researching online, you find this dataset on Kaggle that could be useful as a starting point.\n\n\n\n\n\n\n\n\n\n\n\n\nCancer Diagnosis\n\n\n\n\n\nImagine you work at a medical research institute which specialized in cancer-related research. You try to explore machine learning approaches to diagnoze patients of the risk of cancer based on images of tissues, hoping to achieve early detection and early treatment to patients. While researching online, you find this dataset on NCI that could be useful.\n\n\n\n\n\n\n\n\n\nPolycystic ovary syndrome\n\n\n\n\n\nImagine you work at a university laboratory which specialized in research on Polycystic ovary syndrome (PCOS), which is a disorder involving infrequent, irregular or prolonged menstrual periods of women. You try to explore machine learning approaches to diagnoze patients of the risk of PCOS based on clinical data. While researching online, you find this dataset on Kaggle that could be useful.\n\n\n\n\n\n\n\n\n\n\n\n\nObesity Levels\n\n\n\n\n\nImagine you work at the Health Bureau of a country. You try to explore machine learning approaches to estimate the obesity levels of your citizens, as well as to understand the key factors relevant to obesity. This helps you defining better public health policy. While researching online, you find this dataset on UCI that could be useful."
   },
   {
-    "objectID": "lab/example.html#scenario",
-    "href": "lab/example.html#scenario",
+    "objectID": "lab/datasets_and_goals.html#example-topics-for-machine-learning-projects",
+    "href": "lab/datasets_and_goals.html#example-topics-for-machine-learning-projects",
     "title": "ML Problem Framing",
     "section": "",
-    "text": "Imagine you work at a bank, and the current fraud detection workflow isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection and flagging of fraudulent credit card transactions. While researching online, you find Credit Card Fraud Detection dataset on Kaggle that could be useful for creating a prototype."
+    "text": "Below are some topics and datasets of real-world issues that could possibly be solved using Machine Learning\n\n\n\n\n\n\n\n\nStock Market Sentiment\n\n\n\n\n\nImagine you work at a bank, and the current workflow to understand the stock market sentiment isn’t performing well. Your boss asks you to explore machine learning approaches to improve the detection of stock market sentiment, which is crucial to some of the trading strategies, based on comments in social media platform. While researching online, you find this dataset on Kaggle that could be useful for creating a prototype.\n\n\n\n\n\n\n\n\n\nE-commerce Strategy\n\n\n\n\n\nImagine you are a consultant hired by an E-commerce platform. You are asked to analyze the retail data and explore machine learning approaches to address one of the planned initiatives of the company, which includes but not limited to:\n\ncustomer segmentation based on their purchase history to derive more customized marketing strategy\npersonalized suggestions of items to customers so as to increase the conversion.\n\nWhile researching online, you find this dataset on Kaggle that could be useful as a starting point.\n\n\n\n\n\n\n\n\n\n\n\n\nCancer Diagnosis\n\n\n\n\n\nImagine you work at a medical research institute which specialized in cancer-related research. You try to explore machine learning approaches to diagnoze patients of the risk of cancer based on images of tissues, hoping to achieve early detection and early treatment to patients. While researching online, you find this dataset on NCI that could be useful.\n\n\n\n\n\n\n\n\n\nPolycystic ovary syndrome\n\n\n\n\n\nImagine you work at a university laboratory which specialized in research on Polycystic ovary syndrome (PCOS), which is a disorder involving infrequent, irregular or prolonged menstrual periods of women. You try to explore machine learning approaches to diagnoze patients of the risk of PCOS based on clinical data. While researching online, you find this dataset on Kaggle that could be useful.\n\n\n\n\n\n\n\n\n\n\n\n\nObesity Levels\n\n\n\n\n\nImagine you work at the Health Bureau of a country. You try to explore machine learning approaches to estimate the obesity levels of your citizens, as well as to understand the key factors relevant to obesity. This helps you defining better public health policy. While researching online, you find this dataset on UCI that could be useful."
   },
   {
-    "objectID": "lab/example.html#problem-framing",
-    "href": "lab/example.html#problem-framing",
+    "objectID": "lab/datasets_and_goals.html#open-data-source-for-machine-learning-projects",
+    "href": "lab/datasets_and_goals.html#open-data-source-for-machine-learning-projects",
     "title": "ML Problem Framing",
-    "section": "Problem Framing",
-    "text": "Problem Framing\n\nIs the provided dataset appropriate for the specified objective? What type of data would ideally solve your problem or research question? Are there better-suited datasets available on the internet for this objective?\n\nThe ideal dataset should contain data about the transactions, e.g. transaction details, customer details, etc., which could be used to classify the fraud transaction. Moreover, it should contain an indicator whether it is a fraud transaction for supervised machine learning methods. If such indicator is not available, we can apply outlier detection to identify transactions which deviate much from normal transactions as frauds.\nThe provided dataset contains target column ‘Class’ that indicates whether it is a fraud transaction. It also contains other columns (‘Time’, ‘Amount’, ‘V1-V28’) which can be used as features to predict the target column ‘Class’.\nThere are some caveats for using the dataset.\n\nThe dataset is a transformed dataset with PCA-transformed columns ‘V1’ - ‘V28’. Without having the original dataset, we are not sure how the PCA transformation is performed. We cannot guarantee if the same transformation can be applied to any new data (e.g. real-world data of new transactions)\nFrom the interpretation perspective, we might fail to draw any meaningful insights between the features and the target as we do not understand the meaning of the columns ‘V1’ - ‘V28’. Moreover, we might not detect any potential bias or unfairness within the ML model if the original dataset contains sensitive information, e.g. age, gender, etc.\n\nThere could possibly be better-suited datasets, for example this dataset.\n\n\n\nClearly define the expected input and the ‘ideal’ output. Determine if machine learning is the appropriate method for addressing this problem.\n\nData Input: Data about the transactions, for example:\n\nmerchandise details: time, amount, merchant information, etc.\ncustomer details: account balance, credit score, cardholder information, etc.\n\nData Output: A soft prediction (probability) whether a transaction is a fraud\nAs we can clearly define the expected input and output and we can collect the data, machine learning is the appropriate method to address the problem.\n\n\n\nIf machine learning is deemed suitable, what should the model aim to achieve? How would you measure the model’s performance?\n\nOur objective is to detect fraudulent transactions by having a soft prediction (probability) and a threshold to determine whether a transaction is a fraud\nWe can expect there would potentially be false positives (legit transactions predicted as fraud) and false negatives (fraudulent transactions predicted as legit) from the predictions and the model should balance both based on our needs. For example, more false negatives might create more bad debts, while more false positives might affect the revenue.\nMoreover, the dataset is an unbalanced dataset with less than 1% are actual fraudulent records.\nWe can use evaluation metrics, e.g. precision, recall, area under precision-recall curve, etc. to measure the model performance. For example, if we are trying to minimize false negatives, we would focus more on recall (true positive rate).\n\n\n\nHow would a human tackle this issue? Can you propose any heuristic methods to solve this problem?\n\nIt would be a data collection -&gt; analysis by expert -&gt; decision making -&gt; remedy approach to solve this issue by human.\n\nData collection: We collect historical legit and fraud transactions and the related information, e.g. transaction, merchant, cardholder, etc.\nAnalysis by expert: Expert will deep dive into the collected data to identify any pattern/traits of the fraud transactions from the data. Moreover, they will provide a score of the likeliness of fraud for a transaction.\nDecision making: A cutoff of the score will be made to classify if a transaction is a fraud.\nRemedy: If the transaction is legit, no action is required. If it is a fraud, the money transfer will be on-hold. Further investigation will undergo.\n\n\n\n\nWhat are the major steps required to resolve this problem?\n\nFor machine-learning based approach, we would go through similar but slightly different steps to resolve the problem\n\nData collection & wrangling: Data collection is similar to the above. We will also carry out data wrangling to handle unclean data (e.g. missing values) and transform data into desired format (e.g. scaling).\nModel training: A subset of the data will be used to train the model to learn any pattern for fraud/legit transactions. The model will then output the predictions.\nValidation/Testing: Another subset(s) of the data will be used to test the model performance, which is helpful in model selection, estimation of performance under real-world scenario, etc.\nDeployment: The defined data processing pipeline and trained model will be deployed to the existing system/workflow, which can intake the transaction data and output the prediction results to the relevant stakeholder(s) for further actions.\n\n\n\n\nDraw a diagram that illustrates the input, output, and key stages of the problem-solving process.\n\n\n\nWhich type of machine learning would be best suited for your problem? What specific machine learning technique would be most effective for this problem?\n\nWe have labelled data of legit/fraud transactions and our goal is to classify the transactions. Supervised machine learning is best-suited.\nLinear regression can be applied first to observe any linear relationship between the target and the features, and we can obtain a baseline performance.\nGiven the possible non-linear relationship between the target and the features, non-linear algorithms (e.g. SVM) can be applied and we can observe if there is any significant improvement in model performance.\nGiven the variety of data types (textual, numerical, etc.), decision tree based algorithm (gradient boosted tree) can be applied and we can observe if there is any significant improvement in model performance."
+    "section": "Open Data Source for Machine Learning Projects",
+    "text": "Open Data Source for Machine Learning Projects\nBelow are some websites that can provide open data useful for Machine Learning projects.\n\nUCI Machine Learning Repository\nKaggle\nFederal Reserve Bank of St. Louis\nNational Library of Medicine\nGapminder\nThe Humanitarian Data Exchange (HDX)\nStatistics Canada"
   },
   {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Our team",
+    "objectID": "lab/guiding_questions.html",
+    "href": "lab/guiding_questions.html",
+    "title": "ML Problem Framing",
     "section": "",
-    "text": "Prajeet Bajpai\n        Teaching Postdoctoral Fellow, Master of Data Science\n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Varada Kolhatkar\n        Assistant Professor of Teaching, Computer Science, Master of Data Science\n        \n            Instructor\n        \n        \n    \n\n    \n        \n        Deborah Watt\n        Director, Strategic Initiatives\n        \n            Organizer\n        \n        \n    \n\n\n\nNo matching items"
+    "text": "Choose a dataset and its corresponding objective, and then try to address the following questions:\n\nIs the provided dataset appropriate for the specified objective? What type of data would ideally solve your problem or research question? Are there better-suited datasets available on the internet for this objective?\nClearly define the expected input and the ‘ideal’ output. Determine if machine learning is the appropriate method for addressing this problem.\nIf machine learning is deemed suitable, what should the model aim to achieve? How would you measure the model’s performance?\nHow would a human tackle this issue? Can you propose any heuristic methods to solve this problem?\nWhat are the major steps required to resolve this problem?\nDraw a diagram that illustrates the input, output, and key stages of the problem-solving process.\nWhich type of machine learning would be best suited for your problem?\nWhat specific machine learning technique would be most effective for this problem?"
   },
   {
     "objectID": "workshop-00.html",
@@ -1274,48 +1225,6 @@
     ]
   },
   {
-    "objectID": "slides/slides-02-ml-fundamentals.html#ml-terminology",
-    "href": "slides/slides-02-ml-fundamentals.html#ml-terminology",
-    "title": "Machine Learning Fundamentals",
-    "section": "ML terminology",
-    "text": "ML terminology"
-  },
-  {
-    "objectID": "slides/slides-02-ml-fundamentals.html#classification-vs.-regression",
-    "href": "slides/slides-02-ml-fundamentals.html#classification-vs.-regression",
-    "title": "Machine Learning Fundamentals",
-    "section": "Classification vs. Regression",
-    "text": "Classification vs. Regression"
-  },
-  {
-    "objectID": "slides/slides-02-ml-fundamentals.html#measuring-performance",
-    "href": "slides/slides-02-ml-fundamentals.html#measuring-performance",
-    "title": "Machine Learning Fundamentals",
-    "section": "Measuring Performance",
-    "text": "Measuring Performance\n\n\n\nPerformance on classification tasks can be measured based on the accuracy of the model’s predictions.\nPerformance on a regression task can be measured based on error. Mean squared error is one choice, but there are many others!"
-  },
-  {
-    "objectID": "slides/slides-02-ml-fundamentals.html#inference-vs.-prediction",
-    "href": "slides/slides-02-ml-fundamentals.html#inference-vs.-prediction",
-    "title": "Machine Learning Fundamentals",
-    "section": "Inference vs. Prediction",
-    "text": "Inference vs. Prediction\n\n\n\nInference is the use of a model to infer a relationship between features (independent variables) and targets (independent variables).\nPrediction is the use of a model to predict the target value for a new example not seen in training."
-  },
-  {
-    "objectID": "slides/slides-02-ml-fundamentals.html#what-outcome-do-we-care-about",
-    "href": "slides/slides-02-ml-fundamentals.html#what-outcome-do-we-care-about",
-    "title": "Machine Learning Fundamentals",
-    "section": "What outcome do we care about?",
-    "text": "What outcome do we care about?\n\n\n\nA researcher studying the impact of pollution on cancer risk is performing inference. They may not make perfect predictions (since the dataset is likely to be noisy) but good statistical inference could be extremely valuable.\nGmail’s spam filtering algorithm is performing prediction. We are not really trying to improve human understanding of what makes a message spam (often it is obvious), we just want a model that makes good predictions.\nOf course, these goals are related, so in many situations we may be interested in both."
-  },
-  {
-    "objectID": "slides/slides-02-ml-fundamentals.html#example-linear-regression",
-    "href": "slides/slides-02-ml-fundamentals.html#example-linear-regression",
-    "title": "Machine Learning Fundamentals",
-    "section": "Example: Linear Regression",
-    "text": "Example: Linear Regression\n\n\nIs this inference or prediction?"
-  },
-  {
     "objectID": "slides/slides-02-ml-fundamentals.html#types-of-machine-learning",
     "href": "slides/slides-02-ml-fundamentals.html#types-of-machine-learning",
     "title": "Machine Learning Fundamentals",
@@ -1327,7 +1236,14 @@
     "href": "slides/slides-02-ml-fundamentals.html#supervised-learning",
     "title": "Machine Learning Fundamentals",
     "section": "Supervised Learning",
-    "text": "Supervised Learning\n\nHere the training data is comprised of a set of features, and each example comes with a corresponding target. The goal is to get a machine learning model to accurately predict the target based on the feature values.\nExamples could include spam filtering, face recognition or weather forecasting.\nBy contrast, in unsupervised learning there are no targets. The goal is instead to uncover underlying patterns. These can be used to provide a concise summary of the data, or group similar examples together. Examples could include customer segmentation, anomaly detection or online recommendation systems (think Netflix)."
+    "text": "Supervised Learning\n\nHere the training data is comprised of a set of features, and each example comes with a corresponding target. The goal is to get a machine learning model to accurately predict the target based on the feature values.\nExamples could include spam filtering, face recognition or weather forecasting."
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#unsupervised-learning",
+    "href": "slides/slides-02-ml-fundamentals.html#unsupervised-learning",
+    "title": "Machine Learning Fundamentals",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\nBy contrast, in unsupervised learning there are no targets. The goal is instead to uncover underlying patterns. These can be used to provide a concise summary of the data, or group similar examples together. Examples could include customer segmentation, anomaly detection or online recommendation systems (think Netflix)."
   },
   {
     "objectID": "slides/slides-02-ml-fundamentals.html#activity-2",
@@ -1339,6 +1255,13 @@
   {
     "objectID": "slides/slides-02-ml-fundamentals.html#a-simple-supervised-learning-model",
     "href": "slides/slides-02-ml-fundamentals.html#a-simple-supervised-learning-model",
+    "title": "Machine Learning Fundamentals",
+    "section": "A Simple Supervised Learning Model",
+    "text": "A Simple Supervised Learning Model"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#a-simple-supervised-learning-model-1",
+    "href": "slides/slides-02-ml-fundamentals.html#a-simple-supervised-learning-model-1",
     "title": "Machine Learning Fundamentals",
     "section": "A Simple Supervised Learning Model",
     "text": "A Simple Supervised Learning Model\n\nWe will use a simple machine learning model– a decision tree– to demonstrate some fundamental concepts in machine learning. Suppose we have the following dataset:\n\n\n\n\n\n\n\n\n\n\nml_experience\nclass_attendance\nlab1\nlab2\nlab3\nlab4\nquiz1\nquiz2\n\n\n\n\n0\n1\n1\n92\n93\n84\n91\n92\nA+\n\n\n1\n1\n0\n94\n90\n80\n83\n91\nnot A+\n\n\n2\n0\n0\n78\n85\n83\n80\n80\nnot A+\n\n\n3\n0\n1\n91\n94\n92\n91\n89\nA+\n\n\n4\n0\n1\n77\n83\n90\n92\n85\nA+\n\n\n\n\n\n\n\n  How would you go about predicting the Quiz 2 grade?"
@@ -1397,14 +1320,21 @@
     "href": "slides/slides-02-ml-fundamentals.html#trying-to-recognize-faces",
     "title": "Machine Learning Fundamentals",
     "section": "Trying to Recognize Faces",
-    "text": "Trying to Recognize Faces\n\nTo demonstrate some fundamental concepts in machine learning, we will attempt to biuld a decision tree that can recognize faces. Our data will be taken from the Olivetti Faces dataset, which is a collection of 400 images of faces.\nThe labels correspond to the forty individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo."
+    "text": "Trying to Recognize Faces\n\nTo demonstrate some fundamental concepts in machine learning, we will attempt to biuld a decision tree that can recognize faces. Our data will be taken from the Olivetti Faces dataset, which is a collection of 400 images of faces.\nThe labels correspond to the 40 individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo."
   },
   {
     "objectID": "slides/slides-02-ml-fundamentals.html#a-look-at-the-data",
     "href": "slides/slides-02-ml-fundamentals.html#a-look-at-the-data",
     "title": "Machine Learning Fundamentals",
     "section": "A Look at the Data",
-    "text": "A Look at the Data\n\nEach photo is 64x64 pixels in grayscale. The images are represented by a row of pixel intensities showing how dark each individual pixel should be.\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n...\n4092\n4093\n4094\n4095\n\n\n\n\n0\n0.309917\n0.367769\n0.417355\n0.442149\n...\n0.148760\n0.152893\n0.161157\n0.157025\n\n\n1\n0.454545\n0.471074\n0.512397\n0.557851\n...\n0.152893\n0.152893\n0.152893\n0.152893\n\n\n2\n0.318182\n0.400826\n0.491736\n0.528926\n...\n0.144628\n0.140496\n0.148760\n0.152893\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n397\n0.500000\n0.533058\n0.607438\n0.628099\n...\n0.157025\n0.177686\n0.148760\n0.190083\n\n\n398\n0.214876\n0.219008\n0.219008\n0.223140\n...\n0.545455\n0.574380\n0.590909\n0.603306\n\n\n399\n0.516529\n0.462810\n0.280992\n0.252066\n...\n0.322314\n0.359504\n0.355372\n0.384298\n\n\n\n\n400 rows × 4096 columns\n\n\n\n\n\nThe dataset has 4096 features."
+    "text": "A Look at the Data"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#a-closer-look-at-the-data",
+    "href": "slides/slides-02-ml-fundamentals.html#a-closer-look-at-the-data",
+    "title": "Machine Learning Fundamentals",
+    "section": "A (Closer) Look at the Data",
+    "text": "A (Closer) Look at the Data\n\nEach photo is 64x64 pixels in grayscale. The images are represented by a row of pixel intensities showing how dark each individual pixel should be.\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n...\n4092\n4093\n4094\n4095\n\n\n\n\n0\n0.309917\n0.367769\n0.417355\n0.442149\n...\n0.148760\n0.152893\n0.161157\n0.157025\n\n\n1\n0.454545\n0.471074\n0.512397\n0.557851\n...\n0.152893\n0.152893\n0.152893\n0.152893\n\n\n2\n0.318182\n0.400826\n0.491736\n0.528926\n...\n0.144628\n0.140496\n0.148760\n0.152893\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n397\n0.500000\n0.533058\n0.607438\n0.628099\n...\n0.157025\n0.177686\n0.148760\n0.190083\n\n\n398\n0.214876\n0.219008\n0.219008\n0.223140\n...\n0.545455\n0.574380\n0.590909\n0.603306\n\n\n399\n0.516529\n0.462810\n0.280992\n0.252066\n...\n0.322314\n0.359504\n0.355372\n0.384298\n\n\n\n\n400 rows × 4096 columns\n\n\n\n\n\nThe dataset has 4096 features."
   },
   {
     "objectID": "slides/slides-02-ml-fundamentals.html#a-decision-tree-classifier",
@@ -1425,7 +1355,7 @@
     "href": "slides/slides-02-ml-fundamentals.html#did-we-build-a-good-model",
     "title": "Machine Learning Fundamentals",
     "section": "Did we build a good model?",
-    "text": "Did we build a good model?\n\n\n\n\nThe model acheived an accuracy of 45.0% on new data\n\n\n\n…oops."
+    "text": "Did we build a good model?\n\n\n\n\nThe model acheived an accuracy of 48.75% on new data\n\n\n\n…oops."
   },
   {
     "objectID": "slides/slides-02-ml-fundamentals.html#whats-going-on",
@@ -1475,6 +1405,41 @@
     "title": "Machine Learning Fundamentals",
     "section": "Scenario 2",
     "text": "Scenario 2\n\nYour colleague now separates their data into a training set, a validation set and a test set.\nThey again use 10 types of models and try 1000 combinations of hyper-parameters for each. They use the training set to train their model, and then note how the model performs by measure accuracy on the validation set.\nThe best model achieves 99% accuracy on the validation set, after which it is used on the test set. It achieves 99% accuracy again.\nDo you trust the outcome now?"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#common-data-challenges",
+    "href": "slides/slides-02-ml-fundamentals.html#common-data-challenges",
+    "title": "Machine Learning Fundamentals",
+    "section": "Common Data Challenges",
+    "text": "Common Data Challenges\nDuring our Intro to ML course at the Master of Data Science program, we ask our students to fill out a survey on some restaurants they have recently visited. Let’s take a look at some survey responses."
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#common-data-challenges-1",
+    "href": "slides/slides-02-ml-fundamentals.html#common-data-challenges-1",
+    "title": "Machine Learning Fundamentals",
+    "section": "Common Data Challenges",
+    "text": "Common Data Challenges\n\n\n\n\n\n\n\n\n\nnorth_america\neat_out_freq\nage\nn_people\n...\ngood_server\ncomments\nrestaurant_name\ntarget\n\n\n\n\n0\nYes\n3.0\n29\n10.0\n...\nYes\nAmbience\n\ndislike\n\n\n10\nNo\n3.0\n23\n10.0\n...\nNo\n\n\ndislike\n\n\n77\nYes\n5.0\n22\n4.0\n...\nYes\n\n\ndislike\n\n\n85\nYes\n1.0\n20\n\n...\n\n\n\ndislike\n\n\n87\nYes\n3.0\n26\n\n...\n\n\n\ndislike\n\n\n130\nNo\n1.0\n27\n20.0\n...\nYes\n\n\ndislike\n\n\n\n\n6 rows × 11 columns\n\n\n\n\n\nWhat are some issues you might encounter working with this data?"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#common-data-challenges-2",
+    "href": "slides/slides-02-ml-fundamentals.html#common-data-challenges-2",
+    "title": "Machine Learning Fundamentals",
+    "section": "Common Data Challenges",
+    "text": "Common Data Challenges\n\n\nHere are some common challenges you may encounter when looking at your data:\n\nMissing data\nMixed data types (numeric, categorical, binary, text)\nDifferent feature scales\nOutliers\nSmall datasets\nProxy variables"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#common-data-challenges-3",
+    "href": "slides/slides-02-ml-fundamentals.html#common-data-challenges-3",
+    "title": "Machine Learning Fundamentals",
+    "section": "Common Data Challenges",
+    "text": "Common Data Challenges\n\n\nSome potential solutions:\n\nImputation\nFeature encoding and engineering\nNormalization and Scaling\nRegularization\nModel choices…"
+  },
+  {
+    "objectID": "slides/slides-02-ml-fundamentals.html#activity-3",
+    "href": "slides/slides-02-ml-fundamentals.html#activity-3",
+    "title": "Machine Learning Fundamentals",
+    "section": "Activity 3",
+    "text": "Activity 3\n\n\nReturn to the problem you framed in Activity 1 and think about the data you have (or plan to have) access to. What are the “features” in this dataset? What are some data challenges you may encounter?"
   },
   {
     "objectID": "slides/slides-05-embeddings.html#learning-objectives",

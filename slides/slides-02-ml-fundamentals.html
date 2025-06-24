@@ -335,51 +335,6 @@
 </div>
 
 </section>
-<section id="ml-terminology" class="slide level2">
-<h2>ML terminology</h2>
-<p>&nbsp;</p>
-
-<img data-src="img/sup-ML-terminology.png" class="r-stretch"></section>
-<section id="classification-vs.-regression" class="slide level2">
-<h2>Classification vs.&nbsp;Regression</h2>
-<p><br>
-</p>
-
-<img data-src="img/classification-vs-regression.png" class="r-stretch"></section>
-<section id="measuring-performance" class="slide level2">
-<h2>Measuring Performance</h2>
-<p><br>
-</p>
-<ul>
-<li><p>Performance on classification tasks can be measured based on the <em>accuracy</em> of the model’s predictions.</p></li>
-<li><p>Performance on a regression task can be measured based on <em>error</em>. Mean squared error is one choice, but there are many others!</p></li>
-</ul>
-</section>
-<section id="inference-vs.-prediction" class="slide level2">
-<h2>Inference vs.&nbsp;Prediction</h2>
-<p><br>
-</p>
-<ul>
-<li><p><em>Inference</em> is the use of a model to infer a relationship between features (independent variables) and targets (independent variables).</p></li>
-<li><p><em>Prediction</em> is the use of a model to predict the target value for a new example not seen in training.</p></li>
-</ul>
-</section>
-<section id="what-outcome-do-we-care-about" class="slide level2">
-<h2>What outcome do we care about?</h2>
-<p><br>
-</p>
-<ul>
-<li><p>A researcher studying the impact of pollution on cancer risk is performing <em>inference</em>. They may not make perfect predictions (since the dataset is likely to be noisy) but good statistical inference could be extremely valuable.</p></li>
-<li><p>Gmail’s spam filtering algorithm is performing <em>prediction</em>. We are not really trying to improve human understanding of what makes a message spam (often it is obvious), we just want a model that makes good predictions.</p></li>
-<li><p>Of course, these goals are related, so in many situations we may be interested in both.</p></li>
-</ul>
-</section>
-<section id="example-linear-regression" class="slide level2">
-<h2>Example: Linear Regression</h2>
-<p><br>
-<img data-src="img/visualization.png"></p>
-<p>Is this inference or prediction?</p>
-</section>
 <section id="types-of-machine-learning" class="slide level2">
 <h2>Types of Machine Learning</h2>
 <p><br>
@@ -398,6 +353,9 @@ There are many kinds of machine learning, including</p>
 <p><br>
 Here the training data is comprised of a set of <em>features</em>, and each example comes with a corresponding <em>target</em>. The goal is to get a machine learning model to accurately predict the target based on the feature values.</p>
 <p>Examples could include spam filtering, face recognition or weather forecasting.</p>
+</section>
+<section id="unsupervised-learning" class="slide level2">
+<h2>Unsupervised Learning</h2>
 <p>By contrast, in unsupervised learning there are no targets. The goal is instead to uncover underlying patterns. These can be used to provide a concise summary of the data, or group similar examples together. Examples could include customer segmentation, anomaly detection or online recommendation systems (think Netflix).</p>
 </section>
 <section id="activity-2" class="slide level2">
@@ -408,10 +366,15 @@ Here the training data is comprised of a set of <em>features</em>, and each exam
 </section>
 <section id="a-simple-supervised-learning-model" class="slide level2">
 <h2>A Simple Supervised Learning Model</h2>
+<p>&nbsp;</p>
+
+<img data-src="img/sup-ML-terminology.png" class="r-stretch"></section>
+<section id="a-simple-supervised-learning-model-1" class="slide level2">
+<h2>A Simple Supervised Learning Model</h2>
 <p><br>
 We will use a simple machine learning model– a decision tree– to demonstrate some fundamental concepts in machine learning. Suppose we have the following dataset:<br>
 </p>
-<div id="1833f1c8" class="cell" data-execution_count="1">
+<div id="2c74d51e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <style scoped="">
@@ -552,13 +515,17 @@ The maximum depth of a decision tree (at most how many questions it asks) is a <
 <h2>Trying to Recognize Faces</h2>
 <p><br>
 To demonstrate some fundamental concepts in machine learning, we will attempt to biuld a decision tree that can recognize faces. Our data will be taken from the Olivetti Faces dataset, which is a collection of 400 images of faces.</p>
-<p>The labels correspond to the forty individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo.</p>
+<p>The labels correspond to the 40 individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo.</p>
 </section>
 <section id="a-look-at-the-data" class="slide level2">
 <h2>A Look at the Data</h2>
+
+<img data-src="img/faces.png" class="r-stretch"></section>
+<section id="a-closer-look-at-the-data" class="slide level2">
+<h2>A (Closer) Look at the Data</h2>
 <p><br>
 Each photo is 64x64 pixels in grayscale. The images are represented by a row of pixel intensities showing how dark each individual pixel should be.</p>
-<div id="6bf14a51" class="cell" data-execution_count="5">
+<div id="3ed36823" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
@@ -682,7 +649,7 @@ Each photo is 64x64 pixels in grayscale. The images are represented by a row of 
 </div>
 </div>
 </div>
-<div id="e5d48fad" class="cell" data-execution_count="6">
+<div id="1edbe2c8" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>The dataset has 4096 features.</code></pre>
 </div>
@@ -698,7 +665,7 @@ We can build a decision tree classifier on the dataset of faces and see how it p
 <h2>A Decision Tree Classifier</h2>
 <p><br>
 </p>
-<div id="5f82d9ed" class="cell" data-execution_count="7">
+<div id="2a78b925" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>The model classified 100.0% of training examples correctly by 
  building a decision tree of depth 42</code></pre>
@@ -712,9 +679,9 @@ That’s very accurate indeed! Maybe decision trees are a really good way to det
 <h2>Did we build a good model?</h2>
 <p><br>
 </p>
-<div id="0a7f35a1" class="cell" data-execution_count="8">
+<div id="a43d0053" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
-<pre><code>The model acheived an accuracy of 45.0% on new data</code></pre>
+<pre><code>The model acheived an accuracy of 48.75% on new data</code></pre>
 </div>
 </div>
 <p><br>
@@ -766,6 +733,161 @@ Your colleague now separates their data into a training set, a validation set <e
 <p>They again use 10 types of models and try 1000 combinations of hyper-parameters for each. They use the training set to train their model, and then note how the model performs by measure accuracy on the <em>validation</em> set.</p>
 <p>The best model achieves 99% accuracy on the validation set, after which it is used on the test set. It achieves 99% accuracy again.</p>
 <p><strong>Do you trust the outcome now?</strong></p>
+</section>
+<section id="common-data-challenges" class="slide level2">
+<h2>Common Data Challenges</h2>
+<p>During our Intro to ML course at the Master of Data Science program, we ask our students to fill out a survey on some restaurants they have recently visited. Let’s take a look at some survey responses.</p>
+</section>
+<section id="common-data-challenges-1" class="slide level2">
+<h2>Common Data Challenges</h2>
+<div id="e1e4b94a" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">north_america</th>
+<th data-quarto-table-cell-role="th">eat_out_freq</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">n_people</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">good_server</th>
+<th data-quarto-table-cell-role="th">comments</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Yes</td>
+<td>3.0</td>
+<td>29</td>
+<td>10.0</td>
+<td>...</td>
+<td>Yes</td>
+<td>Ambience</td>
+<td></td>
+<td>dislike</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>No</td>
+<td>3.0</td>
+<td>23</td>
+<td>10.0</td>
+<td>...</td>
+<td>No</td>
+<td></td>
+<td></td>
+<td>dislike</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">77</td>
+<td>Yes</td>
+<td>5.0</td>
+<td>22</td>
+<td>4.0</td>
+<td>...</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>dislike</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>Yes</td>
+<td>1.0</td>
+<td>20</td>
+<td></td>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+<td>dislike</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">87</td>
+<td>Yes</td>
+<td>3.0</td>
+<td>26</td>
+<td></td>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+<td>dislike</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">130</td>
+<td>No</td>
+<td>1.0</td>
+<td>27</td>
+<td>20.0</td>
+<td>...</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>dislike</td>
+</tr>
+</tbody>
+</table>
+
+<p>6 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<p>What are some issues you might encounter working with this data?</p>
+</section>
+<section id="common-data-challenges-2" class="slide level2">
+<h2>Common Data Challenges</h2>
+<p><br>
+</p>
+<p>Here are some common challenges you may encounter when looking at your data:</p>
+<ul>
+<li>Missing data</li>
+<li>Mixed data types (numeric, categorical, binary, text)</li>
+<li>Different feature scales</li>
+<li>Outliers</li>
+<li>Small datasets</li>
+<li>Proxy variables</li>
+</ul>
+</section>
+<section id="common-data-challenges-3" class="slide level2">
+<h2>Common Data Challenges</h2>
+<p><br>
+</p>
+<p>Some potential solutions:</p>
+<ul>
+<li>Imputation</li>
+<li>Feature encoding and engineering</li>
+<li>Normalization and Scaling</li>
+<li>Regularization</li>
+<li>Model choices…</li>
+</ul>
+</section>
+<section id="activity-3" class="slide level2">
+<h2>Activity 3</h2>
+<p><br>
+</p>
+<p>Return to the problem you framed in Activity 1 and think about the data you have (or plan to have) access to. What are the “features” in this dataset? What are some data challenges you may encounter?</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
