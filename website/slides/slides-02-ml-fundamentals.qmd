@@ -15,46 +15,7 @@ editor:
   render-on-save: true
 ---
 
-## ML terminology
-\ 
 
-![](img/sup-ML-terminology.png)
-
-## Classification vs. Regression
-\
-
-![](img/classification-vs-regression.png)
-
-## Measuring Performance
-\
-
-* Performance on classification tasks can be measured based on the *accuracy* of the model's predictions.
-
-* Performance on a regression task can be measured based on *error*. Mean squared error is one choice, but there are many others!
-
-
-## Inference vs. Prediction
-\
-
-* *Inference* is the use of a model to infer a relationship between features (independent variables) and targets (independent variables).
-
-* *Prediction* is the use of a model to predict the target value for a new example not seen in training.
-
-## What outcome do we care about?
-\
-
-* A researcher studying the impact of pollution on cancer risk is performing *inference*. They may not make perfect predictions (since the dataset is likely to be noisy) but good statistical inference could be extremely valuable.
-
-* Gmail's spam filtering algorithm is performing *prediction*. We are not really trying to improve human understanding of what makes a message spam (often it is obvious), we just want a model that makes good predictions.
-
-* Of course, these goals are related, so in many situations we may be interested in both.
-
-
-## Example: Linear Regression
-\
-![](img/visualization.png)
-
-Is this inference or prediction?
 
 ## Types of Machine Learning
 \
@@ -78,6 +39,8 @@ Here the training data is comprised of a set of *features*, and each example com
 
 Examples could include spam filtering, face recognition or weather forecasting.
 
+## Unsupervised Learning
+
 By contrast, in unsupervised learning there are no targets. The goal is instead to uncover underlying patterns. These can be used to provide a concise summary of the data, or group similar examples together. Examples could include customer segmentation, anomaly detection or online recommendation systems (think Netflix).
 
 
@@ -87,6 +50,11 @@ By contrast, in unsupervised learning there are no targets. The goal is instead 
 Return to the problems you identified in Activity 1. Try to decide if they involve performing inference or prediction.
 
 Also suggest whether you think they are best approached with supervised or unsupervised learning. What aspects of the problem particularly suggest one approach over another?
+
+## A Simple Supervised Learning Model
+\ 
+
+![](img/sup-ML-terminology.png)
 
 ## A Simple Supervised Learning Model
 \
@@ -182,9 +150,13 @@ Some models may have a continuous range of options for a given hyper-parameter. 
 \
 To demonstrate some fundamental concepts in machine learning, we will attempt to biuld a decision tree that can recognize faces. Our data will be taken from the Olivetti Faces dataset, which is a collection of 400 images of faces.
 
-The labels correspond to the forty individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo.
+The labels correspond to the 40 individuals that are pictured, and the dataset contains 10 photos per individual. We will try to use a decision tree to correctly predict the individual for each photo.
 
 ## A Look at the Data
+
+![](img/faces.png)
+
+## A (Closer) Look at the Data
 \
 Each photo is 64x64 pixels in grayscale. The images are represented by a row of pixel intensities showing how dark each individual pixel should be.
 
@@ -301,3 +273,41 @@ They again use 10 types of models and try 1000 combinations of hyper-parameters 
 The best model achieves 99% accuracy on the validation set, after which it is used on the test set. It achieves 99% accuracy again.
 
 **Do you trust the outcome now?**
+
+## Common Data Challenges
+
+During our Intro to ML course at the Master of Data Science program, we ask our students to fill out a survey on some restaurants they have recently visited. Let's take a look at some survey responses.
+
+## Common Data Challenges
+
+```{python}
+rest_df = pd.read_csv('data/cleaned_restaurant_data.csv')
+rest_df.iloc[[0,10,77,85,87,130]].fillna('')
+```
+\
+
+
+What are some issues you might encounter working with this data?
+
+## Common Data Challenges
+\
+
+Here are some common challenges you may encounter when looking at your data:
+
+- Missing data
+- Mixed data types (numeric, categorical, binary, text)
+- Different feature scales
+- Outliers
+- Small datasets
+- Proxy variables
+
+## Common Data Challenges
+\
+
+Some potential solutions:
+
+- Imputation
+- Feature encoding and engineering
+- Normalization and Scaling
+- Regularization
+- Model choices...
