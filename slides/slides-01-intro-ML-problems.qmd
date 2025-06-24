@@ -164,18 +164,16 @@ By the end of this module, you will be able to:
 - ML systems **improve over time** with more data
 - No single model fits all problems
 
-## Traditional programming vs. ML
-
-| Approach                 | Best for                                 |
-|--------------------------|-------------------------------------------|
-| Traditional Programming  | Rules are known, data is clean/predictable |
-| Machine Learning         | Rules are complex/unknown, data is noisy  |
-
 ## When to use ML? 
 
 - When the problem can't be solved with a fixed set of rules
 - When you have **lots of data** and **complex relationships**
 - When human decision-making is too slow or inconsistent
+
+| Approach                 | Best for                                 |
+|--------------------------|-------------------------------------------|
+| Traditional Programming  | Rules are known, data is clean/predictable |
+| Machine Learning         | Rules are complex/unknown, data is noisy  |
 
 # When to use Machine Learning (ML) solutions? 
 

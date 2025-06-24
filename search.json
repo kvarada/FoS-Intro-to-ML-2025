@@ -63,18 +63,11 @@
     "text": "What is ML?\n\nLearn patterns from examples (data)\nMake predictions, identify patterns, generate content\nML systems improve over time with more data\nNo single model fits all problems"
   },
   {
-    "objectID": "slides/slides-01-intro-ML-problems.html#traditional-programming-vs.-ml",
-    "href": "slides/slides-01-intro-ML-problems.html#traditional-programming-vs.-ml",
-    "title": "Introduction to Machine Learning",
-    "section": "Traditional programming vs. ML",
-    "text": "Traditional programming vs. ML\n\n\n\n\n\n\n\nApproach\nBest for\n\n\n\n\nTraditional Programming\nRules are known, data is clean/predictable\n\n\nMachine Learning\nRules are complex/unknown, data is noisy"
-  },
-  {
     "objectID": "slides/slides-01-intro-ML-problems.html#when-to-use-ml",
     "href": "slides/slides-01-intro-ML-problems.html#when-to-use-ml",
     "title": "Introduction to Machine Learning",
     "section": "When to use ML?",
-    "text": "When to use ML?\n\nWhen the problem can’t be solved with a fixed set of rules\nWhen you have lots of data and complex relationships\nWhen human decision-making is too slow or inconsistent"
+    "text": "When to use ML?\n\nWhen the problem can’t be solved with a fixed set of rules\nWhen you have lots of data and complex relationships\nWhen human decision-making is too slow or inconsistent\n\n\n\n\n\n\n\n\nApproach\nBest for\n\n\n\n\nTraditional Programming\nRules are known, data is clean/predictable\n\n\nMachine Learning\nRules are complex/unknown, data is noisy"
   },
   {
     "objectID": "slides/slides-01-intro-ML-problems.html#example-supervised-classification",
