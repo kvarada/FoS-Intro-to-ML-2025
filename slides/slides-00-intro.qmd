@@ -20,14 +20,11 @@ editor:
 ## Welcome to the workshop! {.smaller}
 \
 
-- Find a seat of your choice.
-- Workshop materials 
-\
-
 ![](img/FoS-workshop-QR-code.png)
 
-- Website link: https://kvarada.github.io/FoS-Intro-to-ML-2025/
-- Github repo: https://github.com/kvarada/FoS-Intro-to-ML-2025
+- Workshop materials 
+  - Website link: https://kvarada.github.io/FoS-Intro-to-ML-2025/
+  - Github repo: https://github.com/kvarada/FoS-Intro-to-ML-2025
 
 # 🤝 Introductions 🤝 {.middle}
 
@@ -67,7 +64,8 @@ editor:
 
 ## Talk to your neighbour
 
-* Take 15 seconds to introduce yourself to your neighbour.  
+- Take 15 seconds to introduce yourself to your neighbour.  
+- Just your name, your department, and maybe one thing you hope to learn today.
 
 
 # Pre-survey results 
@@ -86,23 +84,25 @@ editor:
 ![](img/survey-department.png)
 
 
-## Learning goals of the workshop {.smaller}
+## Learning goals of the workshop 
 \
 
-The primary learning goal of the workshop is to **familiarize yourself with the fundamentals of machine learning and its various types**. This knowledge will help you determine which type of machine learning, or whether a non-machine learning approach, would be most appropriate for your problem.
+The main goal today is to help you figure out whether machine learning is suitable for your project. By the end of this workshop, you should be able to:
 
+- Recognize different types of ML.
+- Understand what kinds of problems ML is good for.
+- Start thinking about how ML could fit into your research, if at all.
 
 ## Agenda {.smaller}
 - We will have four modules in the workshop
-  - **Module 1:** Introduction: When to use Machine Learning solutions? 
+  - **Module 1:** Introduction
   - **Module 2:** Machine learning fundamentals 
   - **Module 3:** Commonly used machine learning models 
   - **Module 4:** Introduction to deep learning
   - **Module 5:** Using pre-trained models and embeddings
 - Most modules will include hands-on exercises to reinforce learning.
 - We'll also make sure to take some breaks in between sessions. 
-
-
+- The lunch break will be around 12:30, and lunch will be provided!
 
 ## Source of the website 
 - We are using Quarto to create slides, with live code running in the background. 

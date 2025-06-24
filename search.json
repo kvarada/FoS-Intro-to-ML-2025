@@ -994,7 +994,7 @@
     "href": "slides/slides-00-intro.html#welcome-to-the-workshop",
     "title": "Welcome!",
     "section": "Welcome to the workshop!",
-    "text": "Welcome to the workshop!\n\n\n\nFind a seat of your choice.\nWorkshop materials\n\n\n\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
+    "text": "Welcome to the workshop!\n\n\n\n\nWorkshop materials\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
   },
   {
     "objectID": "slides/slides-00-intro.html#prajeet-bajpai",
@@ -1015,21 +1015,21 @@
     "href": "slides/slides-00-intro.html#talk-to-your-neighbour",
     "title": "Welcome!",
     "section": "Talk to your neighbour",
-    "text": "Talk to your neighbour\n\nTake 15 seconds to introduce yourself to your neighbour."
+    "text": "Talk to your neighbour\n\nTake 15 seconds to introduce yourself to your neighbour.\n\nJust your name, your department, and maybe one thing you hope to learn today."
   },
   {
     "objectID": "slides/slides-00-intro.html#learning-goals-of-the-workshop",
     "href": "slides/slides-00-intro.html#learning-goals-of-the-workshop",
     "title": "Welcome!",
     "section": "Learning goals of the workshop",
-    "text": "Learning goals of the workshop\n\n\nThe primary learning goal of the workshop is to familiarize yourself with the fundamentals of machine learning and its various types. This knowledge will help you determine which type of machine learning, or whether a non-machine learning approach, would be most appropriate for your problem."
+    "text": "Learning goals of the workshop\n\n\nThe main goal today is to help you figure out whether machine learning is suitable for your project. By the end of this workshop, you should be able to:\n\nRecognize different types of ML.\nUnderstand what kinds of problems ML is good for.\nStart thinking about how ML could fit into your research, if at all."
   },
   {
     "objectID": "slides/slides-00-intro.html#agenda",
     "href": "slides/slides-00-intro.html#agenda",
     "title": "Welcome!",
     "section": "Agenda",
-    "text": "Agenda\n\nWe will have four modules in the workshop\n\nModule 1: Introduction: When to use Machine Learning solutions?\nModule 2: Machine learning fundamentals\nModule 3: Commonly used machine learning models\nModule 4: Introduction to deep learning\nModule 5: Using pre-trained models and embeddings\n\nMost modules will include hands-on exercises to reinforce learning.\nWe’ll also make sure to take some breaks in between sessions."
+    "text": "Agenda\n\nWe will have four modules in the workshop\n\nModule 1: Introduction\nModule 2: Machine learning fundamentals\nModule 3: Commonly used machine learning models\nModule 4: Introduction to deep learning\nModule 5: Using pre-trained models and embeddings\n\nMost modules will include hands-on exercises to reinforce learning.\nWe’ll also make sure to take some breaks in between sessions.\nThe lunch break will be around 12:30, and lunch will be provided!"
   },
   {
     "objectID": "slides/slides-00-intro.html#source-of-the-website",
