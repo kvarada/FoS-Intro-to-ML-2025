@@ -37,6 +37,15 @@ pd.set_option("display.max_colwidth", 200)
 DATA_DIR = 'data/' 
 ```
 
+## 🎯 Learning Outcomes {.smaller}
+
+By the end of this module, you will be able to:
+- Explain the difference between traditional programming, machine learning, and deep learning approaches.
+- Describe what machine learning is and when it is appropriate to use ML-based solutions.
+- Identify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting.
+- Recognize common data types in machine learning, including tabular, text, and image data.
+- Evaluate whether a machine learning solution is suitable for your problem or whether a rule-based or human-expert solution is more appropriate.
+
 ## Which cat do you think is AI-generated? {.smaller}
 
 :::: {.columns}
@@ -121,11 +130,11 @@ DATA_DIR = 'data/'
 
 :::: {.columns}
 
-::: {.column width="60%"}
+::: {.column width="50%"}
 ![](img/cat-or-fox.png) 
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 - We don't tell the model the exact rule. Instead, we give it many labeled images, and it learns probabilistic patterns across multiple features, not rigid rules.
     - If fur is red $\rightarrow$ 90% chance of Fox.
 

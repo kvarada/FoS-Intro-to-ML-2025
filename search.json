@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "slides/slides-01-intro-ML-problems.html#learning-outcomes",
+    "href": "slides/slides-01-intro-ML-problems.html#learning-outcomes",
+    "title": "Introduction to Machine Learning",
+    "section": "🎯 Learning Outcomes",
+    "text": "🎯 Learning Outcomes\nBy the end of this module, you will be able to: - Explain the difference between traditional programming, machine learning, and deep learning approaches. - Describe what machine learning is and when it is appropriate to use ML-based solutions. - Identify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting. - Recognize common data types in machine learning, including tabular, text, and image data. - Evaluate whether a machine learning solution is suitable for your problem or whether a rule-based or human-expert solution is more appropriate."
+  },
+  {
     "objectID": "slides/slides-01-intro-ML-problems.html#which-cat-do-you-think-is-ai-generated",
     "href": "slides/slides-01-intro-ML-problems.html#which-cat-do-you-think-is-ai-generated",
     "title": "Introduction to Machine Learning",
