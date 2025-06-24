@@ -341,6 +341,7 @@ Two rows of students:
 
 ## Summary 
 \
+
 - Neural networks are a flexible class of models.
   - Particular powerful for structured input like images, videos, audio, text etc.
   - Challenging to train and often require significant computational resources.
