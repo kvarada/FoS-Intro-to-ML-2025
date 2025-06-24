@@ -4,7 +4,7 @@
     "href": "slides/slides-01-intro-ML-problems.html#learning-outcomes",
     "title": "Introduction to Machine Learning",
     "section": "🎯 Learning Outcomes",
-    "text": "🎯 Learning Outcomes\nBy the end of this module, you will be able to:\n\nExplain the difference between traditional programming, machine learning, and deep learning approaches.\nDescribe what machine learning is and when it is appropriate to use ML-based solutions.\nIdentify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting.\nRecognize common data types in machine learning, including tabular, text, and image data.\nEvaluate whether a machine learning solution is suitable for your problem or whether a rule-based or human-expert solution is more appropriate."
+    "text": "🎯 Learning Outcomes\nBy the end of this module, you will be able to:\n\nExplain the difference between AI, ML, and DL\nDescribe what machine learning is and when it is appropriate to use ML-based solutions.\nIdentify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting.\nRecognize common data types in machine learning, including tabular, text, and image data.\nEvaluate whether a machine learning solution is suitable for your problem or whether a rule-based or human-expert solution is more appropriate."
   },
   {
     "objectID": "slides/slides-01-intro-ML-problems.html#which-cat-do-you-think-is-ai-generated",
@@ -500,8 +500,8 @@
     "objectID": "slides/slides-04-deep-learning.html#learning-outcomes",
     "href": "slides/slides-04-deep-learning.html#learning-outcomes",
     "title": "Introduction to Deep Learning",
-    "section": "🎯 Learning Outcomes",
-    "text": "🎯 Learning Outcomes\nBy the end of this module, you will be able to:\n\nExplain the basics of neural networks and how they build upon linear models.\nDescribe the role of neural networks in machine learning, including their strengths and limitations.\nOutline the key steps involved in training a neural network.\nIdentify commonly used neural network architectures (CNNs, RNNs, Transformers) and their typical applications."
+    "section": "🎯 Learning outcomes",
+    "text": "🎯 Learning outcomes\nBy the end of this module, you will be able to:\n\nExplain the basics of neural networks and how they build upon linear models.\nDescribe the role of neural networks in machine learning, including their strengths and limitations.\nOutline the key steps involved in training a neural network.\nIdentify commonly used neural network architectures (CNNs, RNNs, Transformers) and their typical applications."
   },
   {
     "objectID": "slides/slides-04-deep-learning.html#remember-this-picture-we-saw-earlier",
@@ -669,14 +669,14 @@
     "href": "slides/slides-04-deep-learning.html#recurrent-neural-networks-rnns",
     "title": "Introduction to Deep Learning",
     "section": "Recurrent Neural Networks (RNNs)",
-    "text": "Recurrent Neural Networks (RNNs)\n\nDesigned for sequential data like time series, text, or biological sequences.\nPasses hidden states through time steps to “remember” past information.\n\n👉 Commonly used in language modeling, speech recognition, and system control."
+    "text": "Recurrent Neural Networks (RNNs)\n\nDesigned for sequential data like time series, text, or biological sequences.\nPasses hidden states through time steps to “remember” past information.\n\n\nConsider an RNN processing a sentence word by word.\n\nInput at each time step: The current word you read\nHidden state: Your current mental understanding\nOutput: Your interpretation, reaction, or prediction at that point in time"
   },
   {
     "objectID": "slides/slides-04-deep-learning.html#rnn-activity",
     "href": "slides/slides-04-deep-learning.html#rnn-activity",
     "title": "Introduction to Deep Learning",
     "section": "RNN activity",
-    "text": "RNN activity\nRNN is like your brain reading a sentence word by word.\n\nInput at each time step: The current word you read\nHidden state: Your current mental understanding\nOutput: Your interpretation, reaction, or prediction at that point in time\n\nTwo rows of students:\n\nFront row = input layer (observations at each time step)\nBack row = hidden state at each time step\nEach column is a time step (0 through 4)\nSo we’ll have 4 front-row students: x0 to x3\nAnd 4 back-row students: h0 to h3"
+    "text": "RNN activity\n\nTwo rows of students:\n\nFront row = input layer (observations at each time step)\nBack row = hidden state at each time step\nEach column is a time step (0 through 4)\nSo we’ll have 4 front-row students: x0 to x3\nAnd 4 back-row students: h0 to h3"
   },
   {
     "objectID": "slides/slides-04-deep-learning.html#rnn-activity-1",
@@ -725,7 +725,7 @@
     "href": "slides/slides-04-deep-learning.html#summary",
     "title": "Introduction to Deep Learning",
     "section": "Summary",
-    "text": "Summary\n\n\n\nNeural networks are a flexible class of models.\n\nThey are particular powerful for structured input like images, videos, audio, text etc.\nThey can be challenging to train and often require significant computational resources.\n\nThe good news is we can use pre-trained neural networks.\n\nThis saves us a huge amount of time/cost/effort/resources.\nWe can use these pre-trained networks directly or use them as feature transformers."
+    "text": "Summary\n\n\n\nNeural networks are a flexible class of models.\n\nParticular powerful for structured input like images, videos, audio, text etc.\nChallenging to train and often require significant computational resources.\n\nThe good news is we can use pre-trained neural networks.\n\nNext module"
   },
   {
     "objectID": "workshop-10-exercise2.html",
@@ -1030,6 +1030,20 @@
     "title": "Introduction to Machine Learning Workshop",
     "section": "Your turn",
     "text": "Your turn\nHere is a Jupyter notebook you can download for further exploration:\nDownload and Save the Jupyter Notebook"
+  },
+  {
+    "objectID": "slides/slides-ml-fundamentals-exercise.html#how-to-work-on-kaggle",
+    "href": "slides/slides-ml-fundamentals-exercise.html#how-to-work-on-kaggle",
+    "title": "Introduction to Machine Learning Workshop",
+    "section": "How To Work On Kaggle",
+    "text": "How To Work On Kaggle\n\nGo to https://www.kaggle.com/kernels\nMake an account if you don’t have one, and verify your phone number (to get access to GPUs– this is not needed for the current exercise, but will be useful for the deep learning exercise later today).\nSelect + New Notebook \nGo to File -&gt; Import Notebook \nUpload the downloaded notebook"
+  },
+  {
+    "objectID": "slides/slides-ml-fundamentals-exercise.html#how-to-add-a-dataset",
+    "href": "slides/slides-ml-fundamentals-exercise.html#how-to-add-a-dataset",
+    "title": "Introduction to Machine Learning Workshop",
+    "section": "How To Add a Dataset",
+    "text": "How To Add a Dataset\n\nClick + Add data at the top right of the notebook.\nChoose Datasets and search for the keyword (e.g. ‘Spotify Song Attributes’). Several datasets will appear. Look for and ‘Add’ the dataset."
   },
   {
     "objectID": "lab/datasets_and_goals.html",

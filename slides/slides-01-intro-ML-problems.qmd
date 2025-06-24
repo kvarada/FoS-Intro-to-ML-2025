@@ -41,7 +41,7 @@ DATA_DIR = 'data/'
 
 By the end of this module, you will be able to:
 
-- Explain the difference between traditional programming, machine learning, and deep learning approaches.
+- Explain the difference between AI, ML, and DL 
 - Describe what machine learning is and when it is appropriate to use ML-based solutions.
 - Identify different types of machine learning problems, such as classification, regression, clustering, and time series forecasting.
 - Recognize common data types in machine learning, including tabular, text, and image data.

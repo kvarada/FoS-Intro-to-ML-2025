@@ -16,7 +16,7 @@ editor:
   render-on-save: true
 ---
 
-## 🎯 Learning Outcomes
+## 🎯 Learning outcomes
 
 By the end of this module, you will be able to:
 
@@ -248,19 +248,19 @@ Source: "[House](https://www.flickr.com/photos/68089229@N06/17458373552)" by [oa
 - Designed for **sequential data** like time series, text, or biological sequences.
 - Passes hidden states through time steps to "remember" past information.
 
-👉 Commonly used in **language modeling, speech recognition, and system control.**
-
 ![](img/RNN-intro_small.png)
+
+Consider an RNN processing a sentence word by word. 
+
+- **Input at each time step**: The current word you read
+- **Hidden state**: Your current mental understanding
+- **Output**: Your interpretation, reaction, or prediction at that point in time 
 
 ---
 
 ## RNN activity {.smaller}
 
-RNN is like your brain reading a sentence word by word. 
-
-- **Input at each time step**: The current word you read
-- **Hidden state**: Your current mental understanding
-- **Output**: Your interpretation, reaction, or prediction at that point in time 
+![](img/RNN_classification.png)
 
 Two rows of students:
 
@@ -343,8 +343,7 @@ Two rows of students:
 \
 
 - Neural networks are a flexible class of models.
-  - They are particular powerful for structured input like images, videos, audio, text etc.
-  - They can be challenging to train and often require significant computational resources.
+  - Particular powerful for structured input like images, videos, audio, text etc.
+  - Challenging to train and often require significant computational resources.
 - The good news is we can use pre-trained neural networks.
-  - This saves us a huge amount of time/cost/effort/resources.
-  - We can use these pre-trained networks directly or use them as feature transformers. 
+  - Next module 
