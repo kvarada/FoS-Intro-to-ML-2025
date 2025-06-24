@@ -18,5 +18,5 @@ Create a (free) Kaggle account. You will run the Jupyter notebook for this exerc
 
 ## Notebook Download
 
-You can find the exercise notebook [here](https://github.com/kvarada/Intro-to-ML-workshop-2024/blob/main/website/slides/downloads/exercise-01-ml-fundamentals.ipynb)
+You can find the exercise notebook [here](https://github.com/kvarada/FoS-Intro-to-ML-2025/blob/main/website/slides/downloads/exercise-01-ml-fundamentals.ipynb)
 
