@@ -17,13 +17,11 @@ editor:
   render-on-save: true
 ---
 
-## Welcome to the workshop! 
+## Welcome to the workshop! {.smaller}
 \
 
-* Find a seat of your choice.
-* Take 15 seconds to introduce yourself to your neighbour.  
-
-## QR code {.smaller}
+- Find a seat of your choice.
+- Workshop materials 
 \
 
 ![](img/FoS-workshop-QR-code.png)
@@ -34,7 +32,6 @@ editor:
 # 🤝 Introductions 🤝 {.middle}
 
 # Meet your instructors
-
 
 ## Prajeet Bajpai {background="#43464B"}
 :::: {.columns}
@@ -49,7 +46,6 @@ editor:
     - Email: pbajpai@cs.ubc.ca
 :::
 ::::
-
 
 ## Varada Kolhatkar {background="#43464B"}
 :::: {.columns}
@@ -68,6 +64,10 @@ editor:
 :::
 ::::
 
+
+## Talk to your neighbour
+
+* Take 15 seconds to introduce yourself to your neighbour.  
 
 
 # Pre-survey results 

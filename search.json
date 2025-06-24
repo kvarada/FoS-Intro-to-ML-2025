@@ -994,14 +994,7 @@
     "href": "slides/slides-00-intro.html#welcome-to-the-workshop",
     "title": "Welcome!",
     "section": "Welcome to the workshop!",
-    "text": "Welcome to the workshop!\n\n\n\nFind a seat of your choice.\nTake 15 seconds to introduce yourself to your neighbour."
-  },
-  {
-    "objectID": "slides/slides-00-intro.html#qr-code",
-    "href": "slides/slides-00-intro.html#qr-code",
-    "title": "Welcome!",
-    "section": "QR code",
-    "text": "QR code\n\n\n\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
+    "text": "Welcome to the workshop!\n\n\n\nFind a seat of your choice.\nWorkshop materials\n\n\n\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
   },
   {
     "objectID": "slides/slides-00-intro.html#prajeet-bajpai",
@@ -1016,6 +1009,13 @@
     "title": "Welcome!",
     "section": "Varada Kolhatkar",
     "text": "Varada Kolhatkar\n\n\n\n\n\nAssistant Professor of Teaching in Computer Science\nTeaches applied machine learning courses in CS and the Master of Data Science Program (MDS)\nYou can call me Varada, V, or Ada.\nContact information\n\nEmail: kvarada@cs.ubc.ca\nOffice: ICCS 237"
+  },
+  {
+    "objectID": "slides/slides-00-intro.html#talk-to-your-neighbour",
+    "href": "slides/slides-00-intro.html#talk-to-your-neighbour",
+    "title": "Welcome!",
+    "section": "Talk to your neighbour",
+    "text": "Talk to your neighbour\n\nTake 15 seconds to introduce yourself to your neighbour."
   },
   {
     "objectID": "slides/slides-00-intro.html#learning-goals-of-the-workshop",
