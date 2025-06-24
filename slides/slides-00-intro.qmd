@@ -23,10 +23,10 @@ editor:
 * Find a seat of your choice.
 * Take 15 seconds to introduce yourself to your neighbour.  
 
-## QR code
+## QR code {.smaller}
 \
 
-![](FoS-workshop-QR-code.png)
+![](img/FoS-workshop-QR-code.png)
 
 - Website link: https://kvarada.github.io/FoS-Intro-to-ML-2025/
 - Github repo: https://github.com/kvarada/FoS-Intro-to-ML-2025
