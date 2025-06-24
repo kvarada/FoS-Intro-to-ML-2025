@@ -1144,29 +1144,18 @@
     "href": "workshop-05-exercise1.html",
     "title": "Exercise 1: ML fundamentals",
     "section": "",
-    "text": "In this session, you will do a hands on exercise on machine learning fundamentals. Pair up with your neighbour and get started!",
+    "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
       "Exercise 1: ML fundamentals"
     ]
   },
   {
-    "objectID": "workshop-05-exercise1.html#kaggle",
-    "href": "workshop-05-exercise1.html#kaggle",
+    "objectID": "workshop-05-exercise1.html#slides",
+    "href": "workshop-05-exercise1.html#slides",
     "title": "Exercise 1: ML fundamentals",
-    "section": "Kaggle",
-    "text": "Kaggle\nCreate a (free) Kaggle account. You will run the Jupyter notebook for this exercise using Kaggle notebooks.\n    View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Exercise 1: ML fundamentals"
-    ]
-  },
-  {
-    "objectID": "workshop-05-exercise1.html#notebook-download",
-    "href": "workshop-05-exercise1.html#notebook-download",
-    "title": "Exercise 1: ML fundamentals",
-    "section": "Notebook Download",
-    "text": "Notebook Download\nYou can find the exercise notebook here",
+    "section": "",
+    "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
       "Exercise 1: ML fundamentals"
