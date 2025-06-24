@@ -25,17 +25,6 @@ Here is a Jupyter notebook you can download for further exploration:
 5. Upload the downloaded notebook
 
 
-## How To Work On Kaggle
-
-6. On the right-hand side of your Kaggle notebook, make sure:
-  - `Internet` is enabled.
-  
-  - In the `Accelerator` dropdown, choose `GPU` when you're ready to use it (you can turn it on/off as you need it).
-
-7. Follow the guidelines in the notebook
-
-<img src="img/notebook_options.png" alt="drawing" width="400"/>
-
 ## How To Add a Dataset
 
 1. Click `+ Add data` at the top right of the notebook.
