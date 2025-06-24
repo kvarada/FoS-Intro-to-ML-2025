@@ -1001,28 +1001,21 @@
     "href": "slides/slides-00-intro.html#qr-code",
     "title": "Welcome!",
     "section": "QR code",
-    "text": "QR code"
+    "text": "QR code\n\n\n\n\nWebsite link: https://kvarada.github.io/FoS-Intro-to-ML-2025/\nGithub repo: https://github.com/kvarada/FoS-Intro-to-ML-2025"
   },
   {
-    "objectID": "slides/slides-00-intro.html#meet-your-instructors",
-    "href": "slides/slides-00-intro.html#meet-your-instructors",
+    "objectID": "slides/slides-00-intro.html#prajeet-bajpai",
+    "href": "slides/slides-00-intro.html#prajeet-bajpai",
     "title": "Welcome!",
-    "section": "Meet your instructors",
-    "text": "Meet your instructors"
+    "section": "Prajeet Bajpai",
+    "text": "Prajeet Bajpai\n\n\n\n\n\nTeaching and Learning Postdoctoral Fellow in Computer Science\nTeaches applied machine learning courses in the Master of Data Science Program (MDS)\nContact information\n\nEmail: pbajpai@cs.ubc.ca"
   },
   {
-    "objectID": "slides/slides-00-intro.html#meet-your-instructors-1",
-    "href": "slides/slides-00-intro.html#meet-your-instructors-1",
+    "objectID": "slides/slides-00-intro.html#varada-kolhatkar",
+    "href": "slides/slides-00-intro.html#varada-kolhatkar",
     "title": "Welcome!",
-    "section": "Meet your instructors",
-    "text": "Meet your instructors\n\n\n\n\n\nPrajeet Bajpai\nTeaching and Learning Postdoctoral Fellow in Computer Science\nTeaches applied machine learning courses in the Master of Data Science Program (MDS)\nContact information\n\nEmail: pbajpai@cs.ubc.ca"
-  },
-  {
-    "objectID": "slides/slides-00-intro.html#meet-your-instructors-2",
-    "href": "slides/slides-00-intro.html#meet-your-instructors-2",
-    "title": "Welcome!",
-    "section": "Meet your instructors",
-    "text": "Meet your instructors\n\n\n\n\n\nVarada Kolhatkar [ʋəɾəda kɔːlɦəʈkər]\nAssistant Professor of Teaching in Computer Science\nTeaches applied machine learning courses in CS and the Master of Data Science Program (MDS)\nYou can call me Varada, V, or Ada.\nContact information\n\nEmail: kvarada@cs.ubc.ca\nOffice: ICCS 237"
+    "section": "Varada Kolhatkar",
+    "text": "Varada Kolhatkar\n\n\n\n\n\nAssistant Professor of Teaching in Computer Science\nTeaches applied machine learning courses in CS and the Master of Data Science Program (MDS)\nYou can call me Varada, V, or Ada.\nContact information\n\nEmail: kvarada@cs.ubc.ca\nOffice: ICCS 237"
   },
   {
     "objectID": "slides/slides-00-intro.html#learning-goals-of-the-workshop",

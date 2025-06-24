@@ -26,19 +26,23 @@ editor:
 ## QR code
 \
 
+![](FoS-workshop-QR-code.png)
+
+- Website link: https://kvarada.github.io/FoS-Intro-to-ML-2025/
+- Github repo: https://github.com/kvarada/FoS-Intro-to-ML-2025
+
 # 🤝 Introductions 🤝 {.middle}
 
-## Meet your instructors {background="#43464B"}
+# Meet your instructors
 
 
-## Meet your instructors {background="#43464B"}
+## Prajeet Bajpai {background="#43464B"}
 :::: {.columns}
 
 ::: {.column width="20%"}
 <img src="img/prajeet.png" height="150" width="150">
 :::
 ::: {.column width="80%"}
-- Prajeet Bajpai 
 - Teaching and Learning Postdoctoral Fellow in Computer Science 
 - Teaches applied machine learning courses in the Master of Data Science Program (MDS)
 - Contact information
@@ -47,7 +51,7 @@ editor:
 ::::
 
 
-## Meet your instructors 
+## Varada Kolhatkar {background="#43464B"}
 :::: {.columns}
 
 ::: {.column width="20%"}
@@ -55,7 +59,6 @@ editor:
 :::
 
 ::: {.column width="80%"}
-- Varada Kolhatkar [[ʋəɾəda kɔːlɦəʈkər](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)]
 - Assistant Professor of Teaching in Computer Science 
 - Teaches applied machine learning courses in CS and the Master of Data Science Program (MDS)
 - You can call me Varada, **V**, or **Ada**.
