@@ -311,3 +311,8 @@ Some potential solutions:
 - Normalization and Scaling
 - Regularization
 - Model choices...
+
+## Activity 3
+\
+
+Return to the problem you framed in Activity 1 and think about the data you have (or plan to have) access to. What are the "features" in this dataset? What are some data challenges you may encounter?
