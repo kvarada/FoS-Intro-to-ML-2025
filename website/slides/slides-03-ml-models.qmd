@@ -221,7 +221,7 @@ best_model = random_search.best_estimator_
 
 ```
 
--->
+
 
 ## Investigating the model
 ::: {.scroll-container style="overflow-y: scroll; height: 400px;"}
@@ -243,7 +243,6 @@ word_coeff_df.sort_values(by="Coefficient", ascending=False)
 ```
 :::
 
-<!--
 
 ## Investigating the model
 \
