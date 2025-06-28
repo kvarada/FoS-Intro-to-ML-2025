@@ -74,7 +74,8 @@ editor:
   - [How machine learning is used across disciplines?](https://docs.google.com/presentation/d/1LTw-oyQSQ0rNNend7jogW3tv3GDs11zdhxQZCCvoJoQ/edit?usp=sharing)
   - [ML applications from Mark Schmidt's slides](https://www.cs.ubc.ca/~schmidtm/Documents/2024_Ualberta.pdf) (Check out slides 4 to 6 and slide 7)
 
-## Relevant UBC courses 
+## Relevant UBC courses {.smaller}
+
 - Undergrad CPSC courses:
   - [CPSC 340 Machine Learning and Data Mining](https://www.cs.ubc.ca/~schmidtm/Courses/340-F22/)
   - [CPSC 330 Applied Machine Learning](https://ubc-cs.github.io/cpsc330-2024W1/README.html)
