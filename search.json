@@ -912,11 +912,18 @@
     "text": "How did we do?\n\nThat’s it! Thank you for attending our workshop.\nWe would greatly appreciate your feedback.\n\nFeedback form: https://forms.gle/jcY43TE2PTGTiuJK9\n\nYour input will also help us advocate for organizing more workshops like this in the future."
   },
   {
-    "objectID": "slides/slides-summary.html#what-to-learn-more",
-    "href": "slides/slides-summary.html#what-to-learn-more",
+    "objectID": "slides/slides-summary.html#resources",
+    "href": "slides/slides-summary.html#resources",
     "title": "Summary and conclusion",
-    "section": "What to learn more?",
-    "text": "What to learn more?\nHere are some resources if you want to dig deeper\n\nBooks\n\nUnderstanding Deep Learning\n\nUBC courses\n\nCPSC 340, CPSC 330,"
+    "section": "Resources",
+    "text": "Resources\n\nBooks\n\nIntroduction to Machine Learning with Python: A Guide for Data Scientists by Andreas C. Mueller and Sarah Guido.\nA Course in Machine Learning (CIML) by Hal Daumé III\nAn Introduction to Statistical Learning\nUnderstanding Deep Learning\nSpeech and Language Processing\n\nExamples\n\nHow machine learning is used across disciplines?\nML applications from Mark Schmidt’s slides (Check out slides 4 to 6 and slide 7)"
+  },
+  {
+    "objectID": "slides/slides-summary.html#relevant-ubc-courses",
+    "href": "slides/slides-summary.html#relevant-ubc-courses",
+    "title": "Summary and conclusion",
+    "section": "Relevant UBC courses",
+    "text": "Relevant UBC courses\n\nUndergrad CPSC courses:\n\nCPSC 340 Machine Learning and Data Mining\nCPSC 330 Applied Machine Learning\nCPSC 440 Advanced Machine Learning\nMaster of Data Science (MDS) applied ML courses\n\nDSCI 571 Supervised Learning I\nDSCI 572 Supervised Learning II\nDSCI 573 Feature and Model Selection\nDSCI 563 Unsupervised Learning\nDSCI 575 Advanced Machine Learning"
   },
   {
     "objectID": "slides/slides-intro.html#welcome-to-the-workshop",

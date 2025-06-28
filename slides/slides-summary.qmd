@@ -60,15 +60,31 @@ editor:
 ![](img/eva-signing-off.png)
 
 
-## What to learn more? 
+# Interested in learning more? 
 
-Here are some resources if you want to dig deeper
-
+## Resources {.smaller}
 - Books 
-  - 
+  - Introduction to Machine Learning with Python: A Guide for Data Scientists by Andreas C. Mueller and Sarah Guido.
+  - [A Course in Machine Learning (CIML)](http://ciml.info/dl/v0_99/ciml-v0_99-all.pdf) by Hal Daumé III
+  - [An Introduction to Statistical Learning](https://www.statlearning.com/)
   - [Understanding Deep Learning](https://udlbook.github.io/udlbook/)
-- UBC courses 
-  - [CPSC 340](), [CPSC 330](),  
+  - [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/)
+  
+- Examples
+  - [How machine learning is used across disciplines?](https://docs.google.com/presentation/d/1LTw-oyQSQ0rNNend7jogW3tv3GDs11zdhxQZCCvoJoQ/edit?usp=sharing)
+  - [ML applications from Mark Schmidt's slides](https://www.cs.ubc.ca/~schmidtm/Documents/2024_Ualberta.pdf) (Check out slides 4 to 6 and slide 7)
+
+## Relevant UBC courses 
+- Undergrad CPSC courses:
+  - [CPSC 340 Machine Learning and Data Mining](https://www.cs.ubc.ca/~schmidtm/Courses/340-F22/)
+  - [CPSC 330 Applied Machine Learning](https://ubc-cs.github.io/cpsc330-2024W1/README.html)
+  - [CPSC 440 Advanced Machine Learning](https://www.cs.ubc.ca/~dsuth/440/22w2/)
+  - Master of Data Science (MDS) applied ML courses
+    - [DSCI 571 Supervised Learning I](https://ubc-mds.github.io/DSCI_571_sup-learn-1/README.html)
+    - [DSCI 572 Supervised Learning II](https://ubc-mds.github.io/DSCI_572_sup-learn-2/README.html)
+    - [DSCI 573 Feature and Model Selection](https://ubc-mds.github.io/DSCI_573_feat-model-select/README.html)
+    - [DSCI 563 Unsupervised Learning](https://ubc-mds.github.io/DSCI_563_unsup-learn/README.html)
+    - [DSCI 575 Advanced Machine Learning](https://ubc-mds.github.io/DSCI_575_adv-mach-learn/README.html)
 
 
 
